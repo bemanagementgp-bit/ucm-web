@@ -25,7 +25,7 @@ export default function TurnosPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="¿Cómo funciona?"
@@ -34,7 +34,7 @@ export default function TurnosPage() {
           />
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-6 text-center">
+            <div className="glass-card rounded-2xl p-6 text-center">
               <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mx-auto mb-4">
                 <HiCalendarDays className="w-6 h-6 text-primary" />
               </div>
@@ -46,7 +46,7 @@ export default function TurnosPage() {
                 intervencionista u otra consulta.
               </p>
             </div>
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-6 text-center">
+            <div className="glass-card rounded-2xl p-6 text-center">
               <div className="w-12 h-12 bg-violet/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <HiUserGroup className="w-6 h-6 text-violet" />
               </div>
@@ -58,7 +58,7 @@ export default function TurnosPage() {
                 Médico de Diagnóstico City Bell).
               </p>
             </div>
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-6 text-center">
+            <div className="glass-card rounded-2xl p-6 text-center">
               <div className="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <HiChatBubbleLeftRight className="w-6 h-6 text-[#25D366]" />
               </div>

@@ -5,10 +5,12 @@ import {
   HiArrowRight,
   HiBriefcase,
   HiCheckCircle,
+  HiInformationCircle,
   HiMapPin,
 } from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { PrimaryButton, Button } from "@/components/ui/Buttons";
+import { PrimaryButton, Button, WhatsAppButton } from "@/components/ui/Buttons";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { professionals, getProfessionalBySlug } from "@/data/professionals";
 import { getLocationName, getLocationById } from "@/data/locations";
@@ -54,7 +56,7 @@ export default async function ProfessionalPage({
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32">
         <Breadcrumbs
           items={[
             { label: "Profesionales", href: "/profesionales" },
@@ -68,7 +70,7 @@ export default async function ProfessionalPage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Foto y datos principales */}
             <div>
-              <div className="aspect-[4/5] bg-gradient-to-br from-primary-lightest to-lavender/30 rounded-2xl relative overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-primary-lightest to-lavender/30 rounded-2xl relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
                     <svg
@@ -83,10 +85,23 @@ export default async function ProfessionalPage({
               </div>
 
               <div className="mt-6">
-                <PrimaryButton href="/turnos" className="w-full">
-                  Solicitar turno
-                  <HiArrowRight className="w-4 h-4" />
-                </PrimaryButton>
+                {professional.consultationWhatsapp ? (
+                  <WhatsAppButton
+                    href={`https://wa.me/${professional.consultationWhatsapp}?text=${encodeURIComponent(
+                      `Hola, la contacto desde la web de UCM. Quisiera solicitar un turno de consulta con ${professional.name}.`
+                    )}`}
+                    external
+                    className="w-full"
+                  >
+                    <FaWhatsapp className="w-5 h-5" />
+                    Consultar por WhatsApp
+                  </WhatsAppButton>
+                ) : (
+                  <PrimaryButton href="/turnos" className="w-full">
+                    Solicitar turno
+                    <HiArrowRight className="w-4 h-4" />
+                  </PrimaryButton>
+                )}
               </div>
             </div>
 
@@ -122,7 +137,7 @@ export default async function ProfessionalPage({
 
               {/* Formación */}
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-primary-light/30 p-6">
+                <div className="glass-card rounded-2xl p-6">
                   <div className="w-10 h-10 bg-violet/10 rounded-xl flex items-center justify-center mb-4">
                     <HiAcademicCap className="w-5 h-5 text-violet" />
                   </div>
@@ -133,7 +148,7 @@ export default async function ProfessionalPage({
                     {professional.education}
                   </p>
                 </div>
-                <div className="bg-white rounded-2xl border border-primary-light/30 p-6">
+                <div className="glass-card rounded-2xl p-6">
                   <div className="w-10 h-10 bg-primary-lightest rounded-xl flex items-center justify-center mb-4">
                     <HiBriefcase className="w-5 h-5 text-primary" />
                   </div>
@@ -172,6 +187,14 @@ export default async function ProfessionalPage({
                   <h2 className="font-semibold text-text-primary mb-4">
                     Sedes de atención
                   </h2>
+                  {professional.practiceNote && (
+                    <div className="flex items-start gap-3 p-4 mb-4 rounded-xl bg-primary-lightest/60 border border-primary-light/40">
+                      <HiInformationCircle className="w-5 h-5 text-violet shrink-0 mt-0.5" />
+                      <p className="text-sm text-text-secondary leading-relaxed">
+                        {professional.practiceNote}
+                      </p>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {professional.locations.map((locId) => {
                       const loc = getLocationById(locId);

@@ -7,6 +7,7 @@ interface QuickAccessCardProps {
   title: string;
   description: string;
   href: string;
+  external?: boolean;
   className?: string;
 }
 
@@ -15,12 +16,14 @@ export function QuickAccessCard({
   title,
   description,
   href,
+  external = false,
   className = "",
 }: QuickAccessCardProps) {
   return (
     <Link
       href={href}
-      className={`group flex items-start gap-4 bg-white rounded-2xl border border-primary-light/30 p-5 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300 ${className}`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`group flex items-start gap-4 glass-card rounded-2xl p-5 ${className}`}
     >
       <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-light transition-colors">
         <div className="w-6 h-6 text-primary">{icon}</div>

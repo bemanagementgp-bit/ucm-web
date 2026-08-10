@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import {
   HiArrowRight,
+  HiArrowTopRightOnSquare,
+  HiCalendarDays,
+  HiClock,
+  HiMapPin,
+  HiPhone,
   HiHeart,
   HiShieldCheck,
   HiSparkles,
@@ -9,15 +14,21 @@ import {
   HiHandRaised,
   HiCheckCircle,
 } from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
 import { Hero } from "@/components/ui/Hero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
+import { EquipmentCard } from "@/components/cards/EquipmentCard";
+import { locations } from "@/data/locations";
+import { getServiceBySlug } from "@/data/services";
+import { getProfessionalBySlug } from "@/data/professionals";
+import { equipment } from "@/data/equipment";
 
 export const metadata: Metadata = {
   title: "La unidad",
   description:
-    "Conocé la Unidad de Cuidado Mamario (UCM): un equipo multidisciplinario dedicado a la prevención, el diagnóstico, el tratamiento y el seguimiento integral de la salud mamaria en La Plata y City Bell.",
+    "Conocé la Unidad de Cuidado Mamario (UCM): un equipo multidisciplinario dedicado a la prevención, el diagnóstico, el tratamiento y el seguimiento integral de la salud mamaria en La Plata y City Bell. Conocé nuestras sedes y equipamiento.",
 };
 
 const values = [
@@ -101,10 +112,10 @@ export default function UnidadPage() {
         title="Una unidad especializada en el cuidado integral de la salud mamaria"
         description="UCM reúne a un equipo multidisciplinario y recursos especializados para acompañar a cada paciente en todas las etapas del cuidado mamario: prevención, diagnóstico, tratamiento y seguimiento."
       >
-        <PrimaryButton href="/turnos" size="lg">
+        <PrimaryButton href="/turnos">
           Solicitar un turno
         </PrimaryButton>
-        <Button href="/profesionales" variant="outline" size="lg">
+        <Button href="/profesionales" variant="outline">
           Conocer al equipo
         </Button>
       </Hero>
@@ -151,7 +162,7 @@ export default function UnidadPage() {
       </section>
 
       {/* ===== MISIÓN / VISIÓN / VALORES ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Nuestro compromiso"
@@ -165,7 +176,7 @@ export default function UnidadPage() {
               return (
                 <div
                   key={value.title}
-                  className="bg-white rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:shadow-primary/5 transition-all"
+                  className="glass-card rounded-2xl p-6"
                 >
                   <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-primary" />
@@ -194,7 +205,7 @@ export default function UnidadPage() {
             {journeySteps.map((item) => (
               <div
                 key={item.step}
-                className="bg-white rounded-2xl p-6 border border-primary-light/20 hover:shadow-md hover:shadow-primary/5 transition-all flex gap-5"
+                className="glass-card rounded-2xl p-6 flex gap-5"
               >
                 <span className="shrink-0 text-3xl font-bold text-primary/30">
                   {item.step}
@@ -219,7 +230,7 @@ export default function UnidadPage() {
       </section>
 
       {/* ===== RESPALDO INSTITUCIONAL ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Respaldo institucional"
@@ -228,7 +239,7 @@ export default function UnidadPage() {
           />
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-8">
+            <div className="glass-card rounded-2xl p-8">
               <h3 className="text-xl font-bold text-text-primary">
                 Instituto Médico Platense
               </h3>
@@ -248,7 +259,7 @@ export default function UnidadPage() {
                 <HiArrowRight className="w-4 h-4" />
               </a>
             </div>
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-8">
+            <div className="glass-card rounded-2xl p-8">
               <h3 className="text-xl font-bold text-text-primary">
                 Centro Médico de Diagnóstico City Bell
               </h3>
@@ -271,32 +282,181 @@ export default function UnidadPage() {
         </div>
       </section>
 
-      {/* ===== INSTALACIONES ===== */}
-      <section className="py-16 md:py-20">
+      {/* ===== SEDES ===== */}
+      <section id="sedes" className="py-16 md:py-20 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            tag="Nuestras instalaciones"
-            title="Espacios pensados para tu comodidad"
-            description="Contamos con espacios cómodos y equipamiento especializado en ambas sedes."
+            tag="Sedes"
+            title="Nuestras sedes en La Plata y City Bell"
+            description="UCM funciona dentro de instituciones médicas de referencia en cada ciudad, con equipamiento y profesionales propios. Encontrá la dirección, los servicios disponibles y el equipo de cada sede."
+          />
+        </div>
+
+        {locations.map((location, index) => {
+          const services = location.servicesAvailable
+            .map((slug) => getServiceBySlug(slug))
+            .filter((s): s is NonNullable<typeof s> => Boolean(s));
+          const teamMembers = location.professionals
+            .map((slug) => getProfessionalBySlug(slug))
+            .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+          return (
+            <div
+              key={location.id}
+              className={`py-12 ${""}`}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <SectionHeading
+                  tag={location.city}
+                  title={location.name}
+                  description={location.description}
+                  centered={false}
+                />
+
+                <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  {/* Mapa */}
+                  <div>
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-primary-light/30 bg-primary-lightest">
+                      <iframe
+                        src={location.mapsEmbed}
+                        className="w-full h-full"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title={`Mapa de ${location.name}`}
+                      />
+                    </div>
+                    <p className="text-sm text-text-secondary leading-relaxed mt-4">
+                      {location.directions}
+                    </p>
+                    <div className="mt-4">
+                      <Button href={location.mapsUrl} variant="outline" external>
+                        Cómo llegar
+                        <HiArrowTopRightOnSquare className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Datos de contacto */}
+                  <div>
+                    <div className="glass-card rounded-2xl p-6 space-y-4">
+                      <div className="flex items-start gap-3">
+                        <HiMapPin className="w-5 h-5 text-violet shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-medium text-text-primary text-sm">
+                            {location.institutionName}
+                          </p>
+                          <p className="text-sm text-text-secondary">
+                            {location.address}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <HiClock className="w-5 h-5 text-violet shrink-0 mt-0.5" />
+                        <p className="text-sm text-text-secondary">{location.hours}</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <HiPhone className="w-5 h-5 text-violet shrink-0 mt-0.5" />
+                        <p className="text-sm text-text-secondary">{location.phone}</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <HiUserGroup className="w-5 h-5 text-violet shrink-0 mt-0.5" />
+                        <p className="text-sm text-text-secondary">
+                          {location.accessibility}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <PrimaryButton href="/turnos">
+                        <HiCalendarDays className="w-4 h-4" />
+                        Solicitar turno
+                      </PrimaryButton>
+                      <Button
+                        href={`https://wa.me/${location.whatsapp.replace(/\D/g, "")}`}
+                        variant="whatsapp"
+                        external
+                      >
+                        <FaWhatsapp className="w-4 h-4" />
+                        WhatsApp
+                      </Button>
+                      <Button href={location.patientPortalUrl} variant="outline" external>
+                        Portal del paciente
+                        <HiArrowTopRightOnSquare className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Servicios disponibles */}
+                {services.length > 0 && (
+                  <div className="mt-12">
+                    <h3 className="font-semibold text-text-primary mb-4">
+                      Servicios disponibles en esta sede
+                    </h3>
+                    <div className="flex flex-wrap gap-3">
+                      {services.map((service) => (
+                        <Button
+                          key={service.slug}
+                          href={`/servicios/${service.slug}`}
+                          variant="outline"
+                          size="sm"
+                        >
+                          {service.name}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Equipo en esta sede */}
+                {teamMembers.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="font-semibold text-text-primary mb-4">
+                      Profesionales en esta sede
+                    </h3>
+                    <div className="flex flex-wrap gap-3">
+                      {teamMembers.map((professional) => (
+                        <Button
+                          key={professional.slug}
+                          href={`/profesionales/${professional.slug}`}
+                          variant="ghost"
+                          size="sm"
+                        >
+                          {professional.name}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </section>
+
+      {/* ===== EQUIPAMIENTO ===== */}
+      <section
+        id="equipamiento"
+        className="py-16 md:py-20 bg-gradient-to-br from-violet-deep/[0.03] to-lavender/10 scroll-mt-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            tag="Equipamiento"
+            title="Tecnología al servicio del diagnóstico mamario"
+            description="Contamos con equipamiento especializado en ambas sedes, operado por personal técnico capacitado, para acompañar diagnósticos precisos y procedimientos seguros."
           />
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center"
-              >
-                <span className="text-primary/30 text-sm">
-                  [Fotografía de instalaciones {i}]
-                </span>
-              </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {equipment.map((item) => (
+              <EquipmentCard key={item.slug} equipment={item} />
             ))}
           </div>
         </div>
       </section>
 
+
       {/* ===== CTA FINAL ===== */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-primary-lightest via-lavender/10 to-primary-lightest">
+      <section className="py-20 md:py-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
             Conocé a nuestro equipo y solicitá tu turno
@@ -309,7 +469,7 @@ export default function UnidadPage() {
             <PrimaryButton href="/turnos" size="lg">
               Solicitar un turno
             </PrimaryButton>
-            <Button href="/sedes" variant="outline" size="lg">
+            <Button href="#sedes" variant="outline" size="lg">
               Conocer las sedes
             </Button>
           </div>

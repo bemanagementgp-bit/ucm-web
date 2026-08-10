@@ -40,7 +40,7 @@ const initialState: FormState = {
 };
 
 const inputClasses =
-  "w-full rounded-xl border border-primary-light/50 bg-white px-4 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors";
+  "w-full rounded-xl glass-input px-4 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/60 focus:outline-none transition-colors";
 
 const labelClasses = "block text-sm font-medium text-text-primary mb-1.5";
 
@@ -115,7 +115,7 @@ export default function ContactoPage() {
               {locations.map((location) => (
                 <div
                   key={location.id}
-                  className="bg-white rounded-2xl border border-primary-light/30 p-6"
+                  className="glass-card rounded-2xl p-6"
                 >
                   <h3 className="font-semibold text-text-primary">
                     {location.name}
@@ -164,7 +164,7 @@ export default function ContactoPage() {
 
             {/* Columna formulario */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl border border-primary-light/30 p-6 sm:p-8">
+              <div className="glass-card rounded-2xl p-6 sm:p-8">
                 <SectionHeading
                   tag="Formulario"
                   title="Envianos tu consulta"
@@ -346,7 +346,7 @@ export default function ContactoPage() {
       </section>
 
       {/* ===== MAPAS ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Cómo llegar"

@@ -72,7 +72,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </div>
 
       {/* ===== ENCABEZADO ===== */}
-      <section className="bg-gradient-to-br from-primary-lightest via-white to-lavender/10 py-10 md:py-14">
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-3">
             {serviceCategoryLabel(service.category)}
@@ -130,7 +130,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
             {/* ===== SIDEBAR ===== */}
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl border border-primary-light/30 p-6">
+              <div className="glass-card rounded-2xl p-6">
                 <div className="flex items-start gap-3">
                   <HiClock className="w-5 h-5 text-violet shrink-0 mt-0.5" />
                   <div>
@@ -175,7 +175,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       {/* ===== PROFESIONALES RELACIONADOS ===== */}
       {relatedProfessionals.length > 0 && (
-        <section className="py-16 md:py-20 bg-primary-lightest/30">
+        <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading
               tag="Equipo"
@@ -213,7 +213,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* ===== CTA FINAL ===== */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-primary-lightest via-lavender/10 to-primary-lightest">
+      <section className="py-16 md:py-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
             ¿Querés realizarte este estudio o consulta?
@@ -266,7 +266,12 @@ function ServiceCTA({
 
   if (service.appointmentType === "pathology") {
     return (
-      <PrimaryButton href="/portal-del-paciente" size={size} className="w-full">
+      <PrimaryButton
+        href={siteConfig.patientPortalUrl}
+        external
+        size={size}
+        className="w-full"
+      >
         Ir al portal del paciente
         <HiArrowRight className="w-4 h-4" />
       </PrimaryButton>

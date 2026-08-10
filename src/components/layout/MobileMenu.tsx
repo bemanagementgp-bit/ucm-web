@@ -31,11 +31,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
       {/* Panel */}
       <div
-        className={`absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-xl transition-transform duration-300 ${
+        className={`absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white/70 backdrop-blur-2xl saturate-150 shadow-xl transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between p-5 border-b border-primary-light/20">
+        <div className="flex items-center justify-between p-5 border-b border-white/30">
           <Image
                 src="/ucm-logo-rosa.png"
                 alt="UCM"
@@ -68,9 +68,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             ))}
           </ul>
 
-          <div className="mt-6 pt-6 border-t border-primary-light/20 space-y-3">
+          <div className="mt-6 pt-6 border-t border-white/30 space-y-3">
             <Button
-              href="/portal-del-paciente"
+              href={siteConfig.patientPortalUrl}
+              external
               variant="outline"
               size="md"
               className="w-full"

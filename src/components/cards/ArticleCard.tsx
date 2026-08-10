@@ -22,7 +22,7 @@ export function ArticleCard({ article, className = "" }: ArticleCardProps) {
   return (
     <Link
       href={`/novedades/${article.slug}`}
-      className={`group block bg-white rounded-2xl border border-primary-light/30 overflow-hidden hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300 ${className}`}
+      className={`group block glass-card rounded-2xl overflow-hidden ${className}`}
     >
       {/* Placeholder imagen */}
       <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 relative">

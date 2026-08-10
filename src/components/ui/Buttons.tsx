@@ -16,15 +16,15 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary",
+    "bg-primary/90 text-white hover:bg-primary backdrop-blur-sm shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset,0_2px_8px_rgba(217,143,168,0.3)] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_16px_rgba(217,143,168,0.4)] focus-visible:ring-primary",
   secondary:
-    "bg-violet text-white hover:bg-violet/90 focus-visible:ring-violet",
+    "bg-violet/90 text-white hover:bg-violet backdrop-blur-sm shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset,0_2px_8px_rgba(146,120,181,0.3)] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_16px_rgba(146,120,181,0.4)] focus-visible:ring-violet",
   outline:
-    "border-2 border-primary text-primary hover:bg-primary/5 focus-visible:ring-primary",
+    "border border-white/50 text-primary bg-white/40 backdrop-blur-sm hover:bg-white/60 shadow-[0_0_0_1px_rgba(255,255,255,0.15)_inset] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_12px_rgba(79,61,101,0.08)] focus-visible:ring-primary",
   ghost:
-    "text-violet-deep hover:bg-primary-lightest focus-visible:ring-violet",
+    "text-violet-deep hover:bg-white/40 hover:backdrop-blur-sm focus-visible:ring-violet",
   whatsapp:
-    "bg-[#25D366] text-white hover:bg-[#20BD5A] focus-visible:ring-[#25D366]",
+    "bg-[#25D366]/90 text-white hover:bg-[#25D366] backdrop-blur-sm shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset,0_2px_8px_rgba(37,211,102,0.3)] focus-visible:ring-[#25D366]",
 };
 
 const sizes = {

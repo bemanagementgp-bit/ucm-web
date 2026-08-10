@@ -11,7 +11,7 @@ export function MedicalDisclaimer({
 }: MedicalDisclaimerProps) {
   return (
     <div
-      className={`flex items-start gap-3 p-4 bg-primary-lightest rounded-xl border border-primary-light/30 ${className}`}
+      className={`flex items-start gap-3 p-4 glass rounded-xl ${className}`}
       role="note"
     >
       <HiInformationCircle className="w-5 h-5 text-violet shrink-0 mt-0.5" />

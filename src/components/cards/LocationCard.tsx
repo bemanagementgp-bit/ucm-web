@@ -11,7 +11,7 @@ interface LocationCardProps {
 export function LocationCard({ location, className = "" }: LocationCardProps) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-primary-light/30 overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${className}`}
+      className={`glass-card rounded-2xl overflow-hidden ${className}`}
     >
       {/* Placeholder imagen */}
       <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/30 relative">
@@ -58,7 +58,7 @@ export function LocationCard({ location, className = "" }: LocationCardProps) {
 
         <div className="mt-4">
           <Link
-            href="/sedes"
+            href="/unidad#sedes"
             className="text-sm font-medium text-violet hover:text-primary transition-colors"
           >
             Ver más información de esta sede →

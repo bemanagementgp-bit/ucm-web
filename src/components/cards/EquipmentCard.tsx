@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HiArrowRight, HiMapPin } from "react-icons/hi2";
 import type { Equipment } from "@/data/equipment";
@@ -11,15 +12,24 @@ interface EquipmentCardProps {
 export function EquipmentCard({ equipment, className = "" }: EquipmentCardProps) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-primary-light/30 overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${className}`}
+      className={`glass-card rounded-2xl overflow-hidden ${className}`}
     >
-      <div className="aspect-video bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <svg className="w-16 h-16 text-violet/20" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
-            <rect x="2" y="3" width="20" height="14" rx="2" />
-            <path d="M8 21h8M12 17v4" />
-          </svg>
-        </div>
+      <div className="aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
+        {equipment.images[0] ? (
+          <Image
+            src={equipment.images[0]}
+            alt={`${equipment.brand} ${equipment.model}`}
+            fill
+            className="object-contain"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-16 h-16 text-violet/20" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-text-primary">{equipment.name}</h3>
@@ -47,7 +57,7 @@ export function EquipmentCard({ equipment, className = "" }: EquipmentCardProps)
 
         <div className="flex items-center gap-1 mt-4 text-xs text-text-secondary">
           <HiMapPin className="w-3.5 h-3.5" />
-          <span>{getLocationName(equipment.location)}</span>
+          <span>{equipment.locations.map((l) => getLocationName(l)).join(" · ")}</span>
         </div>
       </div>
     </div>

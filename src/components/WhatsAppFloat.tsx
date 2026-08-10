@@ -42,14 +42,15 @@ export function WhatsAppFloat() {
       {/* Panel */}
       {step !== "closed" && (
         <div
-          className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm bg-white rounded-2xl shadow-2xl shadow-black/10 border border-primary-light/30 overflow-hidden"
+          className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm glass-strong rounded-2xl overflow-hidden"
           role="dialog"
           aria-label="Opciones de contacto por WhatsApp"
         >
-          <div className="flex items-center justify-between p-4 bg-primary-lightest border-b border-primary-light/30">
+          <div className="flex items-center justify-between p-4 bg-white/30 border-b border-white/30">
             <h3 className="font-semibold text-text-primary text-sm">
               {step === "type" ? "¿Qué tipo de turno necesitás?" : "¿En qué sede?"}
             </h3>
+
             <button
               type="button"
               onClick={reset}

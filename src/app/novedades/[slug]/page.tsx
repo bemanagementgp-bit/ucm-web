@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-primary-lightest via-white to-lavender/10">
+      <section className="">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -125,7 +125,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
             ¿Querés saber más o consultar con nuestro equipo?

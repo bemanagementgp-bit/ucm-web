@@ -25,10 +25,20 @@ export function Hero({
   if (variant === "home") {
     return (
       <section className={`relative overflow-hidden ${className}`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-lightest via-white to-lavender/20" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-light/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-lavender/20 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
+        {/* Detalle de fondo: brillos sutiles en tonos de marca */}
+        <div className="absolute -top-24 right-0 w-[36rem] h-[36rem] bg-primary-light/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 -left-24 w-96 h-96 bg-lavender/20 rounded-full blur-[110px] pointer-events-none" />
+        {/* Flor decorativa giratoria */}
+        <Image
+          src="/elemento-flor.svg"
+          alt=""
+          aria-hidden="true"
+          width={800}
+          height={800}
+          className="absolute -bottom-40 -right-40 w-[36rem] lg:w-[44rem] h-auto opacity-60 animate-spin-slow pointer-events-none select-none"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
           <div className={`${image ? "md:grid md:grid-cols-2 md:gap-12 md:items-center" : ""}`}>
             <div className={image ? "" : "max-w-3xl"}>
               {tag && (
@@ -44,7 +54,7 @@ export function Hero({
                   {description}
                 </p>
               )}
-              {children && <div className="mt-8 flex flex-wrap gap-4">{children}</div>}
+              {children && <div className="mt-8 flex flex-wrap gap-6">{children}</div>}
             </div>
             {image && (
               <div className="mt-10 md:mt-0 relative">
@@ -70,9 +80,11 @@ export function Hero({
   }
 
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-br from-primary-lightest via-white to-lavender/10 ${className}`}>
-      <div className="absolute top-10 right-0 w-64 h-64 bg-primary-light/20 rounded-full blur-3xl" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-32 md:pb-16">
+    <section className={`relative overflow-hidden ${className}`}>
+      {/* Detalle de fondo: brillo sutil en tono de marca */}
+      <div className="absolute -top-20 right-0 w-[32rem] h-[32rem] bg-primary-light/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-32 md:pb-16">
         <div className="max-w-3xl">
           {tag && (
             <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-3">
@@ -87,7 +99,7 @@ export function Hero({
               {description}
             </p>
           )}
-          {children}
+          {children && <div className="mt-8 flex flex-wrap gap-6">{children}</div>}
         </div>
       </div>
     </section>

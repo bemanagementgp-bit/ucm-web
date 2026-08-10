@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative overflow-hidden min-h-[70vh] flex items-center bg-gradient-to-br from-primary-lightest via-white to-lavender/10">
+    <section className="relative overflow-hidden min-h-[70vh] flex items-center ">
       <div className="absolute top-10 right-0 w-72 h-72 bg-primary-light/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-lavender/20 rounded-full blur-3xl" />
 
       <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <div className="mx-auto w-16 h-16 bg-white rounded-2xl border border-primary-light/30 flex items-center justify-center shadow-sm">
+        <div className="mx-auto w-16 h-16 glass rounded-2xl flex items-center justify-center">
           <HiOutlineFaceFrown className="w-8 h-8 text-primary" />
         </div>
 

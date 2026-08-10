@@ -7,51 +7,101 @@ export interface Equipment {
   description: string;
   benefits: string[];
   relatedStudies: string[];
-  location: string;
+  locations: string[];
   images: string[];
   videoUrl?: string;
 }
 
-/*
- * DATOS MOCK – No se han inventado marcas ni modelos.
- * Todos los campos técnicos son placeholders editables.
- */
 export const equipment: Equipment[] = [
   {
-    slug: "mamografo-principal",
-    name: "[Nombre del mamógrafo]",
-    brand: "[Marca]",
-    model: "[Modelo]",
-    technology: "[Tipo de tecnología – ej: tomosíntesis, mamografía digital]",
+    slug: "mamografo-fujifilm-amulet-innovality",
+    name: "Mamógrafo digital con tomosíntesis",
+    brand: "Fujifilm",
+    model: "Amulet Innovality",
+    technology: "Mamografía digital directa con tomosíntesis 3D",
     description:
-      "[Descripción técnica validada por el equipo médico – pendiente de carga]",
+      "Mamógrafo digital de última generación con capacidad de tomosíntesis (mamografía 3D). Permite obtener imágenes de alta resolución con menor dosis de radiación, mejorando la detección de lesiones en mamas densas.",
     benefits: [
-      "Mayor precisión diagnóstica",
-      "Menor dosis de radiación",
-      "Imágenes de alta resolución",
-      "[Beneficio adicional – pendiente de validación]",
+      "Tomosíntesis 3D para mayor precisión diagnóstica",
+      "Baja dosis de radiación",
+      "Alta resolución en mamas densas",
+      "Guía para procedimientos intervencionistas",
     ],
     relatedStudies: ["mamografia", "intervencionismo-mamario", "biopsias", "marcaciones"],
-    location: "imp",
-    images: ["/images/placeholder-equipo-mamografo.jpg"],
+    locations: ["imp", "city-bell"],
+    images: ["/imagenes equipos/Fujifilm – Amulet Innovality.png"],
   },
   {
-    slug: "ecografo-principal",
-    name: "[Nombre del ecógrafo]",
-    brand: "[Marca]",
-    model: "[Modelo]",
-    technology: "[Tipo de tecnología – ej: ultrasonido de alta frecuencia]",
+    slug: "ecografo-edan-acclarix-lx85",
+    name: "Ecógrafo de alta resolución",
+    brand: "Edan",
+    model: "Acclarix LX85",
+    technology: "Ultrasonido de alta frecuencia con elastografía",
     description:
-      "[Descripción técnica validada por el equipo médico – pendiente de carga]",
+      "Ecógrafo de alta gama con transductores de alta frecuencia especialmente diseñados para la evaluación mamaria. Incluye elastografía para la caracterización de lesiones. La sede City Bell cuenta con dos unidades.",
     benefits: [
-      "Evaluación en tiempo real",
+      "Alta resolución en tejidos blandos",
+      "Elastografía para caracterización de lesiones",
       "Sin radiación ionizante",
-      "Alta resolución de tejidos blandos",
-      "[Beneficio adicional – pendiente de validación]",
+      "Evaluación en tiempo real",
     ],
     relatedStudies: ["ecografia-mamaria", "biopsias"],
-    location: "city-bell",
-    images: ["/images/placeholder-equipo-ecografo.jpg"],
+    locations: ["city-bell"],
+    images: ["/imagenes equipos/Edan – Acclarix LX85.png"],
+  },
+  {
+    slug: "ecografo-esaote-a70",
+    name: "Ecógrafo de alta resolución",
+    brand: "Esaote",
+    model: "A70",
+    technology: "Ultrasonido de alta frecuencia",
+    description:
+      "Ecógrafo de alta gama para evaluación mamaria. Ofrece imágenes de alta resolución para diagnóstico y guía de procedimientos.",
+    benefits: [
+      "Alta resolución en tejidos blandos",
+      "Sin radiación ionizante",
+      "Evaluación en tiempo real",
+      "Guía para biopsias percutáneas",
+    ],
+    relatedStudies: ["ecografia-mamaria", "biopsias"],
+    locations: ["imp"],
+    images: ["/imagenes equipos/Esaote – A70.png"],
+  },
+  {
+    slug: "ecografo-toshiba-xario-100",
+    name: "Ecógrafo de alta resolución",
+    brand: "Toshiba",
+    model: "Xario 100",
+    technology: "Ultrasonido de alta frecuencia",
+    description:
+      "Ecógrafo complementario que garantiza disponibilidad continua del servicio de ecografía mamaria.",
+    benefits: [
+      "Alta resolución en tejidos blandos",
+      "Sin radiación ionizante",
+      "Evaluación en tiempo real",
+      "Guía para procedimientos intervencionistas",
+    ],
+    relatedStudies: ["ecografia-mamaria", "biopsias"],
+    locations: ["imp"],
+    images: ["/imagenes equipos/Toshiba – Xario 100.png"],
+  },
+  {
+    slug: "densitometro-osteosys-primus",
+    name: "Densitómetro óseo",
+    brand: "Osteosys",
+    model: "Primus",
+    technology: "Absorciometría de rayos X de energía dual (DXA)",
+    description:
+      "Densitómetro óseo de última generación para la evaluación de densidad mineral ósea. Complementa el cuidado integral de las pacientes de la UCM.",
+    benefits: [
+      "Evaluación precisa de densidad ósea",
+      "Baja dosis de radiación",
+      "Estudio rápido y no invasivo",
+      "Seguimiento de tratamientos que afectan la salud ósea",
+    ],
+    relatedStudies: [],
+    locations: ["city-bell"],
+    images: ["/imagenes equipos/Osteosys – Primus.png"],
   },
 ];
 

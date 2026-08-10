@@ -17,7 +17,7 @@ export function FAQAccordion({ faqs, className = "" }: FAQAccordionProps) {
       {faqs.map((faq, index) => (
         <div
           key={index}
-          className="border border-primary-light/50 rounded-xl overflow-hidden"
+          className="glass rounded-xl overflow-hidden"
         >
           <button
             type="button"

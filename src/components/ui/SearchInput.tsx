@@ -23,7 +23,7 @@ export function SearchInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-12 pr-4 py-3 rounded-xl border border-primary-light/50 bg-white text-text-primary placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-violet/30 focus:border-violet transition-all"
+        className="w-full pl-12 pr-4 py-3 rounded-xl glass-input text-text-primary placeholder:text-text-secondary/60 focus:outline-none transition-all"
         aria-label={placeholder}
       />
     </div>

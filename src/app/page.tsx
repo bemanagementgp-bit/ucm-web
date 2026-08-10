@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HiCalendarDays, HiUserCircle, HiMapPin, HiUserGroup, HiArrowRight, HiCheckCircle } from "react-icons/hi2";
 import { FaWhatsapp } from "react-icons/fa";
 import { Hero } from "@/components/ui/Hero";
@@ -14,6 +15,7 @@ import { getFeaturedProfessionals } from "@/data/professionals";
 import { locations } from "@/data/locations";
 import { getRecentArticles } from "@/data/articles";
 import { equipment } from "@/data/equipment";
+import { siteConfig } from "@/data/site";
 
 export default function HomePage() {
   const featuredServices = getFeaturedServices();
@@ -29,7 +31,7 @@ export default function HomePage() {
         tag="Unidad de Cuidado Mamario"
         title="Cuidado integral para cada etapa de tu salud mamaria"
         description="Prevención, diagnóstico, tratamiento y seguimiento con tecnología especializada y un equipo multidisciplinario que te acompaña en todo el proceso."
-        image="/images/hero-home.jpg"
+        image="/images/hero-home.png"
         imageAlt="Profesional médica acompañando a una paciente durante una consulta"
       >
         <PrimaryButton href="/turnos" size="lg">
@@ -41,7 +43,7 @@ export default function HomePage() {
       </Hero>
 
       {/* Institutional backing */}
-      <div className="bg-primary-lightest/50 border-y border-primary-light/20">
+      <div className="border-y border-primary-light/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm text-text-secondary">
           Una unidad del{" "}
           <a
@@ -79,13 +81,14 @@ export default function HomePage() {
               icon={<HiUserCircle className="w-6 h-6" />}
               title="Portal del paciente"
               description="Accedé a tus estudios y resultados desde el portal de tu sede."
-              href="/portal-del-paciente"
+              href={siteConfig.patientPortalUrl}
+              external
             />
             <QuickAccessCard
               icon={<HiMapPin className="w-6 h-6" />}
               title="Conocer las sedes"
               description="Encontrá la sede más cercana con los servicios que necesitás."
-              href="/sedes"
+              href="/unidad#sedes"
             />
             <QuickAccessCard
               icon={<HiUserGroup className="w-6 h-6" />}
@@ -97,8 +100,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== NOVEDADES ===== */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            tag="Novedades"
+            title="Información y novedades de UCM"
+          />
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentArticles.map((article) => (
+              <ArticleCard key={article.slug} article={article} />
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button href="/novedades" variant="outline">
+              Ver todas las novedades
+              <HiArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* ===== PRESENTACIÓN UCM ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Nuestra unidad"
@@ -116,7 +142,7 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="bg-white rounded-2xl p-5 text-center border border-primary-light/20 hover:shadow-md hover:shadow-primary/5 transition-all"
+                className="glass-card rounded-2xl p-5 text-center"
               >
                 <span className="inline-block text-2xl font-bold text-primary/30 mb-2">
                   {item.step}
@@ -170,12 +196,23 @@ export default function HomePage() {
           />
 
           {featuredEquipment && (
-            <div className="mt-12 bg-white rounded-2xl border border-primary-light/30 overflow-hidden md:grid md:grid-cols-2">
-              <div className="aspect-video md:aspect-auto bg-gradient-to-br from-violet-deep/5 to-lavender/20 flex items-center justify-center min-h-[300px]">
-                <svg className="w-24 h-24 text-violet/15" fill="none" stroke="currentColor" strokeWidth={0.8} viewBox="0 0 24 24">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
+            <div className="mt-12 glass-card rounded-2xl overflow-hidden md:grid md:grid-cols-2">
+              <div className="aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
+                {featuredEquipment.images[0] ? (
+                  <Image
+                    src={featuredEquipment.images[0]}
+                    alt={`${featuredEquipment.brand} ${featuredEquipment.model}`}
+                    fill
+                    className="object-contain"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-24 h-24 text-violet/15" fill="none" stroke="currentColor" strokeWidth={0.8} viewBox="0 0 24 24">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <path d="M8 21h8M12 17v4" />
+                    </svg>
+                  </div>
+                )}
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-text-primary">
@@ -196,14 +233,14 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <p className="text-xs text-text-secondary mt-4">
-                  Sede: {locations.find((l) => l.id === featuredEquipment.location)?.institutionName}
+                  Sede: {featuredEquipment.locations.map((locId) => locations.find((l) => l.id === locId)?.institutionName).filter(Boolean).join(" · ")}
                 </p>
               </div>
             </div>
           )}
 
           <div className="text-center mt-10">
-            <Button href="/equipamiento" variant="outline">
+            <Button href="/unidad#equipamiento" variant="outline">
               Conocer nuestro equipamiento
               <HiArrowRight className="w-4 h-4" />
             </Button>
@@ -221,7 +258,7 @@ export default function HomePage() {
           />
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-            {featuredProfessionals.map((p) => (
+            {featuredProfessionals.slice(0, 4).map((p) => (
               <ProfessionalCard key={p.slug} professional={p} />
             ))}
           </div>
@@ -236,7 +273,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== CÓMO SOLICITAR UN TURNO ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Turnos"
@@ -245,7 +282,7 @@ export default function HomePage() {
           />
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-8">
+            <div className="glass-card rounded-2xl p-8">
               <div className="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center mb-5">
                 <FaWhatsapp className="w-6 h-6 text-[#25D366]" />
               </div>
@@ -274,7 +311,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl border border-primary-light/30 p-8">
+            <div className="glass-card rounded-2xl p-8">
               <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mb-5">
                 <HiCalendarDays className="w-6 h-6 text-primary" />
               </div>
@@ -321,7 +358,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== PREVENCIÓN ===== */}
-      <section className="py-16 md:py-20 bg-primary-lightest/30">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
             <div>
@@ -337,7 +374,7 @@ export default function HomePage() {
                 una diferencia significativa.
               </p>
 
-              <div className="bg-white rounded-xl p-6 border border-primary-light/30 mt-6">
+              <div className="glass rounded-xl p-6 mt-6">
                 <p className="text-lg font-semibold text-violet-deep">
                   [Dato preventivo validado por el equipo médico]
                 </p>
@@ -347,7 +384,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-6">
-                <Button href="/prevencion">
+                <Button href="/novedades#prevencion">
                   Ver información preventiva
                   <HiArrowRight className="w-4 h-4" />
                 </Button>
@@ -364,31 +401,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== NOVEDADES ===== */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            tag="Novedades"
-            title="Información y novedades de UCM"
-          />
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Button href="/novedades" variant="outline">
-              Ver todas las novedades
-              <HiArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* ===== CTA FINAL ===== */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-primary-lightest via-lavender/10 to-primary-lightest">
+      <section className="py-20 md:py-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
             Tu salud mamaria merece un cuidado especializado
@@ -401,7 +415,7 @@ export default function HomePage() {
             <PrimaryButton href="/turnos" size="lg">
               Solicitar un turno
             </PrimaryButton>
-            <Button href="/sedes" variant="outline" size="lg">
+            <Button href="/unidad#sedes" variant="outline" size="lg">
               Conocer las sedes
             </Button>
           </div>

@@ -86,7 +86,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* ===== CTA FINAL ===== */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-primary-lightest via-lavender/10 to-primary-lightest">
+      <section className="py-20 md:py-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
             ¿No sabés qué servicio necesitás?

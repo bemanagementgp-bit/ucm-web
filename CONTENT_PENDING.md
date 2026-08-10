@@ -22,6 +22,8 @@ Este documento lista toda la información que debe solicitarse al cliente antes 
   - Sedes donde atiende
   - Fotografía profesional
 
+- [ ] **Dra. Florencia Calaramo**: número real de WhatsApp del consultorio particular (actualmente hay un número de ejemplo `2216799773` cargado en `src/data/professionals.ts`).
+
 ## Servicios
 
 - [ ] Confirmación de servicios disponibles en cada sede

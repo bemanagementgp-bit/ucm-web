@@ -11,12 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/unidad`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE_URL}/servicios`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/profesionales`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${BASE_URL}/equipamiento`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${BASE_URL}/sedes`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${BASE_URL}/prevencion`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE_URL}/novedades`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${BASE_URL}/turnos`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${BASE_URL}/portal-del-paciente`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${BASE_URL}/contacto`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 

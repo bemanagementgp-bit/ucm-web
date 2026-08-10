@@ -4,6 +4,7 @@ export const siteConfig = {
   description:
     "Unidad de Cuidado Mamario. Prevención, diagnóstico, tratamiento y seguimiento especializado de la salud mamaria en La Plata y City Bell.",
   url: "https://ucm-imp.com",
+  patientPortalUrl: "http://impgeclisa.ddns.net:93/#!/login",
   instagram: "https://www.instagram.com/ucmunidad/",
   email: "info@institutomedicoplatense.com",
   phone: "+54 221 412 0900",
@@ -14,9 +15,6 @@ export const siteConfig = {
     { label: "La unidad", href: "/unidad" },
     { label: "Servicios", href: "/servicios" },
     { label: "Profesionales", href: "/profesionales" },
-    { label: "Equipamiento", href: "/equipamiento" },
-    { label: "Sedes", href: "/sedes" },
-    { label: "Prevención", href: "/prevencion" },
     { label: "Novedades", href: "/novedades" },
     { label: "Contacto", href: "/contacto" },
   ],

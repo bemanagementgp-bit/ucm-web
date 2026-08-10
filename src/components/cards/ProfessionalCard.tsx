@@ -12,10 +12,10 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
   return (
     <Link
       href={`/profesionales/${professional.slug}`}
-      className={`group block bg-white rounded-2xl border border-primary-light/30 overflow-hidden hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300 ${className}`}
+      className={`group flex flex-col h-full glass-card rounded-2xl overflow-hidden ${className}`}
     >
       {/* Placeholder foto */}
-      <div className="aspect-[4/5] bg-gradient-to-br from-primary-lightest to-lavender/30 relative overflow-hidden">
+      <div className="aspect-square bg-gradient-to-br from-primary-lightest to-lavender/30 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-20 h-20 rounded-full bg-white/60 flex items-center justify-center">
             <svg className="w-10 h-10 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
           </div>
         </div>
       </div>
-      <div className="p-5">
+      <div className="flex flex-col flex-1 p-5">
         <h3 className="font-semibold text-text-primary group-hover:text-primary transition-colors">
           {professional.name}
         </h3>
@@ -33,12 +33,12 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
         </p>
         <p className="text-sm text-text-secondary mt-1">{professional.area}</p>
         <div className="flex items-center gap-1 mt-3 text-xs text-text-secondary">
-          <HiMapPin className="w-3.5 h-3.5" />
+          <HiMapPin className="w-3.5 h-3.5 shrink-0" />
           <span>
             {professional.locations.map((l) => getLocationName(l)).join(" · ")}
           </span>
         </div>
-        <span className="inline-flex items-center gap-1 text-sm font-medium text-violet group-hover:text-primary transition-colors mt-3">
+        <span className="inline-flex items-center gap-1 text-sm font-medium text-violet group-hover:text-primary transition-colors mt-auto pt-4">
           Ver perfil
           <HiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </span>

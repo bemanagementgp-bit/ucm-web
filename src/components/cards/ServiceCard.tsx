@@ -11,7 +11,7 @@ export function ServiceCard({ service, className = "" }: ServiceCardProps) {
   return (
     <Link
       href={`/servicios/${service.slug}`}
-      className={`group block bg-white rounded-2xl border border-primary-light/30 p-6 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300 ${className}`}
+      className={`group block glass-card rounded-2xl p-6 ${className}`}
     >
       <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-light transition-colors">
         <div className="w-6 h-6 text-primary">

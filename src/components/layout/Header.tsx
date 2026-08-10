@@ -30,45 +30,52 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-primary-light/20 py-3"
-            : "bg-transparent py-5"
+            ? "bg-white/50 backdrop-blur-2xl saturate-150 shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_24px_rgba(79,61,101,0.08)] border-white/40 py-3"
+            : "bg-transparent border-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between" aria-label="Navegación principal">
             <Link href="/" className="flex items-center shrink-0" aria-label="UCM – Inicio">
               <Image
-                src="/ucm-logo-rosa.png"
+                src="/logo-ucm-nav.png"
                 alt="UCM – Unidad de Cuidado Mamario"
-                width={140}
-                height={42}
-                className="h-9 w-auto lg:h-11"
+                width={613}
+                height={202}
+                className="h-7 w-auto lg:h-9"
                 priority
               />
             </Link>
 
-            <ul className="hidden lg:flex items-center gap-1">
-              {siteConfig.navigation.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="px-3 py-2 text-sm font-medium text-text-primary hover:text-primary rounded-lg hover:bg-primary-lightest transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="hidden lg:flex items-center gap-6">
+              <ul className="flex items-center gap-1">
+                {siteConfig.navigation.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="px-3 py-2 text-sm font-medium text-text-primary hover:text-primary rounded-lg hover:bg-primary-lightest transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-            <div className="hidden lg:flex items-center gap-3">
-              <Button href="/portal-del-paciente" variant="ghost" size="sm">
-                Portal del paciente
-              </Button>
-              <Button href="/turnos" size="sm">
-                Solicitar turno
-              </Button>
+              <div className="flex items-center gap-3">
+                <Button
+                  href={siteConfig.patientPortalUrl}
+                  external
+                  variant="outline"
+                  size="sm"
+                >
+                  Portal del paciente
+                </Button>
+                <Button href="/turnos" size="sm">
+                  Solicitar turno
+                </Button>
+              </div>
             </div>
 
             <button

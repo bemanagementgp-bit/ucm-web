@@ -12,15 +12,20 @@
   --color-white: #FFFFFF;
   --color-background: #FFFFFF;
   --color-foreground: #332E38;
+  --color-glass: rgba(251, 245, 248, 0.65);
+  --color-glass-strong: rgba(251, 245, 248, 0.82);
+  --color-glass-border: rgba(217, 143, 168, 0.15);
+  --color-glass-highlight: rgba(255, 255, 255, 0.9);
 
   --font-heading: var(--font-manrope);
   --font-body: var(--font-inter);
 }
 
 body {
-  background: var(--color-background);
+  background: #FFFFFF;
   color: var(--color-foreground);
   font-family: var(--font-body), system-ui, sans-serif;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,4 +45,112 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid var(--color-violet);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* ===== LIQUID GLASS SYSTEM ===== */
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--color-glass-border);
+  box-shadow:
+    0 0 0 1px var(--color-glass-highlight) inset,
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 4px 16px rgba(79, 61, 101, 0.05);
+}
+
+.glass-strong {
+  background: var(--color-glass-strong);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid var(--color-glass-border);
+  box-shadow:
+    0 0 0 1px var(--color-glass-highlight) inset,
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 32px rgba(79, 61, 101, 0.07);
+}
+
+.glass-card {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--color-glass-border);
+  box-shadow:
+    0 0 0 1px var(--color-glass-highlight) inset,
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(79, 61, 101, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--color-glass-strong);
+  box-shadow:
+    0 0 0 1px var(--color-glass-highlight) inset,
+    0 4px 8px rgba(0, 0, 0, 0.03),
+    0 16px 48px rgba(79, 61, 101, 0.08);
+  border-color: rgba(217, 143, 168, 0.25);
+}
+
+.glass-input {
+  background: rgba(251, 245, 248, 0.5);
+  backdrop-filter: blur(12px) saturate(1.3);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  border: 1px solid var(--color-glass-border);
+  box-shadow:
+    0 0 0 1px var(--color-glass-highlight) inset,
+    0 1px 3px rgba(79, 61, 101, 0.04);
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--color-violet);
+  box-shadow:
+    0 0 0 3px rgba(146, 120, 181, 0.12),
+    0 0 0 1px var(--color-glass-highlight) inset;
+}
+
+/* ===== Gradiente de marca (rosa-lavanda con brillo coral) ===== */
+.bg-gradient-brand {
+  background-color: #EBC9DA;
+  background-image:
+    radial-gradient(120% 120% at 100% 0%, #F8897A 0%, rgba(248, 137, 122, 0) 45%),
+    linear-gradient(150deg, #F6E6EF 0%, #E9C4D9 45%, #D9A9C6 100%);
+}
+
+.bg-gradient-brand-soft {
+  background-color: #F6E6EF;
+  background-image:
+    radial-gradient(130% 130% at 100% 0%, rgba(248, 137, 122, 0.55) 0%, rgba(248, 137, 122, 0) 50%),
+    linear-gradient(150deg, #FBF5F8 0%, #F4DDE6 55%, #E7CBDD 100%);
+}
+
+.bg-gradient-brand-alt {
+  background-color: #EBC9DA;
+  background-image:
+    radial-gradient(120% 120% at 0% 100%, #F8897A 0%, rgba(248, 137, 122, 0) 45%),
+    linear-gradient(330deg, #F6E6EF 0%, #E9C4D9 45%, #D9A9C6 100%);
+}
+
+/* ===== Textura de ruido (grain) ===== */
+.noise-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== Rotación lenta y continua (elemento decorativo) ===== */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
 }
