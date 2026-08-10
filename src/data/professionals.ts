@@ -157,8 +157,7 @@ export const professionals: Professional[] = [
     featured: true,
     practiceNote:
       "Realiza cirugías en el Instituto Médico Platense, pero no atiende consultas en la sede: las consultas se realizan en su consultorio particular.",
-    // TODO: reemplazar por el número real de WhatsApp del consultorio de la Dra. Florencia Calaramo (actualmente es un número de ejemplo).
-    consultationWhatsapp: "5492216799773",
+    consultationWhatsapp: "5492214947570",
   },
   {
     slug: "dra-mercedes-skare",
