@@ -43,13 +43,13 @@ const pilares = [
     icon: HiClipboardDocumentCheck,
     title: "Factores a evaluar",
     description:
-      "Algunos antecedentes personales o familiares pueden requerir un seguimiento más cercano. Es tu médico quien debe valorar estos factores y definir el esquema de control más adecuado para vos. [pendiente de validación]",
+      "Algunos antecedentes personales o familiares pueden requerir un seguimiento más cercano. Es tu médico quien debe valorar estos factores y definir el esquema de control más adecuado para vos.",
   },
   {
     icon: HiBeaker,
     title: "Estudios habituales",
     description:
-      "Entre los estudios más utilizados para el control de la salud mamaria se encuentran la mamografía y la ecografía mamaria. Otros estudios pueden indicarse según cada situación particular. [pendiente de validación]",
+      "Entre los estudios más utilizados para el control de la salud mamaria se encuentran la mamografía y la ecografía mamaria. Otros estudios pueden indicarse según cada situación particular.",
   },
 ];
 
@@ -57,17 +57,17 @@ const faqs = [
   {
     question: "¿El dolor en las mamas siempre es preocupante?",
     answer:
-      "No necesariamente. El dolor mamario es un síntoma frecuente y muchas veces está relacionado con cambios hormonales normales. De todas formas, si el dolor es persistente, localizado o te genera preocupación, es recomendable consultar con un profesional para que lo evalúe. [pendiente de validación]",
+      "No necesariamente. El dolor mamario es un síntoma frecuente y muchas veces está relacionado con cambios hormonales normales. De todas formas, si el dolor es persistente, localizado o te genera preocupación, es recomendable consultar con un profesional para que lo evalúe.",
   },
   {
     question: "¿Desde qué edad se recomienda el primer control?",
     answer:
-      "La edad de inicio de los controles y los estudios de rutina varía según las guías médicas y los antecedentes de cada persona. Tu médico es quien debe indicarte el momento y el esquema más adecuado para tu caso. [pendiente de validación]",
+      "La edad de inicio de los controles y los estudios de rutina varía según las guías médicas y los antecedentes de cada persona. Tu médico es quien debe indicarte el momento y el esquema más adecuado para tu caso.",
   },
   {
     question: "¿Todo bulto en la mama es cáncer?",
     answer:
-      "No. La mayoría de los bultos o nódulos mamarios corresponden a formaciones benignas, como quistes o fibroadenomas. Aun así, cualquier hallazgo nuevo debe ser evaluado por un profesional para descartar otras causas. [pendiente de validación]",
+      "No. La mayoría de los bultos o nódulos mamarios corresponden a formaciones benignas, como quistes o fibroadenomas. Aun así, cualquier hallazgo nuevo debe ser evaluado por un profesional para descartar otras causas.",
   },
   {
     question: "¿La autoobservación reemplaza a la mamografía?",
@@ -77,7 +77,7 @@ const faqs = [
   {
     question: "¿Tener antecedentes familiares significa que voy a desarrollar la enfermedad?",
     answer:
-      "No. Tener antecedentes familiares es un factor que tu médico va a tener en cuenta al definir tu esquema de controles, pero no implica que la enfermedad vaya a desarrollarse. Cada situación debe evaluarse de forma individual. [pendiente de validación]",
+      "No. Tener antecedentes familiares es un factor que tu médico va a tener en cuenta al definir tu esquema de controles, pero no implica que la enfermedad vaya a desarrollarse. Cada situación debe evaluarse de forma individual.",
   },
   {
     question: "¿Usar corpiño con aro puede causar cáncer de mama?",
@@ -173,14 +173,13 @@ export default function NovedadesPage() {
               </ul>
               <p className="text-text-secondary leading-relaxed mt-4 text-sm">
                 Esta información es orientativa y de carácter general. Solo un
-                profesional puede evaluar tu situación particular. [pendiente
-                de validación]
+                profesional puede evaluar tu situación particular.
               </p>
             </div>
             <div className="mt-8 md:mt-0">
               <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center">
                 <span className="text-primary/30 text-sm">
-                  [Imagen ilustrativa de prevención]
+                  {/* imagen preventiva pendiente */}
                 </span>
               </div>
             </div>

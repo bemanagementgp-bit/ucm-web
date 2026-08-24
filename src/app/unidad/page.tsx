@@ -108,9 +108,9 @@ export default function UnidadPage() {
   return (
     <>
       <Hero
-        tag="Nuestra unidad"
-        title="Una unidad especializada en el cuidado integral de la salud mamaria"
-        description="UCM reúne a un equipo multidisciplinario y recursos especializados para acompañar a cada paciente en todas las etapas del cuidado mamario: prevención, diagnóstico, tratamiento y seguimiento."
+        tag="Unidad de Mastología"
+        title="Una Unidad de Mastología dedicada al cuidado integral de la salud mamaria"
+        description="UCM es una Unidad de Mastología acreditada por la Sociedad Argentina de Mastología (SAM). Reunimos un equipo multidisciplinario y recursos especializados para acompañar a cada paciente en todas las etapas del cuidado mamario: prevención, diagnóstico, tratamiento y seguimiento."
       >
         <PrimaryButton href="/turnos">
           Solicitar un turno
@@ -127,36 +127,146 @@ export default function UnidadPage() {
             <div>
               <SectionHeading
                 tag="Quiénes somos"
-                title="Un mismo equipo, distintas disciplinas"
+                title="Somos una Unidad de Mastología"
                 centered={false}
               />
               <p className="text-text-secondary leading-relaxed mt-4">
-                La Unidad de Cuidado Mamario (UCM) nació con el objetivo de
-                ofrecer un abordaje integral de la salud mamaria, reuniendo en
-                un mismo equipo a profesionales de mastología, diagnóstico por
-                imágenes, oncología clínica, cirugía, cirugía plástica y
-                reconstructiva, asesoramiento genético y psicooncología.
+                Una <strong>Unidad de Mastología</strong> es un equipo de
+                profesionales de distintas especialidades que trabajan juntos
+                y coordinados para cuidar la salud de tus mamas, en un mismo
+                lugar y siguiendo un mismo plan. En vez de que cada
+                especialista mire una parte por separado, todos comparten la
+                información y deciden en conjunto, con vos en el centro.
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
-                Trabajamos de forma coordinada para que cada paciente
-                encuentre, en un mismo lugar, el acompañamiento y los recursos
-                necesarios en cada etapa: desde la prevención y los controles
-                periódicos, hasta el diagnóstico, el tratamiento y el
-                seguimiento a largo plazo.
+                Dicho de otra manera: acá no te vas a sentir rebotando de una
+                consulta a otra buscando quién resuelve qué. El equipo se
+                organiza alrededor tuyo para que el camino —desde una consulta
+                preventiva o un control hasta un diagnóstico y, si hace falta,
+                un tratamiento— sea claro, ordenado y acompañado.
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
-                Nuestro enfoque pone a la persona en el centro, priorizando la
-                comunicación clara, el respeto por los tiempos de cada
-                paciente y una atención cálida y profesional.
+                La Unidad de Cuidado Mamario (<strong>UCM</strong>) es el
+                nombre con el que se presenta nuestra Unidad de Mastología. La
+                dirección está a cargo del{" "}
+                <strong>Dr. Aldo Miguel Creton</strong>, especialista en
+                Cirugía General y Mastología.
               </p>
             </div>
             <div className="mt-8 md:mt-0">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center">
-                <span className="text-primary/30 text-sm">
-                  [Fotografía institucional de la unidad]
-                </span>
-              </div>
+              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== POR QUÉ EXISTE ESTE MODELO ===== */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-primary-lightest/40 to-lavender/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div>
+            <SectionHeading
+              tag="Por qué existe este modelo"
+              title="De la atención fragmentada al trabajo en equipo"
+              centered={false}
+            />
+            <p className="text-text-secondary leading-relaxed mt-4">
+              Durante mucho tiempo, el cuidado de las enfermedades de la mama
+              estuvo repartido entre profesionales que trabajaban por
+              separado. Con los años aparecieron muchas herramientas nuevas
+              —mamografía, cirugía conservadora, radioterapia, tratamientos
+              oncológicos, reconstrucción— y quedó claro que ninguna
+              especialidad, sola, podía cubrir todo. El problema era que,
+              muchas veces, ese trabajo estaba fragmentado: cada uno hacía su
+              parte sin hablar con el resto.
+            </p>
+            <p className="text-text-secondary leading-relaxed mt-4">
+              Las Unidades de Mastología nacieron justamente para resolver
+              eso: integrar a todos los especialistas en un mismo equipo. Hoy
+              son el estándar de atención recomendado por las principales
+              sociedades científicas del mundo.
+            </p>
+          </div>
+
+          <div>
+            <SectionHeading
+              tag="El corazón de la Unidad"
+              title="El trabajo en equipo, alrededor tuyo"
+              centered={false}
+            />
+            <p className="text-text-secondary leading-relaxed mt-4">
+              Lo que distingue a una Unidad no es un aparato ni un
+              consultorio: es la forma de trabajar. El punto de encuentro es
+              la <strong>reunión multidisciplinaria</strong> (o ateneo), un
+              espacio donde el equipo se junta de forma periódica para revisar
+              cada caso entre todos y acordar la mejor conducta para cada
+              persona.
+            </p>
+            <p className="text-text-secondary leading-relaxed mt-4">
+              En esa reunión, la mirada de quien hace las imágenes se cruza
+              con la del cirujano, la del patólogo, la del oncólogo y la del
+              resto del equipo. De esa conversación sale un plan pensado a la
+              medida de cada paciente, teniendo en cuenta las características
+              de su situación y también sus preferencias. Las sociedades
+              científicas consideran a esta reunión el verdadero núcleo de una
+              Unidad de Mastología, y recomiendan que los casos se presenten
+              allí antes de empezar cualquier tratamiento. Así, las decisiones
+              son consensuadas y basadas en la mejor evidencia disponible.
+            </p>
+          </div>
+
+          <div>
+            <SectionHeading
+              tag="Quiénes forman parte"
+              title="Un equipo dedicado especialmente a la mama"
+              centered={false}
+            />
+            <p className="text-text-secondary leading-relaxed mt-4">
+              El equipo básico suele estar integrado por:
+            </p>
+            <ul className="list-disc list-inside text-text-secondary leading-relaxed mt-2 space-y-1 pl-2">
+              <li>Mastólogo/a (cirugía mamaria)</li>
+              <li>Médico/a de diagnóstico por imágenes (mamografía, ecografía, resonancia)</li>
+              <li>Patólogo/a, que estudia las biopsias y confirma los diagnósticos</li>
+              <li>Oncólogo/a clínico/a</li>
+              <li>Radioterapeuta</li>
+            </ul>
+            <p className="text-text-secondary leading-relaxed mt-4">
+              A medida que cada situación lo requiere, se suman otras
+              especialidades: asesoramiento genético, cirugía plástica y
+              reconstructiva, psicooncología, fertilidad, medicina nuclear,
+              cuidados paliativos, kinesiología, oncogeriatría y más.
+            </p>
+            <p className="text-text-secondary leading-relaxed mt-4">
+              No todas las personas necesitan ver a todos estos especialistas.
+              La idea es justamente esa: que el equipo completo esté
+              disponible y coordinado, y que cada paciente reciba lo que su
+              situación requiere, ni más ni menos.
+            </p>
+          </div>
+
+          <div>
+            <SectionHeading
+              tag="Por qué elegir una Unidad de Mastología"
+              title="Un mismo equipo, del principio al final"
+              centered={false}
+            />
+            <p className="text-text-secondary leading-relaxed mt-4">
+              Que un mismo equipo especializado se ocupe de todo el proceso no
+              es solo más cómodo: se asocia a una mejor atención. La evidencia
+              científica muestra que las personas atendidas en centros de mama
+              multidisciplinarios tienden a recibir tratamientos más adecuados
+              y, en varios estudios de gran tamaño, mejores resultados de
+              salud en comparación con la atención dispersa entre
+              profesionales que no trabajan coordinados.
+            </p>
+            <p className="text-text-secondary leading-relaxed mt-4">
+              En concreto, esto se traduce en cosas simples y valiosas: menos
+              vueltas y estudios repetidos, tiempos de diagnóstico más cortos,
+              decisiones tomadas en conjunto por especialistas que se dedican
+              específicamente a la mama, y un acompañamiento humano en cada
+              etapa. Un equipo pensado para que no tengas que atar los cabos
+              sola.
+            </p>
           </div>
         </div>
       </section>
@@ -225,6 +335,49 @@ export default function UnidadPage() {
               Ver todos los servicios
               <HiArrowRight className="w-4 h-4" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ACREDITACIÓN SAM ===== */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-card rounded-2xl p-8 md:p-10 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-center">
+            <img
+              src="/logo_sam2.svg"
+              alt="Logo Sociedad Argentina de Mastología"
+              className="w-40 h-auto mx-auto md:mx-0"
+            />
+            <div>
+              <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+                Acreditación
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-text-primary mt-2 leading-tight">
+                Unidad de Mastología acreditada por la Sociedad Argentina de
+                Mastología (SAM)
+              </h2>
+              <p className="text-text-secondary leading-relaxed mt-4">
+                A partir de <strong>abril de 2026</strong>, la UCM obtuvo la
+                acreditación como Unidad de Mastología por parte de la
+                Sociedad Argentina de Mastología.
+              </p>
+              <p className="text-text-secondary leading-relaxed mt-4">
+                En la Argentina, las Unidades de Mastología pueden acreditarse
+                ante la SAM, que desde 2015 impulsa un programa para promover
+                y certificar estos equipos en todo el país. La acreditación
+                exige, entre otras cosas, que la reunión multidisciplinaria
+                funcione de manera periódica y documentada, y que los
+                profesionales estén debidamente formados. Es una forma de
+                garantizar que detrás del nombre "Unidad" haya, de verdad, un
+                equipo trabajando de manera coordinada y con estándares
+                actualizados.
+              </p>
+              <p className="text-text-secondary leading-relaxed mt-4">
+                Trabajamos con este modelo porque creemos que la mejor manera
+                de cuidarte es hacerlo entre todos, con criterio actualizado y
+                con vos como protagonista de cada decisión.
+              </p>
+            </div>
           </div>
         </div>
       </section>

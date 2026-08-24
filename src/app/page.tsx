@@ -376,10 +376,10 @@ export default function HomePage() {
 
               <div className="glass rounded-xl p-6 mt-6">
                 <p className="text-lg font-semibold text-violet-deep">
-                  [Dato preventivo validado por el equipo médico]
+                  El control periódico es la principal herramienta de detección temprana de la salud mamaria.
                 </p>
                 <p className="text-sm text-text-secondary mt-2">
-                  Fuente: [Fuente del dato – pendiente de validación]
+                  Consultá con tu médico para definir el esquema adecuado según tu edad y antecedentes.
                 </p>
               </div>
 
@@ -391,9 +391,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-8 md:mt-0">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center">
-                <span className="text-primary/20 text-sm">[Imagen de prevención]</span>
-              </div>
+              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl" />
             </div>
           </div>
 

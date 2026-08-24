@@ -43,8 +43,7 @@ Los controles más frecuentes incluyen la mamografía y la ecografía mamaria. T
 
 La frecuencia de los controles depende de varios factores: tu edad, tus antecedentes personales y familiares, y la evaluación de tu médico tratante. Consultá siempre con un profesional para definir el esquema de seguimiento adecuado para vos.
 
-[Contenido completo pendiente de validación por el equipo médico]
-    `,
+`,
     category: "prevencion",
     date: "2025-03-15",
     image: "/images/placeholder-articulo-prevencion.jpg",
@@ -65,8 +64,7 @@ Un enfoque integral implica que cada paciente es evaluada de manera completa, co
 
 El equipo de UCM trabaja de forma coordinada, compartiendo información y criterios para que cada decisión médica se tome en el marco de una visión multidisciplinaria.
 
-[Contenido completo pendiente de validación por el equipo médico]
-    `,
+`,
     category: "institucional",
     date: "2025-02-20",
     image: "/images/placeholder-articulo-institucional.jpg",
@@ -83,14 +81,11 @@ El diagnóstico por imágenes mamarias ha evolucionado significativamente en los
 
 UCM cuenta con equipamiento de última generación para la realización de mamografías, ecografías y procedimientos intervencionistas.
 
-[Contenido sobre equipamiento específico pendiente de validación]
-
 ## Beneficios para las pacientes
 
 La tecnología actualizada permite estudios más precisos, más cómodos y con resultados más confiables.
 
-[Contenido completo pendiente de validación por el equipo médico]
-    `,
+`,
     category: "tecnologia",
     date: "2025-01-10",
     image: "/images/placeholder-articulo-tecnologia.jpg",

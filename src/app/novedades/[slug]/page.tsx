@@ -113,11 +113,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center mb-10">
-            <span className="text-primary/30 text-sm">
-              [Imagen del artículo]
-            </span>
-          </div>
+          <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl mb-10" />
 
           <ArticleContent content={article.content} />
 

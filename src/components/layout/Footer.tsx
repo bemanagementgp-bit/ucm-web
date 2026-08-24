@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { siteConfig } from "@/data/site";
 import { locations } from "@/data/locations";
@@ -120,8 +121,57 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Acreditaciones y respaldo */}
         <div className="mt-12 pt-8 border-t border-violet-deep/15">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+            <span className="text-xs font-semibold text-violet-deep uppercase tracking-wider">
+              Acreditación y respaldo
+            </span>
+            <div className="flex flex-wrap items-center gap-8">
+              <a
+                href="https://www.samas.org.ar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Unidad de Mastología acreditada por la Sociedad Argentina de Mastología"
+                title="Unidad de Mastología acreditada por la Sociedad Argentina de Mastología (abril 2026)"
+                className="inline-flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src="/logo_sam2.svg"
+                  alt="SAM – Sociedad Argentina de Mastología"
+                  width={158}
+                  height={90}
+                  className="h-12 w-auto"
+                />
+                <span className="text-xs text-text-secondary leading-tight max-w-[10rem]">
+                  Acreditada como Unidad de Mastología por la SAM
+                </span>
+              </a>
+              <a
+                href="https://www.institutomedicoplatense.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Formamos parte del Instituto Médico Platense"
+                title="Formamos parte del Instituto Médico Platense"
+                className="inline-flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src="/logo-imp.png"
+                  alt="Instituto Médico Platense"
+                  width={1080}
+                  height={300}
+                  className="h-8 w-auto"
+                />
+                <span className="text-xs text-text-secondary leading-tight max-w-[10rem]">
+                  Formamos parte del Instituto Médico Platense
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-8 pt-8 border-t border-violet-deep/15">
           <p className="text-xs text-text-secondary leading-relaxed mb-4">
             {siteConfig.medicalDisclaimer}
           </p>

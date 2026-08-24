@@ -4,7 +4,7 @@ Este documento lista toda la información que debe solicitarse al cliente antes 
 
 ## Datos generales de UCM
 
-- [ ] Logo definitivo de UCM (SVG y PNG)
+- [x] Logo definitivo de UCM (SVG y PNG)
 - [ ] Favicon e íconos para manifest (icon-192.png, icon-512.png)
 - [ ] Email general de UCM
 - [ ] Teléfono general de UCM
@@ -12,15 +12,9 @@ Este documento lista toda la información que debe solicitarse al cliente antes 
 
 ## Profesionales
 
-- [ ] Listado completo de profesionales con:
-  - Nombre y apellido
-  - Especialidad
-  - Matrícula (opcional)
-  - Formación académica
-  - Experiencia profesional
-  - Áreas de atención
-  - Sedes donde atiende
-  - Fotografía profesional
+- [ ] Correcciones sobre los datos ya enviados
+- [ ] Datos completos de Dra. Noelia Hobaica (matrícula, formación, experiencia, sedes)
+- [ ] Fotografías profesionales (las saca el equipo UCM)
 
 ## Servicios
 
@@ -28,58 +22,48 @@ Este documento lista toda la información que debe solicitarse al cliente antes 
 - [ ] Descripción validada de cada servicio por el equipo médico
 - [ ] Duración estimada de cada práctica
 - [ ] Preparación previa para cada estudio/procedimiento
+- [x] Regla general de preparación cargada: traer estudios previos + usuarios y contraseñas de portales de otras instituciones
+- [ ] Preparación específica de la ecografía ginecológica (vejiga llena / transvaginal, según indicación)
 - [ ] Preguntas frecuentes validadas
+- [x] Ecografía ginecológica agregada como servicio propio (alta demanda, formato combo con mamaria)
 
 ## Equipamiento
 
-- [ ] Nombre del mamógrafo
-- [ ] Marca y modelo del mamógrafo
-- [ ] Descripción técnica validada
-- [ ] Nombre del ecógrafo
-- [ ] Marca y modelo del ecógrafo
-- [ ] Descripción técnica validada
-- [ ] Otros equipos a incluir
-- [ ] Fotografías del equipamiento
-- [ ] Sede donde se encuentra cada equipo
+- [x] Todo cargado (mamógrafo, ecógrafo, otros equipos, descripciones y sedes)
 
 ## Sedes
 
 ### Instituto Médico Platense
-- [ ] Teléfono de contacto
-- [ ] Número de WhatsApp para turnos de imágenes
-- [ ] Número de WhatsApp para intervencionismo
-- [ ] Email de contacto
+- [x] Teléfono y email de contacto (no se pide, ya está cargado)
+- [x] WhatsApp para turnos de imágenes: 221 568-6141 (mismo para ambas sedes)
+- [x] WhatsApp para intervencionismo, biopsias y marcaciones: 221 668-5972 (mismo para ambas sedes)
 - [ ] Horarios de atención UCM
-- [ ] URL del portal del paciente
+- [x] URL del portal del paciente (único para ambas sedes, ya cargado)
 - [ ] URL del sistema de turnos online
-- [ ] Información de accesibilidad
-- [ ] Fotografías de las instalaciones
+- [x] Información de accesibilidad (no se pide)
+- [x] Fotografías de las instalaciones (no se pide)
 
 ### Centro Médico de Diagnóstico City Bell
-- [ ] Teléfono de contacto
-- [ ] Número de WhatsApp para turnos de imágenes
-- [ ] Número de WhatsApp para intervencionismo
-- [ ] Email de contacto
+- [x] Teléfono y email de contacto (no se pide, ya está cargado)
+- [x] WhatsApp para turnos de imágenes: 221 568-6141 (mismo para ambas sedes)
+- [x] WhatsApp para intervencionismo, biopsias y marcaciones: 221 668-5972 (mismo para ambas sedes)
 - [ ] Horarios de atención UCM
-- [ ] URL del portal del paciente
+- [x] URL del portal del paciente (único para ambas sedes, ya cargado)
 - [ ] URL del sistema de turnos online
-- [ ] Información de accesibilidad
-- [ ] Fotografías de las instalaciones
+- [x] Información de accesibilidad (no se pide)
+- [x] Fotografías de las instalaciones (no se pide)
 
 ## Turnos y canales de contacto
 
-- [ ] Número de WhatsApp para mamografías – IMP
-- [ ] Número de WhatsApp para mamografías – City Bell
-- [ ] Número de WhatsApp para intervencionismo – IMP
-- [ ] Número de WhatsApp para intervencionismo – City Bell
+- [x] WhatsApp para imágenes (mamografía + ecografías) – ambas sedes: 221 568-6141
+- [x] WhatsApp para intervencionismo, biopsias y marcaciones – ambas sedes: 221 668-5972
 - [ ] URL del portal de turnos – IMP
 - [ ] URL del portal de turnos – City Bell
-- [ ] Canal especial para biopsias y marcaciones (si corresponde)
+- [x] Canal biopsias y marcaciones: mismo WhatsApp que intervencionismo
 
-## Portales del paciente
+## Portal del paciente
 
-- [ ] URL Portal del Paciente – Instituto Médico Platense
-- [ ] URL Portal del Paciente – Centro Médico City Bell
+- [x] URL Portal del Paciente (único para IMP y City Bell, ya cargado)
 - [ ] Instrucciones de acceso para pacientes
 
 ## Contenido institucional

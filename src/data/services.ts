@@ -53,7 +53,7 @@ export const services: Service[] = [
     procedure:
       "El estudio se realiza en el mamógrafo, donde se toman imágenes de cada mama en diferentes proyecciones. El procedimiento dura pocos minutos y es realizado por personal técnico especializado.",
     preparation:
-      "No se requiere preparación especial. Se recomienda no aplicar desodorante, talco ni cremas en la zona de las axilas y mamas el día del estudio.",
+      "No se requiere preparación especial. Se recomienda no aplicar desodorante, talco ni cremas en la zona de las axilas y mamas el día del estudio.\n\nTraé tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.",
     duration: "Aproximadamente 15 a 20 minutos.",
     faqs: [
       {
@@ -64,7 +64,7 @@ export const services: Service[] = [
       {
         question: "¿Es dolorosa?",
         answer:
-          "Puede generar una leve molestia por la compresión necesaria para obtener imágenes de calidad, pero dura pocos segundos.",
+          "No duele. Puede generar una leve molestia por la compresión necesaria para obtener imágenes de calidad, pero dura pocos segundos.",
       },
       {
         question: "¿Necesito orden médica?",
@@ -72,8 +72,8 @@ export const services: Service[] = [
           "Sí, es necesario contar con una orden o indicación médica para realizar el estudio.",
       },
     ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-ivana-mileo", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-paula-calaramo"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality", "mamografo-imp"],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-barbara-carloni", "dra-gabriela-tiburzi", "dra-ivana-mileo", "dra-agustina-de-andreis", "dra-milea-clapsos", "dra-guillermina-fernandez", "dra-paula-calaramo", "dra-silvia-ortiz-polanco"],
+    relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
     locations: ["imp", "city-bell"],
     appointmentType: "images",
     image: "/images/placeholder-mamografia.jpg",
@@ -84,14 +84,15 @@ export const services: Service[] = [
     shortDescription:
       "Estudio complementario que permite evaluar el tejido mamario mediante ultrasonido.",
     description:
-      "La ecografía mamaria utiliza ondas de ultrasonido para generar imágenes del tejido mamario. Es un estudio complementario a la mamografía que permite caracterizar lesiones y evaluar zonas específicas.",
+      "La ecografía mamaria utiliza ondas de ultrasonido para generar imágenes del tejido mamario. Es un estudio complementario a la mamografía que permite caracterizar lesiones y evaluar zonas específicas. En UCM también podés sacar el turno en formato combo, que incluye la ecografía ginecológica dentro del mismo chequeo.",
     category: "prevencion-diagnostico",
     icon: "TbWaveSine",
     purpose:
-      "Complementar la evaluación mamográfica, caracterizar lesiones detectadas, evaluar mamas densas y guiar procedimientos intervencionistas.",
+      "Evaluar las mamas de pacientes jóvenes, que aún no tienen indicada la mamografía por la edad. Además, complementa la evaluación mamográfica, caracteriza lesiones detectadas, permite evaluar mamas densas y guiar procedimientos intervencionistas.",
     procedure:
       "Se aplica gel sobre la mama y se desliza un transductor que emite ultrasonido. Las imágenes se visualizan en tiempo real en un monitor.",
-    preparation: "No se requiere preparación especial.",
+    preparation:
+      "No se requiere preparación especial.\n\nTraé tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.",
     duration: "Aproximadamente 15 a 30 minutos.",
     faqs: [
       {
@@ -105,7 +106,41 @@ export const services: Service[] = [
           "Sí, la ecografía utiliza ultrasonido y no emite radiación ionizante.",
       },
     ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-ivana-mileo", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-paula-calaramo"],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-barbara-carloni", "dra-gabriela-tiburzi", "dra-ivana-mileo", "dra-agustina-de-andreis", "dra-milea-clapsos", "dra-guillermina-fernandez", "dra-paula-calaramo", "dra-silvia-ortiz-polanco"],
+    relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70", "ecografo-toshiba-xario-100"],
+    locations: ["imp", "city-bell"],
+    appointmentType: "images",
+    image: "/images/placeholder-ecografia.jpg",
+  },
+  {
+    slug: "ecografia-ginecologica",
+    name: "Ecografía ginecológica",
+    shortDescription:
+      "Estudio de alta demanda dentro del chequeo ginecológico completo.",
+    description:
+      "En UCM realizamos todas las ecografías del chequeo ginecológico, no solamente la mamaria. La ecografía ginecológica evalúa el útero, los ovarios y las estructuras pélvicas mediante ultrasonido y es uno de los estudios de mayor demanda del centro. Podés sacar el turno en formato combo junto con la ecografía mamaria.",
+    category: "prevencion-diagnostico",
+    icon: "TbWaveSine",
+    purpose:
+      "Evaluar el aparato reproductor femenino como parte del chequeo ginecológico de rutina o ante síntomas específicos indicados por el médico.",
+    procedure:
+      "Se realiza mediante ultrasonido. Según la indicación puede ser abdominal o transvaginal.",
+    preparation:
+      "Según la indicación, el estudio puede realizarse por vía abdominal (que en general requiere llegar con vejiga llena) o por vía transvaginal. Coordinamos las indicaciones específicas al momento de reservar el turno.\n\nTraé tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.",
+    duration: "Aproximadamente 15 a 30 minutos.",
+    faqs: [
+      {
+        question: "¿Puedo combinarla con la ecografía mamaria?",
+        answer:
+          "Sí. En UCM ofrecemos el formato combo, que incluye la ecografía mamaria y la ecografía ginecológica dentro del mismo turno.",
+      },
+      {
+        question: "¿Necesito orden médica?",
+        answer:
+          "Sí, es necesario contar con una orden o indicación médica para realizar el estudio.",
+      },
+    ],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-barbara-carloni", "dra-gabriela-tiburzi", "dra-ivana-mileo", "dra-agustina-de-andreis", "dra-milea-clapsos", "dra-guillermina-fernandez", "dra-paula-calaramo", "dra-silvia-ortiz-polanco"],
     relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70", "ecografo-toshiba-xario-100"],
     locations: ["imp", "city-bell"],
     appointmentType: "images",
@@ -125,8 +160,8 @@ export const services: Service[] = [
     procedure:
       "La consulta incluye una entrevista clínica, evaluación de antecedentes, examen físico mamario y análisis de estudios previos. El médico puede solicitar estudios complementarios si lo considera necesario.",
     preparation:
-      "Es recomendable llevar estudios previos (mamografías, ecografías, biopsias) y la orden médica correspondiente.",
-    duration: "[Duración según cada consulta]",
+      "Es recomendable llevar estudios previos (mamografías, ecografías, biopsias).",
+    duration: "La duración se coordina en la consulta según cada caso.",
     faqs: [
       {
         question: "¿Cuándo debo consultar a un mastólogo?",
@@ -146,7 +181,7 @@ export const services: Service[] = [
     shortDescription:
       "Procedimientos mínimamente invasivos guiados por imágenes para diagnóstico y tratamiento.",
     description:
-      "El intervencionismo mamario incluye procedimientos mínimamente invasivos realizados bajo guía de imágenes (ecografía, mamografía o resonancia). Permite obtener muestras de tejido y realizar marcaciones con alta precisión.",
+      "El intervencionismo mamario incluye procedimientos mínimamente invasivos realizados bajo guía de imágenes. Permite obtener muestras de tejido y realizar marcaciones con alta precisión.",
     category: "intervencionismo",
     icon: "TbTargetArrow",
     purpose:
@@ -154,8 +189,8 @@ export const services: Service[] = [
     procedure:
       "Los procedimientos se realizan con anestesia local y guía de imágenes. El tipo de procedimiento depende de las características de la lesión y la indicación médica.",
     preparation:
-      "[Indicaciones específicas según el procedimiento – validar con el equipo médico]",
-    duration: "[Duración variable según el procedimiento]",
+      "Traé tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.\n\nLas indicaciones específicas dependen del procedimiento y te las brinda la secretaría al momento de coordinar el turno.",
+    duration: "Variable según el procedimiento indicado.",
     faqs: [
       {
         question: "¿Es necesaria una internación?",
@@ -165,11 +200,11 @@ export const services: Service[] = [
       {
         question: "¿Cuánto tarda el resultado de la biopsia?",
         answer:
-          "[Plazo a confirmar según el laboratorio de patología]",
+          "El plazo depende del tipo de análisis; el equipo te informa el tiempo estimado al momento del procedimiento.",
       },
     ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-paula-calaramo"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality", "mamografo-imp"],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu"],
+    relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
     locations: ["imp"],
     appointmentType: "interventionism",
     image: "/images/placeholder-intervencionismo.jpg",
@@ -186,10 +221,10 @@ export const services: Service[] = [
     purpose:
       "Determinar la naturaleza de una lesión mamaria detectada en estudios de imágenes.",
     procedure:
-      "Se realiza bajo anestesia local y guía ecográfica o mamográfica. Se obtiene una muestra de tejido que se envía al laboratorio de patología para su análisis.",
+      "Se realiza bajo anestesia local y guía por imágenes. Se obtiene una muestra de tejido que se envía al laboratorio de patología para su análisis. En UCM las biopsias se realizan bajo guía ecográfica.",
     preparation:
-      "[Indicaciones específicas – validar con el equipo médico]",
-    duration: "[Duración variable según el tipo de biopsia]",
+      "Traé la orden médica donde te indican el procedimiento y, si tenés estudios previos realizados en otras instituciones, los usuarios y contraseñas de esos portales para que podamos acceder a ellos.\n\nSeguí las indicaciones que te va a dar la secretaría por WhatsApp respecto de la autorización de las órdenes y casos particulares (alergias, medicación habitual y otras situaciones a considerar).",
+    duration: "Variable según el tipo de biopsia.",
     faqs: [
       {
         question: "¿Es dolorosa?",
@@ -197,8 +232,8 @@ export const services: Service[] = [
           "Se utiliza anestesia local para minimizar las molestias durante el procedimiento.",
       },
     ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-mercedes-skare"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality", "ecografo-edan-acclarix-lx85", "ecografo-esaote-a70"],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu"],
+    relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70"],
     locations: ["imp", "city-bell"],
     appointmentType: "interventionism",
     image: "/images/placeholder-biopsia.jpg",
@@ -215,10 +250,10 @@ export const services: Service[] = [
     purpose:
       "Guiar al cirujano hacia la localización exacta de una lesión no palpable previamente detectada en estudios de imágenes.",
     procedure:
-      "Se realiza con anestesia local y guía de imágenes (ecografía o mamografía). Se coloca un marcador que indica la ubicación exacta de la lesión.",
+      "Se realiza con anestesia local y guía por imágenes. Se coloca un marcador que indica la ubicación exacta de la lesión.",
     preparation:
-      "[Indicaciones específicas – validar con el equipo médico]",
-    duration: "[Duración variable según la técnica utilizada]",
+      "Traé la orden médica donde te indican el procedimiento y, si tenés estudios previos realizados en otras instituciones, los usuarios y contraseñas de esos portales para que podamos acceder a ellos.\n\nSeguí las indicaciones que te va a dar la secretaría por WhatsApp respecto de la autorización de las órdenes y casos particulares (alergias, medicación habitual y otras situaciones a considerar).",
+    duration: "Variable según la técnica utilizada.",
     faqs: [
       {
         question: "¿Cuándo se realiza la marcación?",
@@ -226,8 +261,8 @@ export const services: Service[] = [
           "Generalmente se realiza el mismo día o el día previo a la cirugía, según la indicación del equipo quirúrgico.",
       },
     ],
-    relatedProfessionals: ["dra-natalia-patino"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality", "mamografo-imp"],
+    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu"],
+    relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
     locations: ["imp"],
     appointmentType: "interventionism",
     image: "/images/placeholder-marcacion.jpg",
@@ -247,7 +282,7 @@ export const services: Service[] = [
       "La consulta oncológica incluye evaluación clínica, análisis de estudios y definición del plan de tratamiento en conjunto con el equipo multidisciplinario.",
     preparation:
       "Es importante llevar todos los estudios realizados, informes de biopsias y antecedentes médicos relevantes.",
-    duration: "[Duración según cada consulta]",
+    duration: "La duración se coordina en la consulta según cada caso.",
     faqs: [
       {
         question: "¿Cuándo debo consultar a un oncólogo?",
@@ -275,8 +310,8 @@ export const services: Service[] = [
     procedure:
       "El tipo de cirugía y la técnica dependen de cada caso. El equipo quirúrgico explica el procedimiento en detalle durante la consulta prequirúrgica.",
     preparation:
-      "[Indicaciones prequirúrgicas específicas – validar con el equipo médico]",
-    duration: "[Variable según el procedimiento]",
+      "Las indicaciones prequirúrgicas se detallan en la consulta preoperatoria con el equipo quirúrgico.",
+    duration: "Variable según el procedimiento indicado.",
     faqs: [
       {
         question: "¿Cuánto dura la recuperación?",
@@ -304,8 +339,8 @@ export const services: Service[] = [
     procedure:
       "Las técnicas de reconstrucción se definen en conjunto con la paciente y el equipo quirúrgico, considerando cada situación clínica particular.",
     preparation:
-      "[Indicaciones específicas – validar con el equipo médico]",
-    duration: "[Variable según el procedimiento]",
+      "Las indicaciones específicas se detallan en la consulta con el equipo médico.",
+    duration: "Variable según el procedimiento indicado.",
     faqs: [
       {
         question: "¿Cuándo se puede realizar la reconstrucción?",
@@ -334,7 +369,7 @@ export const services: Service[] = [
       "Incluye una entrevista detallada sobre antecedentes personales y familiares, evaluación de riesgo y, cuando está indicado, derivación para estudios genéticos específicos.",
     preparation:
       "Es importante contar con la mayor información posible sobre antecedentes familiares de enfermedades oncológicas.",
-    duration: "[Duración según cada consulta]",
+    duration: "La duración se coordina en la consulta según cada caso.",
     faqs: [
       {
         question: "¿Quién debería consultar?",
@@ -362,7 +397,7 @@ export const services: Service[] = [
     procedure:
       "Se realizan consultas individuales o familiares, adaptadas a las necesidades de cada persona y cada momento del proceso.",
     preparation: "No se requiere preparación especial.",
-    duration: "[Duración según cada consulta]",
+    duration: "La duración se coordina en la consulta según cada caso.",
     faqs: [
       {
         question: "¿Es solo para pacientes con diagnóstico oncológico?",

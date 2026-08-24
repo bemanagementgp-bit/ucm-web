@@ -17,7 +17,9 @@ export default function TerminosPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary-lightest/50 rounded-2xl border border-primary-light/30 p-8 text-center">
             <p className="text-text-secondary">
-              [Texto de los términos y condiciones – pendiente de redacción legal]
+              Estamos preparando el texto definitivo de nuestros términos y
+              condiciones de uso del sitio. Ante cualquier consulta,
+              contactanos por WhatsApp o mediante el formulario de contacto.
             </p>
           </div>
         </div>

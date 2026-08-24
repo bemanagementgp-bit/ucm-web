@@ -17,7 +17,10 @@ export default function PrivacidadPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary-lightest/50 rounded-2xl border border-primary-light/30 p-8 text-center">
             <p className="text-text-secondary">
-              [Texto de la política de privacidad – pendiente de redacción legal]
+              Estamos trabajando en el texto definitivo de nuestra política
+              de privacidad. Si tenés una consulta puntual sobre el
+              tratamiento de tus datos, escribinos por WhatsApp o a través
+              del formulario de contacto.
             </p>
           </div>
         </div>

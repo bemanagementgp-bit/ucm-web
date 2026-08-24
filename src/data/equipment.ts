@@ -15,17 +15,16 @@ export interface Equipment {
 export const equipment: Equipment[] = [
   {
     slug: "mamografo-fujifilm-amulet-innovality",
-    name: "Mamógrafo digital con tomosíntesis",
+    name: "Mamógrafo digital",
     brand: "Fujifilm",
     model: "Amulet Innovality",
-    technology: "Mamografía digital directa con tomosíntesis 3D",
+    technology: "Mamografía digital directa",
     description:
-      "Mamógrafo digital de última generación con capacidad de tomosíntesis (mamografía 3D). Permite obtener imágenes de alta resolución con menor dosis de radiación, mejorando la detección de lesiones en mamas densas.",
+      "Mamógrafo digital de última generación. Permite obtener imágenes de alta resolución con menor dosis de radiación, mejorando la detección de lesiones en mamas densas.",
     benefits: [
-      "Tomosíntesis 3D para mayor precisión diagnóstica",
       "Baja dosis de radiación",
       "Alta resolución en mamas densas",
-      "Guía para procedimientos intervencionistas",
+      "Guía para marcaciones",
     ],
     relatedStudies: ["mamografia", "intervencionismo-mamario", "biopsias", "marcaciones"],
     locations: ["imp", "city-bell"],
@@ -79,7 +78,7 @@ export const equipment: Equipment[] = [
       "Alta resolución en tejidos blandos",
       "Sin radiación ionizante",
       "Evaluación en tiempo real",
-      "Guía para procedimientos intervencionistas",
+      "Guía para marcaciones",
     ],
     relatedStudies: ["ecografia-mamaria", "biopsias"],
     locations: ["imp"],

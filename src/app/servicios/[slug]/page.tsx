@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   HiArrowRight,
-  HiCheckCircle,
   HiClock,
   HiMapPin,
 } from "react-icons/hi2";
@@ -18,7 +17,7 @@ import { getServiceBySlug, services } from "@/data/services";
 import { getProfessionalBySlug } from "@/data/professionals";
 import { getLocationName } from "@/data/locations";
 import { getEquipmentBySlug } from "@/data/equipment";
-import { siteConfig } from "@/data/site";
+import { appointmentLinks } from "@/data/appointments";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -253,7 +252,7 @@ function ServiceCTA({
   if (service.appointmentType === "images") {
     return (
       <WhatsAppButton
-        href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
+        href={appointmentLinks.images.imp.url}
         external
         size={size}
         className="w-full"
@@ -266,24 +265,29 @@ function ServiceCTA({
 
   if (service.appointmentType === "pathology") {
     return (
-      <PrimaryButton
-        href={siteConfig.patientPortalUrl}
+      <WhatsAppButton
+        href={appointmentLinks.pathology.imp.url}
         external
         size={size}
         className="w-full"
       >
-        Ir al portal del paciente
-        <HiArrowRight className="w-4 h-4" />
-      </PrimaryButton>
+        <FaWhatsapp className="w-5 h-5" />
+        Solicitar turno por WhatsApp
+      </WhatsAppButton>
     );
   }
 
   if (service.appointmentType === "interventionism") {
     return (
-      <PrimaryButton href="/turnos" size={size} className="w-full">
-        Consultar por este procedimiento
-        <HiCheckCircle className="w-4 h-4" />
-      </PrimaryButton>
+      <WhatsAppButton
+        href={appointmentLinks.interventionism.imp.url}
+        external
+        size={size}
+        className="w-full"
+      >
+        <FaWhatsapp className="w-5 h-5" />
+        Consultar por WhatsApp
+      </WhatsAppButton>
     );
   }
 
