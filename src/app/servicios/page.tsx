@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { HiArrowRight } from "react-icons/hi2";
-import { Hero } from "@/components/ui/Hero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SearchInput } from "@/components/ui/SearchInput";
 import { FilterSelect } from "@/components/ui/FilterSelect";
@@ -32,22 +31,12 @@ export default function ServiciosPage() {
 
   return (
     <>
-      <Hero
-        tag="Servicios"
-        title="Servicios especializados en salud mamaria"
-        description="Ofrecemos un abordaje integral que incluye prevención, diagnóstico por imágenes, consultas médicas, intervencionismo, tratamientos y acompañamiento a lo largo de todo el proceso."
-      >
-        <PrimaryButton href="/turnos" size="lg">
-          Solicitar un turno
-        </PrimaryButton>
-      </Hero>
-
-      <section className="py-16 md:py-20">
+      <section className="pt-28 md:pt-32 pb-12 md:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            tag="Explorá"
+            tag="Servicios"
             title="Encontrá el servicio que necesitás"
-            description="Buscá por nombre o filtrá por categoría para conocer el detalle de cada servicio."
+            description="Ofrecemos un abordaje integral: prevención, diagnóstico por imágenes, consultas médicas, intervencionismo, tratamientos y acompañamiento."
           />
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">

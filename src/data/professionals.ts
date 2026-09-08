@@ -14,6 +14,8 @@ export interface Professional {
   practiceNote?: string;
   /** Solo dígitos en formato internacional, ej. "5492216799773". Si existe, el botón de turno abre WhatsApp directo al consultorio. */
   consultationWhatsapp?: string;
+  /** Si true, aparece en el listing pero sin ficha de detalle (no clickeable). */
+  noDetailPage?: boolean;
 }
 
 export const professionals: Professional[] = [
@@ -21,14 +23,14 @@ export const professionals: Professional[] = [
     slug: "dr-aldo-creton",
     name: "Dr. Aldo Miguel Creton",
     specialty: "Mastología",
-    area: "Dirección y cirugía",
+    area: "Mastólogo",
     locations: ["imp", "city-bell"],
     license: "MP 18.089 / MN 80.069",
     education:
-      "Especialista en Cirugía General. Especialista en Mastología. Fellow en Mastología (Instituto Alexander Fleming).",
+      "Especialista en Cirugía General. Especialista en Mastología.",
     experience:
-      "Director de la Unidad de Cuidado Mamario. Jefe de la Unidad de Mastología del IMP. Miembro de la Sociedad Argentina de Mastología.",
-    areasOfCare: ["Mastología", "Cirugía mamaria", "Dirección médica"],
+      "Director de la Unidad de Cuidado Mamario. Miembro de la Sociedad Argentina de Mastología.",
+    areasOfCare: ["Mastología", "Cirugía mamaria"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/placeholder-profesional-1.jpg",
     featured: true,
@@ -270,6 +272,20 @@ export const professionals: Professional[] = [
     practiceNote:
       "Realiza cirugías en el Instituto Médico Platense, pero no atiende consultas en la sede: las consultas se realizan en su consultorio particular.",
     consultationWhatsapp: "5492214947570",
+  },
+  {
+    slug: "dra-maria-bolla",
+    name: "Dra. María Bolla",
+    specialty: "Anatomía Patológica",
+    area: "Diagnóstico",
+    locations: ["imp"],
+    education: "Especialista en Anatomía Patológica.",
+    experience: "Anatomopatóloga de la UCM.",
+    areasOfCare: ["Anatomía patológica mamaria"],
+    relatedServices: [],
+    image: "/images/placeholder-profesional-9.jpg",
+    featured: false,
+    noDetailPage: true,
   },
   {
     slug: "dra-mercedes-skare",

@@ -19,6 +19,8 @@ export interface Service {
   relatedEquipment: string[];
   locations: string[];
   appointmentType: "images" | "pathology" | "interventionism" | "other";
+  /** Override opcional: WhatsApp específico para el CTA de este servicio (solo dígitos, formato internacional). */
+  appointmentWhatsapp?: string;
   /* Placeholder para imagen */
   image: string;
 }
@@ -169,7 +171,7 @@ export const services: Service[] = [
           "Ante cualquier síntoma mamario, resultado anormal en un estudio o como parte de tu control periódico de salud mamaria.",
       },
     ],
-    relatedProfessionals: ["dr-aldo-creton", "dra-valeria-moliner"],
+    relatedProfessionals: ["dr-aldo-creton", "dra-valeria-moliner", "dra-noelia-hobaica"],
     relatedEquipment: [],
     locations: ["imp", "city-bell"],
     appointmentType: "pathology",
@@ -352,6 +354,7 @@ export const services: Service[] = [
     relatedEquipment: [],
     locations: ["imp"],
     appointmentType: "pathology",
+    appointmentWhatsapp: "5492214947570",
     image: "/images/placeholder-cirugia-plastica.jpg",
   },
   {

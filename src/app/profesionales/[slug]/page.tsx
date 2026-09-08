@@ -21,7 +21,9 @@ interface ProfessionalPageProps {
 }
 
 export function generateStaticParams() {
-  return professionals.map((p) => ({ slug: p.slug }));
+  return professionals
+    .filter((p) => !p.noDetailPage)
+    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -46,7 +48,7 @@ export default async function ProfessionalPage({
   const { slug } = await params;
   const professional = getProfessionalBySlug(slug);
 
-  if (!professional) {
+  if (!professional || professional.noDetailPage) {
     notFound();
   }
 
@@ -113,9 +115,6 @@ export default async function ProfessionalPage({
               <h1 className="text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
                 {professional.name}
               </h1>
-              <p className="text-lg text-text-secondary mt-2">
-                {professional.area}
-              </p>
 
               {professional.license && (
                 <p className="text-sm text-text-secondary mt-2">

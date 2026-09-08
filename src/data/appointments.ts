@@ -79,18 +79,13 @@ export const appointmentTypes: { value: AppointmentType; label: string; descript
   },
   {
     value: "pathology",
-    label: "Consulta médica por una patología",
+    label: "Consulta por una patología",
     description: "Consulta con mastólogo, oncólogo u otro especialista.",
   },
   {
     value: "interventionism",
     label: "Biopsia o marcación",
     description: "Procedimientos intervencionistas guiados por imágenes.",
-  },
-  {
-    value: "other",
-    label: "Otra consulta",
-    description: "Consultas generales u otras necesidades.",
   },
 ];
 

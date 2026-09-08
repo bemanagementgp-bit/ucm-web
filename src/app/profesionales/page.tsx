@@ -22,19 +22,33 @@ export default function ProfesionalesPage() {
     label: l.name,
   }));
 
+  // Orden explícito de especialidades para el listado (más generales / más consultadas primero).
+  const specialtyOrder = [
+    "Mastología",
+    "Diagnóstico por Imágenes Mamarias",
+    "Cirugía Plástica y Reconstructiva",
+    "Anatomía Patológica",
+  ];
+
   const filteredProfessionals = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    return professionals.filter((p) => {
-      const matchesQuery =
-        normalizedQuery === "" ||
-        p.name.toLowerCase().includes(normalizedQuery) ||
-        p.specialty.toLowerCase().includes(normalizedQuery) ||
-        p.area.toLowerCase().includes(normalizedQuery);
-      const matchesSpecialty = specialty === "" || p.specialty === specialty;
-      const matchesLocation =
-        location === "" || p.locations.includes(location);
-      return matchesQuery && matchesSpecialty && matchesLocation;
-    });
+    const rankOf = (s: string) => {
+      const i = specialtyOrder.indexOf(s);
+      return i === -1 ? specialtyOrder.length : i;
+    };
+    return professionals
+      .filter((p) => {
+        const matchesQuery =
+          normalizedQuery === "" ||
+          p.name.toLowerCase().includes(normalizedQuery) ||
+          p.specialty.toLowerCase().includes(normalizedQuery) ||
+          p.area.toLowerCase().includes(normalizedQuery);
+        const matchesSpecialty = specialty === "" || p.specialty === specialty;
+        const matchesLocation =
+          location === "" || p.locations.includes(location);
+        return matchesQuery && matchesSpecialty && matchesLocation;
+      })
+      .sort((a, b) => rankOf(a.specialty) - rankOf(b.specialty));
   }, [query, specialty, location]);
 
   return (

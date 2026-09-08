@@ -9,9 +9,13 @@ interface ProfessionalCardProps {
 }
 
 export function ProfessionalCard({ professional, className = "" }: ProfessionalCardProps) {
+  const Wrapper: React.ElementType = professional.noDetailPage ? "div" : Link;
+  const wrapperProps = professional.noDetailPage
+    ? {}
+    : { href: `/profesionales/${professional.slug}` };
   return (
-    <Link
-      href={`/profesionales/${professional.slug}`}
+    <Wrapper
+      {...wrapperProps}
       className={`group flex flex-col h-full glass-card rounded-2xl overflow-hidden ${className}`}
     >
       {/* Placeholder foto */}
@@ -31,18 +35,19 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
         <p className="text-sm text-violet font-medium mt-1">
           {professional.specialty}
         </p>
-        <p className="text-sm text-text-secondary mt-1">{professional.area}</p>
         <div className="flex items-center gap-1 mt-3 text-xs text-text-secondary">
           <HiMapPin className="w-3.5 h-3.5 shrink-0" />
           <span>
             {professional.locations.map((l) => getLocationName(l)).join(" · ")}
           </span>
         </div>
-        <span className="inline-flex items-center gap-1 text-sm font-medium text-violet group-hover:text-primary transition-colors mt-auto pt-4">
-          Ver perfil
-          <HiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </span>
+        {!professional.noDetailPage && (
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-violet group-hover:text-primary transition-colors mt-auto pt-4">
+            Ver perfil
+            <HiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </span>
+        )}
       </div>
-    </Link>
+    </Wrapper>
   );
 }

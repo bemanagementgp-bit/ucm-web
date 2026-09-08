@@ -187,64 +187,60 @@ export default function HomePage() {
       </section>
 
       {/* ===== TECNOLOGÍA Y EQUIPAMIENTO ===== */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-violet-deep/[0.03] to-lavender/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 md:py-14 bg-gradient-to-br from-violet-deep/[0.03] to-lavender/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Equipamiento"
             title="Tecnología que acompaña un diagnóstico preciso"
-            description="Contamos con equipamiento especializado de última generación para ofrecer estudios de la más alta calidad."
           />
 
           {featuredEquipment && (
-            <div className="mt-12 glass-card rounded-2xl overflow-hidden md:grid md:grid-cols-2">
-              <div className="aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
+            <div className="mt-8 glass-card rounded-2xl overflow-hidden md:grid md:grid-cols-[280px_1fr]">
+              <div className="relative aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20">
                 {featuredEquipment.images[0] ? (
                   <Image
                     src={featuredEquipment.images[0]}
                     alt={`${featuredEquipment.brand} ${featuredEquipment.model}`}
                     fill
-                    className="object-contain"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 280px"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <svg className="w-24 h-24 text-violet/15" fill="none" stroke="currentColor" strokeWidth={0.8} viewBox="0 0 24 24">
+                    <svg className="w-16 h-16 text-violet/15" fill="none" stroke="currentColor" strokeWidth={0.8} viewBox="0 0 24 24">
                       <rect x="2" y="3" width="20" height="14" rx="2" />
                       <path d="M8 21h8M12 17v4" />
                     </svg>
                   </div>
                 )}
               </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-text-primary">
+              <div className="p-5">
+                <h3 className="text-base font-bold text-text-primary leading-tight">
                   {featuredEquipment.name}
                 </h3>
-                <p className="text-violet font-medium mt-1">
+                <p className="text-xs text-violet font-medium mt-0.5">
                   {featuredEquipment.brand} – {featuredEquipment.model}
                 </p>
-                <p className="text-text-secondary leading-relaxed mt-4">
-                  {featuredEquipment.description}
-                </p>
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
                   {featuredEquipment.benefits.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                      <HiCheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-center gap-1.5 text-xs text-text-secondary">
+                      <HiCheckCircle className="w-4 h-4 text-primary shrink-0" />
                       {b}
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-text-secondary mt-4">
+                <p className="text-xs text-text-secondary mt-3">
                   Sede: {featuredEquipment.locations.map((locId) => locations.find((l) => l.id === locId)?.institutionName).filter(Boolean).join(" · ")}
                 </p>
+                <div className="mt-4">
+                  <Button href="/unidad#equipamiento" variant="outline" size="sm">
+                    Conocer todo el equipamiento
+                    <HiArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           )}
-
-          <div className="text-center mt-10">
-            <Button href="/unidad#equipamiento" variant="outline">
-              Conocer nuestro equipamiento
-              <HiArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -316,7 +312,7 @@ export default function HomePage() {
                 <HiCalendarDays className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-text-primary">
-                Consulta médica por una patología
+                Consulta por una patología
               </h3>
               <p className="text-text-secondary mt-2">
                 Consultas con mastólogos, oncólogos y otros especialistas de la unidad.
@@ -341,15 +337,14 @@ export default function HomePage() {
       </section>
 
       {/* ===== SEDES ===== */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 md:py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Sedes"
             title="Encontranos en La Plata y City Bell"
-            description="UCM funciona dentro de dos instituciones médicas de referencia en la región."
           />
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {locations.map((loc) => (
               <LocationCard key={loc.id} location={loc} />
             ))}
@@ -358,44 +353,28 @@ export default function HomePage() {
       </section>
 
       {/* ===== PREVENCIÓN ===== */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-            <div>
-              <SectionHeading
-                tag="Prevención"
-                title="La prevención también es parte del cuidado"
-                centered={false}
-              />
-              <p className="text-text-secondary leading-relaxed mt-4">
-                Los controles periódicos, la consulta médica oportuna y la
-                información confiable son herramientas fundamentales para el
-                cuidado de la salud mamaria. Un diagnóstico temprano puede hacer
-                una diferencia significativa.
+      <section className="py-10 md:py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+            <div className="flex-1">
+              <p className="text-xs font-semibold text-primary uppercase tracking-wider">
+                Prevención
               </p>
-
-              <div className="glass rounded-xl p-6 mt-6">
-                <p className="text-lg font-semibold text-violet-deep">
-                  El control periódico es la principal herramienta de detección temprana de la salud mamaria.
-                </p>
-                <p className="text-sm text-text-secondary mt-2">
-                  Consultá con tu médico para definir el esquema adecuado según tu edad y antecedentes.
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <Button href="/novedades#prevencion">
-                  Ver información preventiva
-                  <HiArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
+              <h2 className="text-lg md:text-xl font-bold text-text-primary mt-1 leading-snug">
+                El control periódico es la principal herramienta de detección temprana.
+              </h2>
+              <p className="text-sm text-text-secondary mt-2">
+                Consultá con tu médico para definir el esquema adecuado según tu
+                edad y antecedentes.
+              </p>
             </div>
-            <div className="mt-8 md:mt-0">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl" />
-            </div>
+            <Button href="/novedades#prevencion" className="shrink-0">
+              Ver información preventiva
+              <HiArrowRight className="w-4 h-4" />
+            </Button>
           </div>
 
-          <MedicalDisclaimer className="mt-10" />
+          <MedicalDisclaimer className="mt-6" />
         </div>
       </section>
 

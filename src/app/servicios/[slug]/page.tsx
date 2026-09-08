@@ -249,6 +249,24 @@ function ServiceCTA({
   service: NonNullable<ReturnType<typeof getServiceBySlug>>;
   size?: "sm" | "md" | "lg";
 }) {
+  // Si el servicio define un WhatsApp propio, tiene prioridad sobre el genérico por tipo.
+  if (service.appointmentWhatsapp) {
+    const msg = encodeURIComponent(
+      `Hola, quiero solicitar un turno de ${service.name} en UCM.`,
+    );
+    return (
+      <WhatsAppButton
+        href={`https://wa.me/${service.appointmentWhatsapp}?text=${msg}`}
+        external
+        size={size}
+        className="w-full"
+      >
+        <FaWhatsapp className="w-5 h-5" />
+        Solicitar turno por WhatsApp
+      </WhatsAppButton>
+    );
+  }
+
   if (service.appointmentType === "images") {
     return (
       <WhatsAppButton

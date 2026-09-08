@@ -10,60 +10,47 @@ interface LocationCardProps {
 
 export function LocationCard({ location, className = "" }: LocationCardProps) {
   return (
-    <div
-      className={`glass-card rounded-2xl overflow-hidden ${className}`}
-    >
-      {/* Placeholder imagen */}
-      <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/30 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <HiMapPin className="w-12 h-12 text-primary/30" />
+    <div className={`glass-card rounded-2xl p-5 ${className}`}>
+      <h3 className="text-base font-bold text-text-primary leading-tight">
+        {location.institutionName}
+      </h3>
+      <p className="text-xs text-violet font-medium mt-0.5">{location.name}</p>
+
+      <div className="space-y-1.5 mt-3">
+        <div className="flex items-start gap-2 text-xs text-text-secondary">
+          <HiMapPin className="w-3.5 h-3.5 shrink-0 mt-0.5 text-primary" />
+          <span>{location.address}</span>
+        </div>
+        <div className="flex items-start gap-2 text-xs text-text-secondary">
+          <HiPhone className="w-3.5 h-3.5 shrink-0 mt-0.5 text-primary" />
+          <span>{location.phone}</span>
+        </div>
+        <div className="flex items-start gap-2 text-xs text-text-secondary">
+          <HiClock className="w-3.5 h-3.5 shrink-0 mt-0.5 text-primary" />
+          <span>{location.hours}</span>
         </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-text-primary">
-          {location.institutionName}
-        </h3>
-        <p className="text-sm text-violet font-medium mt-1">{location.name}</p>
 
-        <div className="space-y-2 mt-4">
-          <div className="flex items-start gap-2 text-sm text-text-secondary">
-            <HiMapPin className="w-4 h-4 shrink-0 mt-0.5 text-primary" />
-            <span>{location.address}</span>
-          </div>
-          <div className="flex items-start gap-2 text-sm text-text-secondary">
-            <HiPhone className="w-4 h-4 shrink-0 mt-0.5 text-primary" />
-            <span>{location.phone}</span>
-          </div>
-          <div className="flex items-start gap-2 text-sm text-text-secondary">
-            <HiClock className="w-4 h-4 shrink-0 mt-0.5 text-primary" />
-            <span>{location.hours}</span>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-3 mt-6">
-          <Button href="/turnos" size="sm">
-            Solicitar turno
-          </Button>
-          <Button
-            href={location.mapsUrl}
-            variant="outline"
-            size="sm"
-            external
-            ariaLabel={`Cómo llegar a ${location.institutionName}`}
-          >
-            <HiArrowTopRightOnSquare className="w-4 h-4" />
-            Cómo llegar
-          </Button>
-        </div>
-
-        <div className="mt-4">
-          <Link
-            href="/unidad#sedes"
-            className="text-sm font-medium text-violet hover:text-primary transition-colors"
-          >
-            Ver más información de esta sede →
-          </Link>
-        </div>
+      <div className="flex flex-wrap items-center gap-2 mt-4">
+        <Button href="/turnos" size="sm">
+          Solicitar turno
+        </Button>
+        <Button
+          href={location.mapsUrl}
+          variant="outline"
+          size="sm"
+          external
+          ariaLabel={`Cómo llegar a ${location.institutionName}`}
+        >
+          <HiArrowTopRightOnSquare className="w-3.5 h-3.5" />
+          Cómo llegar
+        </Button>
+        <Link
+          href="/unidad#sedes"
+          className="text-xs font-medium text-violet hover:text-primary transition-colors ml-auto"
+        >
+          Más info →
+        </Link>
       </div>
     </div>
   );
