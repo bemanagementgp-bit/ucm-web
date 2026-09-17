@@ -20,7 +20,7 @@ export function OrganizationJsonLd() {
         name: "UCM – Unidad de Cuidado Mamario",
         description:
           "Unidad de Cuidado Mamario especializada en prevención, diagnóstico, tratamiento y seguimiento de la salud mamaria.",
-        url: "https://ucm-imp.com",
+        url: "https://ucmlaplata.com",
         medicalSpecialty: "Breast health",
         location: [
           {

@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "UCM",
   description:
     "Unidad de Cuidado Mamario. Prevención, diagnóstico, tratamiento y seguimiento especializado de la salud mamaria en La Plata y City Bell.",
-  url: "https://ucm-imp.com",
+  url: "https://ucmlaplata.com",
   patientPortalUrl: "http://impgeclisa.ddns.net:93/#!/login",
   instagram: "https://www.instagram.com/ucmunidad/",
   email: "info@institutomedicoplatense.com",

@@ -3,7 +3,9 @@ import { services } from "@/data/services";
 import { professionals } from "@/data/professionals";
 import { articles } from "@/data/articles";
 
-const BASE_URL = "https://ucm-imp.com";
+const BASE_URL = "https://ucmlaplata.com";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -23,12 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const professionalPages = professionals.map((p) => ({
-    url: `${BASE_URL}/profesionales/${p.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const professionalPages = professionals
+    .filter((p) => !p.noDetailPage)
+    .map((p) => ({
+      url: `${BASE_URL}/profesionales/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
 
   const articlePages = articles.map((a) => ({
     url: `${BASE_URL}/novedades/${a.slug}`,

@@ -18,7 +18,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ucm-imp.com"),
+  metadataBase: new URL("https://ucmlaplata.com"),
   title: {
     default: "UCM – Unidad de Cuidado Mamario | La Plata y City Bell",
     template: "%s | UCM – Unidad de Cuidado Mamario",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_AR",
-    url: "https://ucm-imp.com",
+    url: "https://ucmlaplata.com",
     siteName: "UCM – Unidad de Cuidado Mamario",
     title: "UCM – Unidad de Cuidado Mamario",
     description:
