@@ -52,5 +52,18 @@ export const scaleIn: Variants = {
   visible: { opacity: 1, scale: 1, transition },
 };
 
-/** Margen de viewport usado en los `whileInView`: dispara un poco antes de entrar. */
-export const VIEWPORT = { once: true, amount: 0.2, margin: "0px 0px -10% 0px" } as const;
+/**
+ * Disparo de los `whileInView`.
+ *
+ * `amount: "some"` y no una proporción: pedir que se vea un porcentaje del
+ * elemento es imposible de cumplir cuando el bloque es mucho más alto que la
+ * pantalla. Con una grilla de una sola columna en móviles, un grupo de
+ * ~3900px sobre una pantalla de 844px sólo puede llegar a mostrar el 19% de
+ * sí mismo, por debajo del 20% que se pedía antes: la animación no se
+ * disparaba nunca y el contenido quedaba invisible.
+ *
+ * El margen inferior negativo conserva la idea original: la entrada arranca
+ * cuando el elemento ya está francamente dentro de la pantalla, no apenas
+ * asoma por el borde.
+ */
+export const VIEWPORT = { once: true, amount: "some", margin: "0px 0px -12% 0px" } as const;
