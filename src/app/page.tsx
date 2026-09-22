@@ -6,9 +6,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { Marquee } from "@/components/ui/Marquee";
+import { Carousel } from "@/components/ui/Carousel";
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { QuickAccessCard } from "@/components/cards/QuickAccessCard";
-import { ServiceCard } from "@/components/cards/ServiceCard";
+import { ServiceMediaCard } from "@/components/cards/ServiceMediaCard";
 import { ProfessionalCard } from "@/components/cards/ProfessionalCard";
 import { LocationCard } from "@/components/cards/LocationCard";
 import { ArticleCard } from "@/components/cards/ArticleCard";
@@ -55,34 +56,72 @@ export default function HomePage() {
         </Button>
       </Hero>
 
-      {/* Institutional backing */}
-      <Reveal y={12} className="border-y border-primary-light/20 bg-primary-lightest/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-center text-sm text-text-secondary">
-          Una unidad del{" "}
-          <a
-            href="https://www.institutomedicoplatense.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-violet-deep hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4 decoration-1 hover:decoration-primary"
-          >
-            Instituto Médico Platense
-          </a>{" "}
-          y el{" "}
-          <a
-            href="https://www.cmdcitybell.com.ar/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-violet-deep hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4 decoration-1 hover:decoration-primary"
-          >
-            Centro Médico de Diagnóstico City Bell
-          </a>
-          .
-        </div>
-      </Reveal>
+      {/*
+        ===== RESPIRO =====
+        Sección secundaria entre el hero y la primera sección de contenido:
+        fondo blanco, mucho aire y nada que compita con la foto de arriba.
+      */}
+      <section className="bg-white py-14 md:py-20 overflow-hidden">
+        <Reveal y={12}>
+          <p className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-text-secondary">
+            Una unidad del{" "}
+            <a
+              href="https://www.institutomedicoplatense.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-violet-deep hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4 decoration-1 hover:decoration-primary"
+            >
+              Instituto Médico Platense
+            </a>{" "}
+            y el{" "}
+            <a
+              href="https://www.cmdcitybell.com.ar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-violet-deep hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4 decoration-1 hover:decoration-primary"
+            >
+              Centro Médico de Diagnóstico City Bell
+            </a>
+            .
+          </p>
+        </Reveal>
 
-      {/* ===== CINTA DE SERVICIOS ===== */}
-      <section className="py-10 md:py-14 overflow-hidden">
-        <Marquee items={featuredServices.map((service) => service.name)} />
+        <Marquee
+          items={featuredServices.map((service) => service.name)}
+          className="mt-12 md:mt-16"
+        />
+      </section>
+
+      {/*
+        ===== SERVICIOS =====
+        Primera sección de contenido: tarjetas altas con la imagen a sangre,
+        en una pista horizontal.
+      */}
+      <section className="relative py-20 md:py-28 bg-gradient-brand-soft noise-overlay overflow-hidden">
+        <div className="relative z-[2] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            tag="Servicios"
+            title="Atención especializada en salud mamaria"
+            description="Contamos con un equipo y recursos dedicados a cada etapa del cuidado mamario."
+            centered={false}
+          />
+
+          <Reveal y={32} delay={0.12} className="mt-12">
+            <Carousel
+              label="Servicios destacados"
+              action={
+                <Button href="/servicios" variant="outline">
+                  Ver todos los servicios
+                  <HiArrowRight className="w-4 h-4" />
+                </Button>
+              }
+            >
+              {featuredServices.map((service) => (
+                <ServiceMediaCard key={service.slug} service={service} />
+              ))}
+            </Carousel>
+          </Reveal>
+        </div>
       </section>
 
       {/* ===== ACCESOS RÁPIDOS ===== */}
@@ -171,34 +210,6 @@ export default function HomePage() {
               <HiArrowRight className="w-4 h-4" />
             </Button>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ===== SERVICIOS DESTACADOS ===== */}
-      <section className="relative py-20 md:py-28 bg-gradient-brand-soft noise-overlay overflow-hidden">
-        <div className="relative z-[2] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            tag="Servicios"
-            title="Atención especializada en salud mamaria"
-            description="Contamos con un equipo y recursos dedicados a cada etapa del cuidado mamario."
-            action={
-              <Button href="/servicios" variant="outline">
-                Ver todos los servicios
-                <HiArrowRight className="w-4 h-4" />
-              </Button>
-            }
-          />
-
-          <RevealGroup
-            stagger={0.08}
-            className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {featuredServices.map((service) => (
-              <RevealItem key={service.slug} className="h-full">
-                <ServiceCard service={service} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
         </div>
       </section>
 
