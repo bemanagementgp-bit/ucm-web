@@ -28,15 +28,18 @@ export function ScrollHighlightText({
 
     gsap.fromTo(
       words,
-      { opacity: 0.22 },
+      { opacity: 0.3 },
       {
         opacity: 1,
         ease: "none",
         stagger: 0.4,
         scrollTrigger: {
           trigger: scope,
-          start: "top 78%",
-          end: "bottom 58%",
+          // Termina cuando el párrafo llega al centro de la pantalla: antes se
+          // completaba tan tarde que las últimas palabras nunca se veían
+          // encendidas mientras se lo estaba leyendo.
+          start: "top 92%",
+          end: "center 52%",
           scrub: 0.6,
         },
       }

@@ -42,8 +42,8 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
         <p className="text-sm text-violet font-medium mt-1">
           {professional.specialty}
         </p>
-        <div className="flex items-center gap-1.5 mt-3 text-xs text-text-secondary">
-          <HiMapPin className="w-3.5 h-3.5 shrink-0" />
+        <div className="flex items-start gap-1.5 mt-3 text-xs text-text-secondary">
+          <HiMapPin className="w-3.5 h-3.5 shrink-0 mt-0.5" />
           <span>
             {professional.locations.map((l) => getLocationName(l)).join(" · ")}
           </span>

@@ -56,12 +56,14 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-violet-deep uppercase tracking-wider mb-4">
               Navegación
             </h4>
-            <ul className="space-y-2">
+            {/* `py-1.5` + `inline-block`: agranda el área táctil en móviles,
+                donde el enlace medía apenas 17px de alto. */}
+            <ul className="space-y-0.5">
               {siteConfig.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm hover:text-violet-deep transition-colors"
+                    className="inline-block py-1.5 text-sm hover:text-violet-deep transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -75,12 +77,12 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-violet-deep uppercase tracking-wider mb-4">
               Servicios
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5">
               {siteConfig.footerServices.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm hover:text-violet-deep transition-colors"
+                    className="inline-block py-1.5 text-sm hover:text-violet-deep transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -114,7 +116,7 @@ export function Footer() {
                     href={loc.patientPortalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm hover:text-violet-deep transition-colors"
+                    className="inline-flex items-center gap-1 py-1.5 text-sm hover:text-violet-deep transition-colors"
                   >
                     Portal {loc.city}
                     <HiArrowTopRightOnSquare className="w-3 h-3" />
@@ -179,15 +181,15 @@ export function Footer() {
           <p className="text-xs text-text-secondary leading-relaxed mb-4">
             {siteConfig.medicalDisclaimer}
           </p>
-          <div className="flex flex-wrap items-center gap-4 text-xs text-text-secondary">
-            <span>© {new Date().getFullYear()} UCM – Unidad de Cuidado Mamario</span>
-            <Link href="/privacidad" className="hover:text-violet-deep transition-colors">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-secondary">
+            <span className="py-1.5">© {new Date().getFullYear()} UCM – Unidad de Cuidado Mamario</span>
+            <Link href="/privacidad" className="py-1.5 hover:text-violet-deep transition-colors">
               Política de privacidad
             </Link>
-            <Link href="/terminos" className="hover:text-violet-deep transition-colors">
+            <Link href="/terminos" className="py-1.5 hover:text-violet-deep transition-colors">
               Términos
             </Link>
-            <Link href="/aviso-legal" className="hover:text-violet-deep transition-colors">
+            <Link href="/aviso-legal" className="py-1.5 hover:text-violet-deep transition-colors">
               Aviso legal
             </Link>
           </div>

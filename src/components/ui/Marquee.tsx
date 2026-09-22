@@ -61,7 +61,12 @@ export function Marquee({ items, duration = 38, className = "" }: MarqueeProps) 
       <div data-track className="flex w-max items-center will-change-transform">
         {loop.map((item, i) => (
           <div key={`${item}-${i}`} className="flex items-center shrink-0">
-            <span className="px-6 md:px-9 text-3xl md:text-5xl lg:text-[3.5rem] font-bold text-violet-deep/70 tracking-[-0.02em] whitespace-nowrap">
+            {/*
+              `leading-[1.3]` es necesario: las escalas grandes de Tailwind
+              traen `line-height: 1`, y con el recorte de la cinta eso cortaba
+              las colas de la g y la y.
+            */}
+            <span className="px-6 md:px-9 text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.3] font-bold text-violet-deep/70 tracking-[-0.02em] whitespace-nowrap">
               {item}
             </span>
             <Image
