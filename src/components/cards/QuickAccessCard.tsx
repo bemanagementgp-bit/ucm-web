@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { HiArrowRight } from "react-icons/hi2";
 import { type ReactNode } from "react";
+import { ArrowCircle } from "@/components/ui/ArrowCircle";
 
 interface QuickAccessCardProps {
   icon: ReactNode;
@@ -23,18 +23,18 @@ export function QuickAccessCard({
     <Link
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`group flex items-start gap-4 glass-card rounded-2xl p-5 ${className}`}
+      className={`group flex items-center gap-4 glass-card rounded-3xl p-5 sm:p-6 ${className}`}
     >
-      <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-light transition-colors">
+      <div className="w-12 h-12 bg-primary-lightest rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-primary-light group-hover:scale-105">
         <div className="w-6 h-6 text-primary">{icon}</div>
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-text-primary group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-text-secondary mt-1">{description}</p>
+        <p className="text-sm text-text-secondary mt-1 text-pretty">{description}</p>
       </div>
-      <HiArrowRight className="w-5 h-5 text-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+      <ArrowCircle />
     </Link>
   );
 }

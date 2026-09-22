@@ -14,6 +14,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { locations } from "@/data/locations";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/site";
 import { appointmentTypes } from "@/data/appointments";
 
@@ -112,10 +113,12 @@ export default function ContactoPage() {
                 centered={false}
               />
 
-              {locations.map((location) => (
-                <div
+              {locations.map((location, index) => (
+                <Reveal
                   key={location.id}
-                  className="glass-card rounded-2xl p-6"
+                  y={22}
+                  delay={index * 0.1}
+                  className="glass-card rounded-3xl p-6"
                 >
                   <h3 className="font-semibold text-text-primary">
                     {location.name}
@@ -146,7 +149,7 @@ export default function ContactoPage() {
                       <span>{location.hours}</span>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
 
               <a
@@ -164,7 +167,7 @@ export default function ContactoPage() {
 
             {/* Columna formulario */}
             <div className="lg:col-span-3">
-              <div className="glass-card rounded-2xl p-6 sm:p-8">
+              <Reveal y={28} delay={0.12} className="glass-card rounded-3xl p-6 sm:p-8 block">
                 <SectionHeading
                   tag="Formulario"
                   title="Envianos tu consulta"
@@ -339,7 +342,7 @@ export default function ContactoPage() {
                     Enviar mensaje
                   </Button>
                 </form>
-              </div>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -353,13 +356,13 @@ export default function ContactoPage() {
             title="Ubicación de nuestras sedes"
           />
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <RevealGroup stagger={0.12} className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             {locations.map((location) => (
-              <div key={location.id}>
+              <RevealItem key={location.id}>
                 <h3 className="font-semibold text-text-primary mb-3">
                   {location.name}
                 </h3>
-                <div className="aspect-video rounded-2xl overflow-hidden border border-primary-light/30 bg-white">
+                <div className="aspect-video rounded-3xl overflow-hidden border border-primary-light/30 bg-white shadow-lg shadow-violet-deep/5">
                   <iframe
                     src={location.mapsEmbed}
                     title={`Mapa de ${location.name}`}
@@ -368,9 +371,9 @@ export default function ContactoPage() {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { HiArrowRight } from "react-icons/hi2";
 import type { Article } from "@/data/articles";
 import { articleCategories } from "@/data/articles";
+import { ArrowCircle } from "@/components/ui/ArrowCircle";
 
 interface ArticleCardProps {
   article: Article;
@@ -22,28 +22,35 @@ export function ArticleCard({ article, className = "" }: ArticleCardProps) {
   return (
     <Link
       href={`/novedades/${article.slug}`}
-      className={`group block glass-card rounded-2xl overflow-hidden ${className}`}
+      className={`group flex flex-col h-full glass-card rounded-3xl p-2.5 ${className}`}
     >
       {/* Placeholder imagen */}
-      <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 relative">
-        <div className="absolute top-4 left-4">
-          <span className="inline-block text-xs font-medium text-violet bg-white/90 px-3 py-1 rounded-full">
+      <div className="card-media relative aspect-[16/10] rounded-[1.15rem] overflow-hidden">
+        <div
+          data-media
+          className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/20"
+        />
+        <div className="absolute top-3 left-3 z-10">
+          <span className="inline-block text-[0.7rem] font-semibold text-violet bg-white/90 backdrop-blur px-3 py-1 rounded-full tracking-wide">
             {categoryLabel}
           </span>
         </div>
       </div>
-      <div className="p-5">
-        <time className="text-xs text-text-secondary">{formattedDate}</time>
-        <h3 className="text-lg font-semibold text-text-primary mt-2 group-hover:text-primary transition-colors leading-snug">
+
+      <div className="flex flex-col flex-1 p-4 pt-5">
+        <time className="text-xs text-text-secondary tracking-wide">{formattedDate}</time>
+        <h3 className="text-lg font-semibold text-text-primary mt-2 group-hover:text-primary transition-colors leading-snug text-balance">
           {article.title}
         </h3>
         <p className="text-sm text-text-secondary leading-relaxed mt-2 line-clamp-2">
           {article.excerpt}
         </p>
-        <span className="inline-flex items-center gap-1 text-sm font-medium text-violet group-hover:text-primary transition-colors mt-4">
-          Leer más
-          <HiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </span>
+        <div className="mt-auto pt-5 flex items-center justify-between gap-3">
+          <span className="text-sm font-medium text-violet group-hover:text-primary transition-colors">
+            Leer más
+          </span>
+          <ArrowCircle size="sm" />
+        </div>
       </div>
     </Link>
   );

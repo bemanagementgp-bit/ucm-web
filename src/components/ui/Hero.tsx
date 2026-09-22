@@ -1,5 +1,9 @@
 import Image from "next/image";
 import { type ReactNode } from "react";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitReveal } from "@/components/motion/SplitReveal";
+import { SpinningFlower } from "@/components/motion/SpinningFlower";
+import { Parallax } from "@/components/motion/Parallax";
 
 interface HeroProps {
   tag?: string;
@@ -10,6 +14,24 @@ interface HeroProps {
   image?: string;
   imageAlt?: string;
   className?: string;
+}
+
+/** Halos de color difuminados que dan profundidad al fondo. */
+function Glows({ variant }: { variant: "home" | "page" }) {
+  return (
+    <>
+      <div
+        className="absolute -top-24 right-0 w-[36rem] h-[36rem] bg-primary-light/25 rounded-full blur-[120px] pointer-events-none"
+        aria-hidden="true"
+      />
+      {variant === "home" && (
+        <div
+          className="absolute top-1/3 -left-24 w-96 h-96 bg-lavender/20 rounded-full blur-[110px] pointer-events-none"
+          aria-hidden="true"
+        />
+      )}
+    </>
+  );
 }
 
 export function Hero({
@@ -25,53 +47,73 @@ export function Hero({
   if (variant === "home") {
     return (
       <section className={`relative overflow-hidden ${className}`}>
-        {/* Detalle de fondo: brillos sutiles en tonos de marca */}
-        <div className="absolute -top-24 right-0 w-[36rem] h-[36rem] bg-primary-light/25 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/3 -left-24 w-96 h-96 bg-lavender/20 rounded-full blur-[110px] pointer-events-none" />
-        {/* Flor decorativa giratoria */}
-        <Image
-          src="/elemento-flor.svg"
-          alt=""
-          aria-hidden="true"
-          width={800}
-          height={800}
-          className="absolute -bottom-40 -right-40 w-[36rem] lg:w-[44rem] h-auto opacity-60 animate-spin-slow pointer-events-none select-none"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className={`${image ? "md:grid md:grid-cols-2 md:gap-12 md:items-center" : ""}`}>
+        <Glows variant="home" />
+
+        {/* Flor decorativa: giro continuo + leve deriva con el scroll. */}
+        <SpinningFlower className="absolute -bottom-40 -right-40 w-[36rem] lg:w-[44rem] opacity-60" />
+
+        <div className="hairline absolute inset-x-0 bottom-0" aria-hidden="true" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-20 md:pt-44 md:pb-28">
+          <div
+            className={
+              image ? "md:grid md:grid-cols-[1.05fr_1fr] md:gap-14 md:items-center" : ""
+            }
+          >
             <div className={image ? "" : "max-w-3xl"}>
               {tag && (
-                <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-4 bg-violet/10 px-4 py-1.5 rounded-full">
-                  {tag}
-                </span>
+                <Reveal y={16} duration={0.5}>
+                  <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+                    {tag}
+                  </span>
+                </Reveal>
               )}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight">
-                {title}
-              </h1>
+              <SplitReveal
+                as="h1"
+                text={title}
+                immediate
+                delay={0.12}
+                className="mt-6 text-[2.6rem] sm:text-5xl lg:text-[4rem] font-bold text-text-primary leading-[1.04] tracking-[-0.02em] text-balance"
+              />
               {description && (
-                <p className="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-2xl">
-                  {description}
-                </p>
+                <Reveal y={20} delay={0.34}>
+                  <p className="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-2xl text-pretty">
+                    {description}
+                  </p>
+                </Reveal>
               )}
-              {children && <div className="mt-8 flex flex-wrap gap-6">{children}</div>}
+              {children && (
+                <Reveal y={20} delay={0.46}>
+                  <div className="mt-9 flex flex-wrap items-center gap-4">{children}</div>
+                </Reveal>
+              )}
             </div>
+
             {image && (
-              <div className="mt-10 md:mt-0 relative">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-                  {/* Placeholder – reemplazar por fotografía real de UCM */}
-                  <Image
-                    src={image}
-                    alt={imageAlt}
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
+              <Reveal y={40} delay={0.2} duration={0.9} className="mt-12 md:mt-0">
+                <div className="relative">
+                  <Parallax amount={-40} zoom={1.08} className="relative">
+                    <div className="card-media relative aspect-[4/3] rounded-[1.75rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-white/50">
+                      <Image
+                        src={image}
+                        alt={imageAlt}
+                        fill
+                        className="object-cover"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </Parallax>
+                  <div
+                    className="absolute -bottom-6 -left-6 w-28 h-28 bg-primary-light/40 rounded-full blur-2xl pointer-events-none"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute -top-6 -right-6 w-36 h-36 bg-lavender/30 rounded-full blur-2xl pointer-events-none"
+                    aria-hidden="true"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-light/40 rounded-full blur-2xl" />
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-lavender/30 rounded-full blur-2xl" />
-              </div>
+              </Reveal>
             )}
           </div>
         </div>
@@ -81,25 +123,37 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${className}`}>
-      {/* Detalle de fondo: brillo sutil en tono de marca */}
-      <div className="absolute -top-20 right-0 w-[32rem] h-[32rem] bg-primary-light/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-32 md:pb-16">
+      <Glows variant="page" />
+      <div className="hairline absolute inset-x-0 bottom-0" aria-hidden="true" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-3xl">
           {tag && (
-            <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-3">
-              {tag}
-            </span>
+            <Reveal y={14} duration={0.5}>
+              <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+                {tag}
+              </span>
+            </Reveal>
           )}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
-            {title}
-          </h1>
+          <SplitReveal
+            as="h1"
+            text={title}
+            immediate
+            delay={0.1}
+            className="mt-5 text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-text-primary leading-[1.06] tracking-[-0.02em] text-balance"
+          />
           {description && (
-            <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-              {description}
-            </p>
+            <Reveal y={18} delay={0.3}>
+              <p className="mt-5 text-lg text-text-secondary leading-relaxed text-pretty">
+                {description}
+              </p>
+            </Reveal>
           )}
-          {children && <div className="mt-8 flex flex-wrap gap-6">{children}</div>}
+          {children && (
+            <Reveal y={18} delay={0.42}>
+              <div className="mt-8 flex flex-wrap items-center gap-4">{children}</div>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

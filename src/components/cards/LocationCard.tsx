@@ -10,7 +10,7 @@ interface LocationCardProps {
 
 export function LocationCard({ location, className = "" }: LocationCardProps) {
   return (
-    <div className={`glass-card rounded-2xl p-5 ${className}`}>
+    <div className={`glass-card rounded-3xl p-5 ${className}`}>
       <h3 className="text-base font-bold text-text-primary leading-tight">
         {location.institutionName}
       </h3>

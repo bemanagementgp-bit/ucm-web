@@ -15,7 +15,7 @@ export default function TerminosPage() {
       />
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary-lightest/50 rounded-2xl border border-primary-light/30 p-8 text-center">
+          <div className="bg-primary-lightest/50 rounded-3xl border border-primary-light/30 p-8 text-center">
             <p className="text-text-secondary">
               Estamos preparando el texto definitivo de nuestros términos y
               condiciones de uso del sitio. Ante cualquier consulta,

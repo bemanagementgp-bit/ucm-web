@@ -15,7 +15,7 @@ export default function AvisoLegalPage() {
       />
       <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary-lightest/50 rounded-2xl border border-primary-light/30 p-8 text-center">
+          <div className="bg-primary-lightest/50 rounded-3xl border border-primary-light/30 p-8 text-center">
             <p className="text-text-secondary">
               Estamos trabajando en la redacción definitiva del aviso legal. La información publicada en este sitio es de carácter general y no reemplaza la consulta con un profesional de la salud.
             </p>

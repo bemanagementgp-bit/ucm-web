@@ -30,7 +30,7 @@ const variants = {
 const sizes = {
   sm: "px-4 py-2 text-sm",
   md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  lg: "px-8 py-4 text-base sm:text-lg",
 };
 
 export function PrimaryButton(props: ButtonProps) {
@@ -57,7 +57,8 @@ export function Button({
   disabled = false,
   ariaLabel,
 }: ButtonProps) {
-  const baseClasses = `inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${variants[variant]} ${sizes[size]} ${className}`;
+  // `rounded-full` + `btn-arrow`: forma de píldora y flecha que acompaña el hover.
+  const baseClasses = `btn-arrow group/btn inline-flex items-center justify-center gap-2 font-medium rounded-full transition-[background-color,box-shadow,color,transform,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     if (external) {

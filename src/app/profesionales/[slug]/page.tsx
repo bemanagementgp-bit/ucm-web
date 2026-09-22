@@ -10,6 +10,8 @@ import {
 } from "react-icons/hi2";
 import { FaWhatsapp } from "react-icons/fa";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitReveal } from "@/components/motion/SplitReveal";
 import { PrimaryButton, Button, WhatsAppButton } from "@/components/ui/Buttons";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { professionals, getProfessionalBySlug } from "@/data/professionals";
@@ -72,7 +74,7 @@ export default async function ProfessionalPage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Foto y datos principales */}
             <div>
-              <div className="aspect-square bg-gradient-to-br from-primary-lightest to-lavender/30 rounded-2xl relative overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-primary-lightest to-lavender/30 rounded-3xl relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
                     <svg
@@ -109,12 +111,18 @@ export default async function ProfessionalPage({
 
             {/* Información */}
             <div className="md:col-span-2">
-              <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-2">
-                {professional.specialty}
-              </span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
-                {professional.name}
-              </h1>
+              <Reveal y={14} duration={0.5}>
+                <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+                  {professional.specialty}
+                </span>
+              </Reveal>
+              <SplitReveal
+                as="h1"
+                text={professional.name}
+                immediate
+                delay={0.1}
+                className="mt-4 text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-text-primary leading-[1.08] tracking-[-0.02em] text-balance"
+              />
 
               {professional.license && (
                 <p className="text-sm text-text-secondary mt-2">
@@ -136,8 +144,8 @@ export default async function ProfessionalPage({
 
               {/* Formación */}
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="glass-card rounded-2xl p-6">
-                  <div className="w-10 h-10 bg-violet/10 rounded-xl flex items-center justify-center mb-4">
+                <div className="glass-card rounded-3xl p-6">
+                  <div className="w-10 h-10 bg-violet/10 rounded-2xl flex items-center justify-center mb-4">
                     <HiAcademicCap className="w-5 h-5 text-violet" />
                   </div>
                   <h2 className="font-semibold text-text-primary mb-2">
@@ -147,8 +155,8 @@ export default async function ProfessionalPage({
                     {professional.education}
                   </p>
                 </div>
-                <div className="glass-card rounded-2xl p-6">
-                  <div className="w-10 h-10 bg-primary-lightest rounded-xl flex items-center justify-center mb-4">
+                <div className="glass-card rounded-3xl p-6">
+                  <div className="w-10 h-10 bg-primary-lightest rounded-2xl flex items-center justify-center mb-4">
                     <HiBriefcase className="w-5 h-5 text-primary" />
                   </div>
                   <h2 className="font-semibold text-text-primary mb-2">
@@ -187,7 +195,7 @@ export default async function ProfessionalPage({
                     Sedes de atención
                   </h2>
                   {professional.practiceNote && (
-                    <div className="flex items-start gap-3 p-4 mb-4 rounded-xl bg-primary-lightest/60 border border-primary-light/40">
+                    <div className="flex items-start gap-3 p-4 mb-4 rounded-2xl bg-primary-lightest/60 border border-primary-light/40">
                       <HiInformationCircle className="w-5 h-5 text-violet shrink-0 mt-0.5" />
                       <p className="text-sm text-text-secondary leading-relaxed">
                         {professional.practiceNote}
@@ -201,7 +209,7 @@ export default async function ProfessionalPage({
                       return (
                         <div
                           key={locId}
-                          className="border border-primary-light/30 rounded-xl p-4"
+                          className="border border-primary-light/30 rounded-2xl p-4"
                         >
                           <p className="font-medium text-text-primary text-sm">
                             {loc.name}

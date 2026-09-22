@@ -90,7 +90,7 @@ export function AppointmentSelector({ className = "" }: AppointmentSelectorProps
 
       {/* Result */}
       {channel && (
-        <div className="bg-white rounded-2xl border-2 border-primary/30 p-6">
+        <div className="bg-white rounded-3xl border-2 border-primary/30 p-6">
           <p className="text-sm text-text-secondary mb-4">
             {channel.type === "whatsapp"
               ? "Vas a ser redirigido a WhatsApp para solicitar tu turno."

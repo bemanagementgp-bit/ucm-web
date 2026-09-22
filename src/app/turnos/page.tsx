@@ -3,6 +3,7 @@ import { HiCalendarDays, HiChatBubbleLeftRight, HiUserGroup } from "react-icons/
 import { Hero } from "@/components/ui/Hero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AppointmentSelector } from "@/components/AppointmentSelector";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Solicitar turno",
@@ -21,7 +22,9 @@ export default function TurnosPage() {
 
       <section className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AppointmentSelector />
+          <Reveal y={28}>
+            <AppointmentSelector />
+          </Reveal>
         </div>
       </section>
 
@@ -33,9 +36,9 @@ export default function TurnosPage() {
             description="Cada institución administra sus propios turnos, por eso te acompañamos hasta el canal correcto según tu necesidad."
           />
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mx-auto mb-4">
+          <RevealGroup stagger={0.12} className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <RevealItem className="glass-card rounded-3xl p-6 text-center h-full">
+              <div className="w-12 h-12 bg-primary-lightest rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <HiCalendarDays className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold text-text-primary">
@@ -45,9 +48,9 @@ export default function TurnosPage() {
                 Estudio por imágenes, consulta médica, procedimiento
                 intervencionista u otra consulta.
               </p>
-            </div>
-            <div className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-violet/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+            </RevealItem>
+            <RevealItem className="glass-card rounded-3xl p-6 text-center h-full">
+              <div className="w-12 h-12 bg-violet/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <HiUserGroup className="w-6 h-6 text-violet" />
               </div>
               <h3 className="font-semibold text-text-primary">
@@ -57,9 +60,9 @@ export default function TurnosPage() {
                 La Plata (Instituto Médico Platense) o City Bell (Centro
                 Médico de Diagnóstico City Bell).
               </p>
-            </div>
-            <div className="glass-card rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+            </RevealItem>
+            <RevealItem className="glass-card rounded-3xl p-6 text-center h-full">
+              <div className="w-12 h-12 bg-[#25D366]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <HiChatBubbleLeftRight className="w-6 h-6 text-[#25D366]" />
               </div>
               <h3 className="font-semibold text-text-primary">
@@ -69,8 +72,8 @@ export default function TurnosPage() {
                 Te derivamos al canal correspondiente: WhatsApp, portal de
                 turnos o contacto telefónico según la institución.
               </p>
-            </div>
-          </div>
+            </RevealItem>
+          </RevealGroup>
 
           <p className="text-sm text-text-secondary text-center mt-10 max-w-2xl mx-auto">
             Los turnos médicos son administrados por cada institución según la

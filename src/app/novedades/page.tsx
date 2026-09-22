@@ -12,6 +12,8 @@ import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { PrimaryButton, Button } from "@/components/ui/Buttons";
 import { ArticleCard } from "@/components/cards/ArticleCard";
+import { CtaPanel } from "@/components/ui/CtaPanel";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { articles } from "@/data/articles";
 
 export const metadata: Metadata = {
@@ -105,11 +107,13 @@ export default function NovedadesPage() {
             className="mb-12"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <RevealGroup stagger={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+              <RevealItem key={article.slug} className="h-full">
+                <ArticleCard article={article} />
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
@@ -122,38 +126,39 @@ export default function NovedadesPage() {
             description="Reunimos información general y educativa para acompañarte en el cuidado de tu salud mamaria. Este contenido no reemplaza una consulta médica ni constituye un diagnóstico."
           />
 
-          <MedicalDisclaimer
-            className="mt-8"
-            text="La información de esta sección tiene fines educativos y de concientización. No constituye un diagnóstico ni una indicación médica personalizada. Ante cualquier duda, consultá con un profesional de UCM."
-          />
+          <Reveal y={16} delay={0.1}>
+            <MedicalDisclaimer
+              className="mt-8"
+              text="La información de esta sección tiene fines educativos y de concientización. No constituye un diagnóstico ni una indicación médica personalizada. Ante cualquier duda, consultá con un profesional de UCM."
+            />
+          </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <RevealGroup stagger={0.08} className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {pilares.map((pilar) => {
               const Icon = pilar.icon;
               return (
-                <div
-                  key={pilar.title}
-                  className="glass-card rounded-2xl p-6"
-                >
-                  <div className="w-12 h-12 bg-primary-lightest rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                <RevealItem key={pilar.title} className="h-full">
+                  <div className="glass-card is-interactive rounded-3xl p-6 h-full">
+                    <div className="w-12 h-12 bg-primary-lightest rounded-2xl flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-text-primary text-balance">{pilar.title}</h3>
+                    <p className="text-sm text-text-secondary mt-2 leading-relaxed text-pretty">
+                      {pilar.description}
+                    </p>
                   </div>
-                  <h3 className="font-semibold text-text-primary">{pilar.title}</h3>
-                  <p className="text-sm text-text-secondary mt-2 leading-relaxed">
-                    {pilar.description}
-                  </p>
-                </div>
+                </RevealItem>
               );
             })}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* ===== CUÁNDO CONSULTAR ===== */}
       <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-            <div>
+          <RevealGroup stagger={0.14} className="md:grid md:grid-cols-2 md:gap-12 items-center">
+            <RevealItem>
               <SectionHeading
                 tag="Señales de atención"
                 title="¿Cuándo es recomendable consultar?"
@@ -175,15 +180,15 @@ export default function NovedadesPage() {
                 Esta información es orientativa y de carácter general. Solo un
                 profesional puede evaluar tu situación particular.
               </p>
-            </div>
-            <div className="mt-8 md:mt-0">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl flex items-center justify-center">
+            </RevealItem>
+            <RevealItem className="mt-8 md:mt-0">
+              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 flex items-center justify-center">
                 <span className="text-primary/30 text-sm">
                   {/* imagen preventiva pendiente */}
                 </span>
               </div>
-            </div>
-          </div>
+            </RevealItem>
+          </RevealGroup>
         </div>
       </section>
 
@@ -196,31 +201,25 @@ export default function NovedadesPage() {
             description="Información general para acompañarte. Ante cualquier duda puntual sobre tu salud, consultá siempre con un profesional."
           />
           <FAQAccordion faqs={faqs} className="mt-10" />
-          <MedicalDisclaimer className="mt-10" />
+          <Reveal y={16}>
+            <MedicalDisclaimer className="mt-10" />
+          </Reveal>
         </div>
       </section>
 
       {/* ===== CTA FINAL ===== */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
-            ¿Tenés dudas sobre tu salud mamaria?
-          </h2>
-          <p className="text-lg text-text-secondary mt-4 leading-relaxed">
-            Ante cualquier duda o cambio que te preocupe, lo mejor es
-            consultar con nuestro equipo de profesionales.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PrimaryButton href="/turnos" size="lg">
-              Solicitar un turno
-            </PrimaryButton>
-            <Button href="/profesionales" variant="outline" size="lg">
-              Conocer al equipo
-            </Button>
-          </div>
-          <MedicalDisclaimer className="mt-10 text-left" />
-        </div>
-      </section>
+      <CtaPanel
+        title="¿Tenés dudas sobre tu salud mamaria?"
+        description="Ante cualquier duda o cambio que te preocupe, lo mejor es consultar con nuestro equipo de profesionales."
+        footer={<MedicalDisclaimer className="mt-10 text-left" />}
+      >
+        <PrimaryButton href="/turnos" size="lg">
+          Solicitar un turno
+        </PrimaryButton>
+        <Button href="/profesionales" variant="outline" size="lg">
+          Conocer al equipo
+        </Button>
+      </CtaPanel>
     </>
   );
 }

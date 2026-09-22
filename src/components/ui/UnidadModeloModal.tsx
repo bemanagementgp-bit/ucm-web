@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { HiXMark, HiArrowRight } from "react-icons/hi2";
+import { EASE } from "@/lib/motion";
 
 export function UnidadModeloModal() {
   const [open, setOpen] = useState(false);
@@ -23,7 +25,7 @@ export function UnidadModeloModal() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5">
+        <div className="glass-card rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5">
           <div className="flex-1">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider">
               Sobre este modelo de atención
@@ -39,7 +41,7 @@ export function UnidadModeloModal() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary-dark transition-colors shrink-0 cursor-pointer"
+            className="btn-arrow inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary/90 text-white text-sm font-semibold hover:bg-primary shadow-[0_2px_8px_rgba(217,143,168,0.3)] hover:shadow-[0_4px_16px_rgba(217,143,168,0.4)] hover:-translate-y-0.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 cursor-pointer"
           >
             Leer más
             <HiArrowRight className="w-4 h-4" />
@@ -47,18 +49,27 @@ export function UnidadModeloModal() {
         </div>
       </div>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-violet-deep/50 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="unidad-modelo-title"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: EASE.expo }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-violet-deep/50 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="unidad-modelo-title"
+            onClick={() => setOpen(false)}
           >
+            <motion.div
+              initial={{ opacity: 0, y: 32, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.5, ease: EASE.expo }}
+              className="relative bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
             {/* Header sticky */}
             <div className="flex items-center justify-between gap-4 px-6 md:px-8 py-4 border-b border-primary-light/30 shrink-0">
               <h2
@@ -197,10 +208,11 @@ export function UnidadModeloModal() {
                   que no tengas que atar los cabos sola.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

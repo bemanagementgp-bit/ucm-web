@@ -3,14 +3,18 @@ import Image from "next/image";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { siteConfig } from "@/data/site";
 import { locations } from "@/data/locations";
+import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-brand text-text-secondary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+    <footer className="bg-gradient-brand text-text-secondary rounded-t-[2rem] md:rounded-t-[3rem] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 pb-8">
+        <RevealGroup
+          stagger={0.09}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8"
+        >
           {/* Col 1 – Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <RevealItem className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label="UCM – Inicio">
               <span
                 className="block h-10 w-[140px] bg-current text-text-secondary"
@@ -45,10 +49,10 @@ export function Footer() {
               </span>
               @ucmunidad
             </a>
-          </div>
+          </RevealItem>
 
           {/* Col 2 – Nav */}
-          <div>
+          <RevealItem>
             <h4 className="text-sm font-semibold text-violet-deep uppercase tracking-wider mb-4">
               Navegación
             </h4>
@@ -64,10 +68,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </RevealItem>
 
           {/* Col 3 – Services */}
-          <div>
+          <RevealItem>
             <h4 className="text-sm font-semibold text-violet-deep uppercase tracking-wider mb-4">
               Servicios
             </h4>
@@ -83,10 +87,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </RevealItem>
 
           {/* Col 4 – Sedes & portales */}
-          <div>
+          <RevealItem>
             <h4 className="text-sm font-semibold text-violet-deep uppercase tracking-wider mb-4">
               Sedes
             </h4>
@@ -118,8 +122,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
+          </RevealItem>
+        </RevealGroup>
 
         {/* Acreditaciones y respaldo */}
         <div className="mt-12 pt-8 border-t border-violet-deep/15">

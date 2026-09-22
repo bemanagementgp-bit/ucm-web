@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { CtaPanel } from "@/components/ui/CtaPanel";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitReveal } from "@/components/motion/SplitReveal";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { articles, articleCategories, getArticleBySlug } from "@/data/articles";
@@ -98,47 +101,52 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           />
 
           <div className="pb-12 md:pb-16">
-            <span className="inline-block text-xs font-medium text-violet bg-white px-3 py-1 rounded-full">
-              {categoryLabel}
-            </span>
-            <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-text-primary leading-tight">
-              {article.title}
-            </h1>
-            <time className="block mt-4 text-sm text-text-secondary">
-              {formattedDate}
-            </time>
+            <Reveal y={14} duration={0.5}>
+              <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+                {categoryLabel}
+              </span>
+            </Reveal>
+            <SplitReveal
+              as="h1"
+              text={article.title}
+              immediate
+              delay={0.1}
+              className="mt-5 text-3xl sm:text-4xl lg:text-[3rem] font-bold text-text-primary leading-[1.08] tracking-[-0.02em] text-balance"
+            />
+            <Reveal y={14} delay={0.28}>
+              <time className="block mt-5 text-sm text-text-secondary">
+                {formattedDate}
+              </time>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-2xl mb-10" />
+          <Reveal y={28}>
+            <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 mb-10" />
+          </Reveal>
 
           <ArticleContent content={article.content} />
 
-          <MedicalDisclaimer className="mt-12" />
+          <Reveal y={16}>
+            <MedicalDisclaimer className="mt-12" />
+          </Reveal>
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
-            ¿Querés saber más o consultar con nuestro equipo?
-          </h2>
-          <p className="text-text-secondary mt-4 leading-relaxed">
-            Estamos para acompañarte en el cuidado de tu salud mamaria.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PrimaryButton href="/turnos" size="lg">
-              Solicitar un turno
-            </PrimaryButton>
-            <Button href="/novedades" variant="outline" size="lg">
-              Ver más novedades
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaPanel
+        title="¿Querés saber más o consultar con nuestro equipo?"
+        description="Estamos para acompañarte en el cuidado de tu salud mamaria."
+      >
+        <PrimaryButton href="/turnos" size="lg">
+          Solicitar un turno
+        </PrimaryButton>
+        <Button href="/novedades" variant="outline" size="lg">
+          Ver más novedades
+        </Button>
+      </CtaPanel>
     </>
   );
 }

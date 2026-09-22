@@ -8,6 +8,8 @@ import { FilterSelect } from "@/components/ui/FilterSelect";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { ServiceCard } from "@/components/cards/ServiceCard";
+import { CtaPanel } from "@/components/ui/CtaPanel";
+import { Reveal } from "@/components/motion/Reveal";
 import { services, serviceCategories } from "@/data/services";
 
 export default function ServiciosPage() {
@@ -31,7 +33,7 @@ export default function ServiciosPage() {
 
   return (
     <>
-      <section className="pt-28 md:pt-32 pb-12 md:pb-16">
+      <section className="pt-32 md:pt-44 pb-12 md:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Servicios"
@@ -39,7 +41,7 @@ export default function ServiciosPage() {
             description="Ofrecemos un abordaje integral: prevención, diagnóstico por imágenes, consultas médicas, intervencionismo, tratamientos y acompañamiento."
           />
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <Reveal y={18} delay={0.12} className="mt-10 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <SearchInput
               value={query}
               onChange={setQuery}
@@ -56,12 +58,19 @@ export default function ServiciosPage() {
               allLabel="Todas las categorías"
               ariaLabel="Filtrar por categoría"
             />
-          </div>
+          </Reveal>
 
           {filteredServices.length > 0 ? (
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredServices.map((service) => (
-                <ServiceCard key={service.slug} service={service} />
+              {filteredServices.map((service, index) => (
+                <Reveal
+                  key={service.slug}
+                  y={22}
+                  delay={Math.min(index, 8) * 0.05}
+                  className="h-full"
+                >
+                  <ServiceCard service={service} />
+                </Reveal>
               ))}
             </div>
           ) : (
@@ -75,26 +84,18 @@ export default function ServiciosPage() {
       </section>
 
       {/* ===== CTA FINAL ===== */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
-            ¿No sabés qué servicio necesitás?
-          </h2>
-          <p className="text-lg text-text-secondary mt-4 leading-relaxed">
-            Escribinos o consultá con nuestro equipo para orientarte sobre el
-            estudio o la consulta más adecuada para vos.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PrimaryButton href="/turnos" size="lg">
-              Solicitar un turno
-              <HiArrowRight className="w-4 h-4" />
-            </PrimaryButton>
-            <Button href="/contacto" variant="outline" size="lg">
-              Contactar a UCM
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaPanel
+        title="¿No sabés qué servicio necesitás?"
+        description="Escribinos o consultá con nuestro equipo para orientarte sobre el estudio o la consulta más adecuada para vos."
+      >
+        <PrimaryButton href="/turnos" size="lg">
+          Solicitar un turno
+          <HiArrowRight className="w-4 h-4" />
+        </PrimaryButton>
+        <Button href="/contacto" variant="outline" size="lg">
+          Contactar a UCM
+        </Button>
+      </CtaPanel>
     </>
   );
 }

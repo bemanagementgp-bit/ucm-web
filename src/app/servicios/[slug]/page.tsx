@@ -8,9 +8,12 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CtaPanel } from "@/components/ui/CtaPanel";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitReveal } from "@/components/motion/SplitReveal";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
-import { Button, PrimaryButton, WhatsAppButton } from "@/components/ui/Buttons";
+import { PrimaryButton, WhatsAppButton } from "@/components/ui/Buttons";
 import { ProfessionalCard } from "@/components/cards/ProfessionalCard";
 import { EquipmentCard } from "@/components/cards/EquipmentCard";
 import { getServiceBySlug, services } from "@/data/services";
@@ -73,15 +76,23 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {/* ===== ENCABEZADO ===== */}
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block text-sm font-medium text-violet tracking-wide uppercase mb-3">
-            {serviceCategoryLabel(service.category)}
-          </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight max-w-3xl">
-            {service.name}
-          </h1>
-          <p className="mt-4 text-lg text-text-secondary leading-relaxed max-w-2xl">
-            {service.description}
-          </p>
+          <Reveal y={14} duration={0.5}>
+            <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+              {serviceCategoryLabel(service.category)}
+            </span>
+          </Reveal>
+          <SplitReveal
+            as="h1"
+            text={service.name}
+            immediate
+            delay={0.1}
+            className="mt-5 text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-text-primary leading-[1.08] tracking-[-0.02em] max-w-4xl text-balance"
+          />
+          <Reveal y={18} delay={0.28}>
+            <p className="mt-5 text-lg text-text-secondary leading-relaxed max-w-2xl text-pretty">
+              {service.description}
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -129,7 +140,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
             {/* ===== SIDEBAR ===== */}
             <div className="space-y-6">
-              <div className="glass-card rounded-2xl p-6">
+              <div className="glass-card rounded-3xl p-6">
                 <div className="flex items-start gap-3">
                   <HiClock className="w-5 h-5 text-violet shrink-0 mt-0.5" />
                   <div>
@@ -182,11 +193,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
               centered={false}
             />
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              {relatedProfessionals.map((professional) => (
-                <ProfessionalCard
+              {relatedProfessionals.map((professional, index) => (
+                <Reveal
                   key={professional.slug}
-                  professional={professional}
-                />
+                  y={22}
+                  delay={Math.min(index, 8) * 0.06}
+                  className="h-full"
+                >
+                  <ProfessionalCard professional={professional} />
+                </Reveal>
               ))}
             </div>
           </div>
@@ -203,8 +218,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
               centered={false}
             />
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {relatedEquipment.map((item) => (
-                <EquipmentCard key={item.slug} equipment={item} />
+              {relatedEquipment.map((item, index) => (
+                <Reveal key={item.slug} y={22} delay={index * 0.1} className="h-full">
+                  <EquipmentCard equipment={item} className="h-full" />
+                </Reveal>
               ))}
             </div>
           </div>
@@ -212,21 +229,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* ===== CTA FINAL ===== */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
-            ¿Querés realizarte este estudio o consulta?
-          </h2>
-          <p className="text-text-secondary mt-3 leading-relaxed">
-            Contactanos y te ayudamos a coordinar tu turno en la sede que
-            elijas.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <ServiceCTA service={service} size="lg" />
-          </div>
-          <MedicalDisclaimer className="mt-10 text-left" />
-        </div>
-      </section>
+      <CtaPanel
+        title="¿Querés realizarte este estudio o consulta?"
+        description="Contactanos y te ayudamos a coordinar tu turno en la sede que elijas."
+        footer={<MedicalDisclaimer className="mt-10 text-left" />}
+      >
+        <ServiceCTA service={service} size="lg" />
+      </CtaPanel>
     </>
   );
 }

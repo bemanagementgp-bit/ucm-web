@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { HiArrowRight, HiMapPin } from "react-icons/hi2";
+import { HiMapPin } from "react-icons/hi2";
 import type { Equipment } from "@/data/equipment";
 import { getLocationName } from "@/data/locations";
 
@@ -12,9 +11,9 @@ interface EquipmentCardProps {
 export function EquipmentCard({ equipment, className = "" }: EquipmentCardProps) {
   return (
     <div
-      className={`glass-card rounded-2xl overflow-hidden ${className}`}
+      className={`group glass-card rounded-3xl overflow-hidden ${className}`}
     >
-      <div className="aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
+      <div className="card-media aspect-square bg-gradient-to-br from-violet-deep/5 to-lavender/20 relative">
         {equipment.images[0] ? (
           <Image
             src={equipment.images[0]}

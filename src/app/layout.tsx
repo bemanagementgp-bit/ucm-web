@@ -3,6 +3,8 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { MotionProvider } from "@/components/motion/MotionProvider";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import "./globals.css";
 
 const inter = Inter({
@@ -73,10 +75,22 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col text-text-primary">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        {/*
+          Framer Motion serializa el estado inicial de las animaciones
+          (`opacity:0`) en el HTML estático. Sin JavaScript nunca se dispara la
+          transición, así que el contenido quedaría invisible: este respaldo lo
+          deja visible de entrada.
+        */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important;height:auto!important;overflow:visible!important}`}</style>
+        </noscript>
+        <MotionProvider>
+          <ScrollProgress />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppFloat />
+        </MotionProvider>
       </body>
     </html>
   );

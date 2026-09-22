@@ -6,6 +6,7 @@ import { SearchInput } from "@/components/ui/SearchInput";
 import { FilterSelect } from "@/components/ui/FilterSelect";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ProfessionalCard } from "@/components/cards/ProfessionalCard";
+import { Reveal } from "@/components/motion/Reveal";
 import { professionals, getUniqueSpecialties } from "@/data/professionals";
 import { locations } from "@/data/locations";
 
@@ -62,7 +63,7 @@ export default function ProfesionalesPage() {
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Buscador y filtros */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <Reveal y={18} className="flex flex-col sm:flex-row gap-3">
             <SearchInput
               value={query}
               onChange={setQuery}
@@ -83,16 +84,20 @@ export default function ProfesionalesPage() {
               allLabel="Todas las sedes"
               ariaLabel="Filtrar por sede"
             />
-          </div>
+          </Reveal>
 
           {/* Resultados */}
           {filteredProfessionals.length > 0 ? (
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredProfessionals.map((professional) => (
-                <ProfessionalCard
+              {filteredProfessionals.map((professional, index) => (
+                <Reveal
                   key={professional.slug}
-                  professional={professional}
-                />
+                  y={22}
+                  delay={Math.min(index, 8) * 0.05}
+                  className="h-full"
+                >
+                  <ProfessionalCard professional={professional} />
+                </Reveal>
               ))}
             </div>
           ) : (

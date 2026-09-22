@@ -3,71 +3,110 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { motion, useReducedMotion } from "framer-motion";
 import { HiBars3 } from "react-icons/hi2";
 import { Button } from "@/components/ui/Buttons";
+import { EASE } from "@/lib/motion";
 import { siteConfig } from "@/data/site";
 import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
       document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
+    };
   }, [mobileOpen]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
-          scrolled
-            ? "bg-white/50 backdrop-blur-2xl saturate-150 shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_24px_rgba(79,61,101,0.08)] border-white/40 py-3"
-            : "bg-transparent border-transparent py-5"
-        }`}
+      {/* Barra flotante: no toca los bordes, se contrae al hacer scroll. */}
+      <motion.header
+        initial={reduce ? false : { y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: EASE.expo }}
+        className="fixed top-0 left-0 right-0 z-50"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-between" aria-label="Navegación principal">
-            <Link href="/" className="flex items-center shrink-0" aria-label="UCM – Inicio">
-              <Image
-                src="/logo-ucm-nav.png"
-                alt="UCM – Unidad de Cuidado Mamario"
-                width={613}
-                height={202}
-                className="h-7 w-auto lg:h-9"
-                priority
-              />
-            </Link>
+        <motion.div
+          animate={{ paddingTop: scrolled ? 10 : 20, paddingBottom: scrolled ? 10 : 20 }}
+          transition={{ duration: 0.45, ease: EASE.expo }}
+          className="px-3 sm:px-5 lg:px-8"
+        >
+          <motion.div
+            animate={{
+              maxWidth: scrolled ? 1120 : 1280,
+              // Con la página desplazada el contenido pasa por detrás: hace
+              // falta bastante opacidad para que la navegación siga legible.
+              backgroundColor: scrolled
+                ? "rgba(255,255,255,0.93)"
+                : "rgba(255,255,255,0.45)",
+              boxShadow: scrolled
+                ? "0 0 0 1px rgba(255,255,255,0.9) inset, 0 10px 34px rgba(79,61,101,0.14)"
+                : "0 0 0 1px rgba(255,255,255,0.9) inset, 0 6px 24px rgba(79,61,101,0.07)",
+            }}
+            transition={{ duration: 0.45, ease: EASE.expo }}
+            className="nav-pill mx-auto rounded-full px-3 sm:px-4 lg:pl-6 lg:pr-3"
+          >
+            <nav
+              className="flex items-center justify-between gap-4 py-2.5"
+              aria-label="Navegación principal"
+            >
+              <Link
+                href="/"
+                className="flex items-center shrink-0 transition-opacity hover:opacity-80"
+                aria-label="UCM – Inicio"
+              >
+                <Image
+                  src="/logo-ucm-nav.png"
+                  alt="UCM – Unidad de Cuidado Mamario"
+                  width={613}
+                  height={202}
+                  className="h-6 w-auto lg:h-8"
+                  priority
+                />
+              </Link>
 
-            <div className="hidden lg:flex items-center gap-6">
-              <ul className="flex items-center gap-1">
-                {siteConfig.navigation.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="px-3 py-2 text-sm font-medium text-text-primary hover:text-primary rounded-lg hover:bg-primary-lightest transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="hidden lg:flex items-center gap-2">
+                <ul className="flex items-center gap-0.5">
+                  {siteConfig.navigation.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        data-active={isActive(item.href)}
+                        className={`nav-link px-3 py-2 text-sm font-medium rounded-full transition-colors ${
+                          isActive(item.href)
+                            ? "text-primary"
+                            : "text-text-primary hover:text-primary"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <div className="flex items-center gap-3">
+              <div className="hidden lg:flex items-center gap-2 shrink-0">
                 <Button
                   href={siteConfig.patientPortalUrl}
                   external
-                  variant="outline"
+                  variant="ghost"
                   size="sm"
                 >
                   Portal del paciente
@@ -76,19 +115,19 @@ export function Header() {
                   Solicitar turno
                 </Button>
               </div>
-            </div>
 
-            <button
-              type="button"
-              className="lg:hidden p-2 text-text-primary hover:text-primary transition-colors cursor-pointer"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Abrir menú"
-            >
-              <HiBars3 className="w-7 h-7" />
-            </button>
-          </nav>
-        </div>
-      </header>
+              <button
+                type="button"
+                className="lg:hidden p-2 -mr-1 text-text-primary hover:text-primary transition-colors cursor-pointer"
+                onClick={() => setMobileOpen(true)}
+                aria-label="Abrir menú"
+              >
+                <HiBars3 className="w-7 h-7" />
+              </button>
+            </nav>
+          </motion.div>
+        </motion.div>
+      </motion.header>
 
       <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </>
