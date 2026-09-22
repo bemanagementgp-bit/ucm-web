@@ -192,7 +192,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               title="Profesionales que brindan este servicio"
               centered={false}
             />
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {relatedProfessionals.map((professional, index) => (
                 <Reveal
                   key={professional.slug}
