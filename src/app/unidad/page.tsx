@@ -27,7 +27,7 @@ import { getServiceBySlug } from "@/data/services";
 import { getProfessionalBySlug } from "@/data/professionals";
 import { equipment } from "@/data/equipment";
 import { UnidadModeloModal } from "@/components/ui/UnidadModeloModal";
-import { ProcessSteps } from "@/components/ui/ProcessSteps";
+import { StickyJourney } from "@/components/ui/StickyJourney";
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
@@ -221,15 +221,14 @@ export default function UnidadPage() {
             description="Estas son las cinco etapas del recorrido; dentro de cada una brindamos múltiples servicios —consultas, estudios, procedimientos, tratamientos y acompañamiento— coordinados por el mismo equipo."
           />
 
-          <ProcessSteps
-            className="mt-12"
-            steps={journeySteps.map((item, index) => {
+          <StickyJourney
+            className="mt-14"
+            steps={journeySteps.map((item) => {
               const Icon = item.icon;
               return {
-                step: String(index + 1).padStart(2, "0"),
                 label: item.label,
                 desc: item.desc,
-                icon: <Icon className="w-5 h-5 text-primary" />,
+                icon: <Icon className="w-6 h-6 text-primary" />,
               };
             })}
           />
@@ -476,9 +475,9 @@ export default function UnidadPage() {
       {/* ===== EQUIPAMIENTO ===== */}
       <section
         id="equipamiento"
-        className="py-16 md:py-20 bg-gradient-to-br from-violet-deep/[0.03] to-lavender/10 scroll-mt-24"
+        className="relative py-20 md:py-28 bg-gradient-brand-soft noise-overlay overflow-hidden scroll-mt-24"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-[2] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Equipamiento"
             title="Tecnología al servicio del diagnóstico mamario"

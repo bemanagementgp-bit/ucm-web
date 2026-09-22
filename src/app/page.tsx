@@ -5,6 +5,7 @@ import { Hero } from "@/components/ui/Hero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
+import { Marquee } from "@/components/ui/Marquee";
 import { CtaPanel } from "@/components/ui/CtaPanel";
 import { QuickAccessCard } from "@/components/cards/QuickAccessCard";
 import { ServiceCard } from "@/components/cards/ServiceCard";
@@ -49,7 +50,7 @@ export default function HomePage() {
         <PrimaryButton href="/turnos" size="lg">
           Solicitar un turno
         </PrimaryButton>
-        <Button href="/unidad" variant="outline" size="lg">
+        <Button href="/unidad" variant="outlineLight" size="lg">
           Conocer la unidad
         </Button>
       </Hero>
@@ -78,6 +79,11 @@ export default function HomePage() {
           .
         </div>
       </Reveal>
+
+      {/* ===== CINTA DE SERVICIOS ===== */}
+      <section className="py-10 md:py-14 overflow-hidden">
+        <Marquee items={featuredServices.map((service) => service.name)} />
+      </section>
 
       {/* ===== ACCESOS RÁPIDOS ===== */}
       <section className="py-16 md:py-20">
@@ -154,6 +160,7 @@ export default function HomePage() {
             tag="Nuestra unidad"
             title="Un enfoque integral, en un mismo equipo"
             description="UCM reúne profesionales y recursos especializados para abordar la salud mamaria desde distintas disciplinas, acompañando a cada paciente en todo el proceso."
+            highlightDescription
           />
 
           <ProcessSteps steps={journeySteps} className="mt-14" />
@@ -168,8 +175,8 @@ export default function HomePage() {
       </section>
 
       {/* ===== SERVICIOS DESTACADOS ===== */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 md:py-28 bg-gradient-brand-soft noise-overlay overflow-hidden">
+        <div className="relative z-[2] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="Servicios"
             title="Atención especializada en salud mamaria"

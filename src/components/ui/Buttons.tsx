@@ -5,7 +5,7 @@ interface ButtonProps {
   children: ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "whatsapp";
+  variant?: "primary" | "secondary" | "outline" | "outlineLight" | "ghost" | "whatsapp";
   size?: "sm" | "md" | "lg";
   className?: string;
   external?: boolean;
@@ -21,6 +21,9 @@ const variants = {
     "bg-violet/90 text-white hover:bg-violet backdrop-blur-sm shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset,0_2px_8px_rgba(146,120,181,0.3)] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_16px_rgba(146,120,181,0.4)] focus-visible:ring-violet",
   outline:
     "border border-white/50 text-primary bg-white/40 backdrop-blur-sm hover:bg-white/60 shadow-[0_0_0_1px_rgba(255,255,255,0.15)_inset] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.3)_inset,0_4px_12px_rgba(79,61,101,0.08)] focus-visible:ring-primary",
+  // Para apoyar sobre fotos o fondos oscuros: sólo blanco, sin colores nuevos.
+  outlineLight:
+    "border border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white/80 shadow-[0_0_0_1px_rgba(255,255,255,0.1)_inset] focus-visible:ring-white",
   ghost:
     "text-violet-deep hover:bg-white/40 hover:backdrop-blur-sm focus-visible:ring-violet",
   whatsapp:

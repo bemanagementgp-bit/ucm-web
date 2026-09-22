@@ -3,7 +3,7 @@ import { type ReactNode } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
 import { SpinningFlower } from "@/components/motion/SpinningFlower";
-import { Parallax } from "@/components/motion/Parallax";
+import { HeaderThemeSetter } from "@/components/layout/HeaderTheme";
 
 interface HeroProps {
   tag?: string;
@@ -16,21 +16,13 @@ interface HeroProps {
   className?: string;
 }
 
-/** Halos de color difuminados que dan profundidad al fondo. */
-function Glows({ variant }: { variant: "home" | "page" }) {
+/** Halo difuminado que da profundidad al fondo de los heros claros. */
+function Glow() {
   return (
-    <>
-      <div
-        className="absolute -top-24 right-0 w-[36rem] h-[36rem] bg-primary-light/25 rounded-full blur-[120px] pointer-events-none"
-        aria-hidden="true"
-      />
-      {variant === "home" && (
-        <div
-          className="absolute top-1/3 -left-24 w-96 h-96 bg-lavender/20 rounded-full blur-[110px] pointer-events-none"
-          aria-hidden="true"
-        />
-      )}
-    </>
+    <div
+      className="absolute -top-24 right-0 w-[36rem] h-[36rem] bg-primary-light/25 rounded-full blur-[120px] pointer-events-none"
+      aria-hidden="true"
+    />
   );
 }
 
@@ -46,73 +38,76 @@ export function Hero({
 }: HeroProps) {
   if (variant === "home") {
     return (
-      <section className={`relative overflow-hidden ${className}`}>
-        <Glows variant="home" />
+      <section
+        className={`relative flex items-center overflow-hidden min-h-[38rem] md:min-h-[88vh] ${className}`}
+      >
+        {/* Avisa a la barra de navegación que está apoyada sobre una foto. */}
+        <HeaderThemeSetter theme="dark" />
 
-        {/* Flor decorativa: giro continuo + leve deriva con el scroll. */}
-        <SpinningFlower className="absolute -bottom-40 -right-40 w-[36rem] lg:w-[44rem] opacity-60" />
+        {/* Fotografía a sangre */}
+        {image && (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[38%_center] md:object-center"
+          />
+        )}
 
-        <div className="hairline absolute inset-x-0 bottom-0" aria-hidden="true" />
+        {/*
+          Velo de marca: el violeta profundo (#4F3D65) ya está en la paleta, así
+          que oscurece la foto sin introducir un color nuevo. Es más intenso a la
+          izquierda, que es donde se apoya el texto.
+        */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-violet-deep/92 via-violet-deep/60 to-violet-deep/15"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-violet-deep/55 via-transparent to-violet-deep/25"
+          aria-hidden="true"
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-20 md:pt-44 md:pb-28">
-          <div
-            className={
-              image ? "md:grid md:grid-cols-[1.05fr_1fr] md:gap-14 md:items-center" : ""
-            }
-          >
-            <div className={image ? "" : "max-w-3xl"}>
-              {tag && (
-                <Reveal y={16} duration={0.5}>
-                  <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
-                    {tag}
-                  </span>
-                </Reveal>
-              )}
-              <SplitReveal
-                as="h1"
-                text={title}
-                immediate
-                delay={0.12}
-                className="mt-6 text-[2.6rem] sm:text-5xl lg:text-[4rem] font-bold text-text-primary leading-[1.04] tracking-[-0.02em] text-balance"
-              />
-              {description && (
-                <Reveal y={20} delay={0.34}>
-                  <p className="mt-6 text-lg sm:text-xl text-text-secondary leading-relaxed max-w-2xl text-pretty">
-                    {description}
-                  </p>
-                </Reveal>
-              )}
-              {children && (
-                <Reveal y={20} delay={0.46}>
-                  <div className="mt-9 flex flex-wrap items-center gap-4">{children}</div>
-                </Reveal>
-              )}
-            </div>
+        {/*
+          La flor de marca, girando, como pieza de la composición: ocupa el
+          costado derecho, se recorta contra el borde y queda por detrás del
+          titular.
+        */}
+        <SpinningFlower
+          className="absolute top-1/2 -translate-y-1/2 -right-[22%] sm:-right-[14%] md:-right-[7%] w-[26rem] sm:w-[30rem] md:w-[32rem] lg:w-[38rem] opacity-[0.22] md:opacity-[0.32]"
+          duration={55}
+          drift={70}
+        />
 
-            {image && (
-              <Reveal y={40} delay={0.2} duration={0.9} className="mt-12 md:mt-0">
-                <div className="relative">
-                  <Parallax amount={-40} zoom={1.08} className="relative">
-                    <div className="card-media relative aspect-[4/3] rounded-[1.75rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-white/50">
-                      <Image
-                        src={image}
-                        alt={imageAlt}
-                        fill
-                        className="object-cover"
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  </Parallax>
-                  <div
-                    className="absolute -bottom-6 -left-6 w-28 h-28 bg-primary-light/40 rounded-full blur-2xl pointer-events-none"
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="absolute -top-6 -right-6 w-36 h-36 bg-lavender/30 rounded-full blur-2xl pointer-events-none"
-                    aria-hidden="true"
-                  />
-                </div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
+          <div className="max-w-3xl">
+            {tag && (
+              <Reveal y={16} duration={0.5}>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm px-4 py-2 text-xs font-semibold text-white tracking-[0.12em] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true" />
+                  {tag}
+                </span>
+              </Reveal>
+            )}
+            <SplitReveal
+              as="h1"
+              text={title}
+              immediate
+              delay={0.14}
+              className="mt-7 text-[2.75rem] sm:text-6xl lg:text-[4.5rem] font-bold text-white leading-[1.02] tracking-[-0.025em] text-balance drop-shadow-[0_2px_24px_rgba(79,61,101,0.35)]"
+            />
+            {description && (
+              <Reveal y={20} delay={0.36}>
+                <p className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-xl text-pretty">
+                  {description}
+                </p>
+              </Reveal>
+            )}
+            {children && (
+              <Reveal y={20} delay={0.5}>
+                <div className="mt-10 flex flex-wrap items-center gap-4">{children}</div>
               </Reveal>
             )}
           </div>
@@ -123,7 +118,7 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${className}`}>
-      <Glows variant="page" />
+      <Glow />
       <div className="hairline absolute inset-x-0 bottom-0" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-40 md:pb-16">

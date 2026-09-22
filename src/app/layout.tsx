@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { HeaderThemeProvider } from "@/components/layout/HeaderTheme";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import "./globals.css";
@@ -85,11 +86,13 @@ export default function RootLayout({
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important;height:auto!important;overflow:visible!important}`}</style>
         </noscript>
         <MotionProvider>
-          <ScrollProgress />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppFloat />
+          <HeaderThemeProvider>
+            <ScrollProgress />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppFloat />
+          </HeaderThemeProvider>
         </MotionProvider>
       </body>
     </html>
