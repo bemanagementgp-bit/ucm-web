@@ -39,7 +39,9 @@ export function Hero({
   if (variant === "home") {
     return (
       <section
-        className={`relative flex items-center overflow-hidden min-h-[38rem] md:min-h-[88vh] ${className}`}
+        // `100svh`: en móviles descuenta la barra del navegador, así la foto
+        // llega de verdad hasta abajo sin dejar un corte.
+        className={`relative flex items-center overflow-hidden min-h-[100svh] ${className}`}
       >
         {/* Avisa a la barra de navegación que está apoyada sobre una foto. */}
         <HeaderThemeSetter theme="dark" />
@@ -76,7 +78,7 @@ export function Hero({
           titular.
         */}
         <SpinningFlower
-          className="absolute top-1/2 -translate-y-1/2 -right-[22%] sm:-right-[14%] md:-right-[7%] w-[26rem] sm:w-[30rem] md:w-[32rem] lg:w-[38rem] opacity-[0.22] md:opacity-[0.32]"
+          className="absolute -bottom-40 -right-40 sm:-bottom-48 sm:-right-48 w-[36rem] sm:w-[44rem] lg:w-[52rem] opacity-[0.25] md:opacity-[0.35]"
           duration={55}
           drift={70}
         />

@@ -31,7 +31,9 @@ export function SplitReveal({
     const words = scope.querySelectorAll<HTMLElement>("[data-word]");
     if (!words.length) return;
 
-    gsap.set(words, { yPercent: 110, opacity: 0 });
+    // 135 y no 110: la máscara ahora es más alta que la línea (ver abajo), así
+    // que la palabra tiene que arrancar más abajo para quedar realmente oculta.
+    gsap.set(words, { yPercent: 135, opacity: 0 });
     gsap.to(words, {
       yPercent: 0,
       opacity: 1,
@@ -57,7 +59,12 @@ export function SplitReveal({
     <Component ref={scope} className={className}>
       {words.map((word, i) => (
         <Fragment key={`${word}-${i}`}>
-          <span className="inline-block overflow-hidden align-bottom">
+          {/*
+            El recorte se agranda hacia abajo con `pb`, y el `-mb` equivalente
+            devuelve la altura original a la línea. Sin esto, los títulos con
+            interlineado ajustado cortaban las colas de la g, la j y la y.
+          */}
+          <span className="inline-block overflow-hidden align-bottom pb-[0.24em] -mb-[0.24em]">
             <span data-word className="inline-block will-change-transform">
               {word}
             </span>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { HiBars3 } from "react-icons/hi2";
@@ -11,6 +10,52 @@ import { EASE } from "@/lib/motion";
 import { siteConfig } from "@/data/site";
 import { useHeaderTheme } from "./HeaderTheme";
 import { MobileMenu } from "./MobileMenu";
+
+/**
+ * Enlace de navegación con cambio "en rodillo": al pasar el puntero la palabra
+ * sube y entra una copia idéntica desde abajo. La copia es decorativa, así que
+ * los lectores de pantalla leen la etiqueta una sola vez.
+ */
+function NavLink({
+  href,
+  label,
+  active,
+  onDark,
+}: {
+  href: string;
+  label: string;
+  active: boolean;
+  onDark: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      data-active={active}
+      // `inline-flex`: el enlace necesita ser contenedor de bloque para que el
+      // recorte del rodillo se comporte y para que el padding lateral se aplique.
+      className={`nav-link group/link inline-flex items-center px-3 py-2 text-sm font-medium rounded-full transition-colors ${
+        onDark
+          ? "text-white/85 hover:text-white"
+          : active
+            ? "text-primary"
+            : "text-text-primary hover:text-primary"
+      }`}
+    >
+      {/* `leading-[1.7]`: deja aire para que el recorte no coma las colas. */}
+      <span className="relative block overflow-hidden leading-[1.7]">
+        <span className="block transition-transform duration-[420ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/link:-translate-y-full">
+          {label}
+        </span>
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-full block transition-transform duration-[420ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/link:-translate-y-full"
+        >
+          {label}
+        </span>
+      </span>
+    </Link>
+  );
+}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,16 +133,29 @@ export function Header() {
             >
               <Link
                 href="/"
-                className="flex items-center shrink-0 transition-opacity hover:opacity-80"
+                className={`flex items-center shrink-0 transition-opacity hover:opacity-80 ${
+                  onDark ? "text-white" : "text-primary"
+                }`}
                 aria-label="UCM – Inicio"
               >
-                <Image
-                  src={onDark ? "/ucm-logo-blanco.png" : "/logo-ucm-nav.png"}
-                  alt="UCM – Unidad de Cuidado Mamario"
-                  width={613}
-                  height={202}
-                  className="h-6 w-auto lg:h-8"
-                  priority
+                {/*
+                  Se usa el SVG del isologo (flor + UCM, sin la bajada) como
+                  máscara: así toma el color del enlace y queda nítido en
+                  cualquier tamaño, tanto sobre la foto como sobre fondo claro.
+                */}
+                <span
+                  className="block h-9 w-[109px] lg:h-12 lg:w-[145px] bg-current transition-colors duration-500"
+                  style={{
+                    maskImage: "url(/logo-ucm.svg)",
+                    WebkitMaskImage: "url(/logo-ucm.svg)",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskPosition: "left center",
+                    WebkitMaskPosition: "left center",
+                    maskSize: "contain",
+                    WebkitMaskSize: "contain",
+                  }}
+                  aria-hidden="true"
                 />
               </Link>
 
@@ -105,19 +163,12 @@ export function Header() {
                 <ul className="flex items-center gap-0.5">
                   {siteConfig.navigation.map((item) => (
                     <li key={item.href}>
-                      <Link
+                      <NavLink
                         href={item.href}
-                        data-active={isActive(item.href)}
-                        className={`nav-link px-3 py-2 text-sm font-medium rounded-full transition-colors ${
-                          onDark
-                            ? "text-white/85 hover:text-white"
-                            : isActive(item.href)
-                              ? "text-primary"
-                              : "text-text-primary hover:text-primary"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
+                        label={item.label}
+                        active={isActive(item.href)}
+                        onDark={onDark}
+                      />
                     </li>
                   ))}
                 </ul>

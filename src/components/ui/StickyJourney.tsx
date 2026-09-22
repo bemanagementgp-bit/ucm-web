@@ -27,24 +27,50 @@ export function StickyJourney({ steps, className = "" }: StickyJourneyProps) {
   const cardRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const nodes = cardRefs.current.filter(Boolean) as HTMLLIElement[];
-    if (!nodes.length) return;
+    const nodes = () => cardRefs.current.filter(Boolean) as HTMLLIElement[];
+    let frame = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Gana la tarjeta más cercana al centro de la pantalla.
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const index = nodes.indexOf(visible.target as HTMLLIElement);
-        if (index >= 0) setActive(index);
-      },
-      { rootMargin: "-35% 0px -35% 0px", threshold: [0.1, 0.5, 1] }
-    );
+    /*
+      El paso activo es el de la tarjeta cuyo centro queda más cerca de una
+      línea de referencia, un poco por encima del medio de la pantalla.
+      Medirlo así en cada cuadro mantiene la lista en sincronía con el scroll;
+      con un IntersectionObserver el cambio llegaba tarde, porque sólo avisa al
+      cruzar un umbral y no dice cuál de las tarjetas visibles manda.
+    */
+    const measure = () => {
+      frame = 0;
+      const cards = nodes();
+      if (!cards.length) return;
 
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+      const line = window.innerHeight * 0.45;
+      let best = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.top + rect.height / 2 - line);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = index;
+        }
+      });
+
+      setActive((current) => (current === best ? current : best));
+    };
+
+    const onScroll = () => {
+      // Se mide una sola vez por cuadro, no en cada evento de scroll.
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [steps.length]);
 
   return (
