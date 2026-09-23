@@ -15,8 +15,34 @@ import { ScrollTrigger, registerGsap } from "@/lib/gsap";
  */
 let isFirstLoad = true;
 
+/**
+ * Se levanta cuando la navegación viene de atrás/adelante del navegador. En ese
+ * caso NO hay que subir al tope: la persona espera volver justo donde estaba
+ * —por ejemplo, al punto del listado de profesionales desde donde entró a una
+ * ficha— y no tener que bajar todo otra vez para abrir la siguiente.
+ */
+let isBackForward = false;
+let historyTracked = false;
+
 /** Cuánto tiempo se sostiene la página arriba tras navegar, en milisegundos. */
 const PIN_TO_TOP_MS = 300;
+
+/** Margen para bajar la bandera si el `popstate` no deriva en cambio de ruta. */
+const BACK_FORWARD_GRACE_MS = 600;
+
+/** Registra una sola vez el seguimiento de atrás/adelante. */
+function trackHistoryNavigation() {
+  if (historyTracked || typeof window === "undefined") return;
+  historyTracked = true;
+  window.addEventListener("popstate", () => {
+    isBackForward = true;
+    // Red de seguridad: un `popstate` que no cambia de ruta (por ejemplo, sólo
+    // el ancla) no debe dejar la bandera levantada para la próxima navegación.
+    window.setTimeout(() => {
+      isBackForward = false;
+    }, BACK_FORWARD_GRACE_MS);
+  });
+}
 
 /**
  * Fundido de entrada en cada navegación, y vuelta al principio de la página.
@@ -39,11 +65,16 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     registerGsap();
+    trackHistoryNavigation();
 
     const cleanups: (() => void)[] = [];
+    const cameFromHistory = isBackForward;
+    isBackForward = false;
 
     if (isFirstLoad) {
       isFirstLoad = false;
+    } else if (cameFromHistory) {
+      // Atrás/adelante: se deja que el navegador restaure la posición.
     } else if (!window.location.hash) {
       let frame = 0;
       let stopped = false;
