@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CtaPanel } from "@/components/ui/CtaPanel";
@@ -7,6 +8,7 @@ import { SplitReveal } from "@/components/motion/SplitReveal";
 import { Button, PrimaryButton } from "@/components/ui/Buttons";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
 import { articles, articleCategories, getArticleBySlug } from "@/data/articles";
+import { publicFileExists } from "@/lib/publicAssets";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -125,7 +127,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal y={28}>
-            <div className="aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 mb-10" />
+            <div className="relative aspect-video bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 mb-10 overflow-hidden">
+              {publicFileExists(article.image) && (
+                <Image
+                  src={article.image}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 896px) 100vw, 896px"
+                />
+              )}
+            </div>
           </Reveal>
 
           <ArticleContent content={article.content} />

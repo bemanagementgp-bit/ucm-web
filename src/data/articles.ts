@@ -46,7 +46,7 @@ La frecuencia de los controles depende de varios factores: tu edad, tus antecede
 `,
     category: "prevencion",
     date: "2025-03-15",
-    image: "/images/placeholder-articulo-prevencion.jpg",
+    image: "/images/novedades/importancia-controles-periodicos.jpg",
   },
   {
     slug: "ucm-enfoque-integral",

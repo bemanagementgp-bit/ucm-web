@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/data/articles";
 import { articleCategories } from "@/data/articles";
 import { ArrowCircle } from "@/components/ui/ArrowCircle";
+import { publicFileExists } from "@/lib/publicAssets";
 
 interface ArticleCardProps {
   article: Article;
@@ -12,6 +14,8 @@ export function ArticleCard({ article, className = "" }: ArticleCardProps) {
   const categoryLabel =
     articleCategories.find((c) => c.value === article.category)?.label ??
     article.category;
+
+  const hasPhoto = publicFileExists(article.image);
 
   const formattedDate = new Date(article.date).toLocaleDateString("es-AR", {
     year: "numeric",
@@ -24,12 +28,22 @@ export function ArticleCard({ article, className = "" }: ArticleCardProps) {
       href={`/novedades/${article.slug}`}
       className={`group flex flex-col h-full glass-card rounded-3xl p-2.5 ${className}`}
     >
-      {/* Placeholder imagen */}
+      {/* Mientras un artículo no tenga fotografía, va el degradado de marca. */}
       <div className="card-media relative aspect-[16/10] rounded-[1.15rem] overflow-hidden">
-        <div
-          data-media
-          className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/20"
-        />
+        {hasPhoto ? (
+          <Image
+            src={article.image}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <div
+            data-media
+            className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/20"
+          />
+        )}
         <div className="absolute top-3 left-3 z-10">
           <span className="inline-block text-[0.7rem] font-semibold text-violet bg-white/90 backdrop-blur px-3 py-1 rounded-full tracking-wide">
             {categoryLabel}
