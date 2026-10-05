@@ -355,7 +355,7 @@ export const services: Service[] = [
     locations: ["imp"],
     appointmentType: "pathology",
     appointmentWhatsapp: "5492214947570",
-    image: "/images/placeholder-cirugia-plastica.jpg",
+    image: "/images/servicios/cirugia-plastica-reconstructiva.jpg",
   },
   {
     slug: "asesoramiento-genetico",
