@@ -320,15 +320,20 @@ export const professionals: Professional[] = [
     locations: ["imp"],
     license: "MP 114.624 / MN 128.590",
     education:
-      "Especialista Jerarquizada en Cirugía Plástica. Formación en oncoplastia mamaria.",
+      "Especialista Jerarquizada en Cirugía Plástica, Estética y Reparadora. Especialista en Cirugía Plástica y Reconstructiva Infantil y Quemados. Posgrado Universitario en Oncoplastia Mamaria (UCA). Fellowships en el exterior con los profesores Ivo Pitanguy (Río de Janeiro), Felipe Coifmann (Bogotá) y Ergun Kürün (Estambul).",
     experience:
-      "Cirujana plástica de la UCM. Especialista en reconstrucción y oncoplastia mamaria.",
-    areasOfCare: ["Reconstrucción mamaria", "Oncoplastia mamaria", "Cirugía plástica"],
+      "Cirujana plástica y responsable del Área de Cirugía Plástica y Oncoplastia del Instituto Médico Platense. Ex presidenta de la Sociedad de Cirugía Plástica, Estética y Reparadora de La Plata (2023-2025), miembro titular de la Sociedad Argentina de Cirugía Plástica, Estética y Reparadora (SACPER) y de la Federación Iberolatinoamericana de Cirugía Plástica (FILACP). Residencia completa en cirugía general y oncológica en el Centro Oncológico de Excelencia (Fundación Mainetti); residencia completa, jefa de residentes e instructora de residentes en Clínica Juri de Cirugía Plástica. En el Hospital de Niños Sor María Ludovica de La Plata fue médica de planta y responsable del departamento de Patología Mamaria Infanto-Juvenil, y actualmente es médica consultora del Servicio de Cirugía Plástica y Quemados.",
+    areasOfCare: [
+      "Oncoplastia mamaria",
+      "Reconstrucción mamaria",
+      "Cirugía plástica estética y reparadora",
+      "Cirugía plástica y reconstructiva infantil",
+    ],
     relatedServices: ["cirugia-plastica-reconstructiva"],
     image: "/images/profesionales/dra-florencia-calaramo.jpg",
     featured: true,
     practiceNote:
-      "Realiza cirugías en el Instituto Médico Platense, pero no atiende consultas en la sede: las consultas se realizan en su consultorio particular.",
+      "Realiza cirugías en el Instituto Médico Platense, pero no atiende consultas en la sede: las consultas se realizan en su consultorio particular de calle 20 nº 1375 e/ 60 y 61, La Plata.",
     consultationWhatsapp: "5492214947570",
   },
   {

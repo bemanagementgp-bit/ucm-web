@@ -156,7 +156,7 @@ export default async function ProfessionalPage({
               </div>
 
               {/* Formación */}
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
                 <div className="glass-card rounded-3xl p-6">
                   <div className="w-10 h-10 bg-violet/10 rounded-2xl flex items-center justify-center mb-4">
                     <HiAcademicCap className="w-5 h-5 text-violet" />
