@@ -78,7 +78,7 @@ export const services: Service[] = [
     relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
     locations: ["imp", "city-bell"],
     appointmentType: "images",
-    image: "/images/placeholder-mamografia.jpg",
+    image: "/images/servicios/mamografia.jpg",
   },
   {
     slug: "ecografia-mamaria",
@@ -112,7 +112,7 @@ export const services: Service[] = [
     relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70", "ecografo-toshiba-xario-100"],
     locations: ["imp", "city-bell"],
     appointmentType: "images",
-    image: "/images/placeholder-ecografia.jpg",
+    image: "/images/servicios/ecografia-mamaria.jpg",
   },
   {
     slug: "ecografia-ginecologica",
@@ -175,7 +175,7 @@ export const services: Service[] = [
     relatedEquipment: [],
     locations: ["imp", "city-bell"],
     appointmentType: "pathology",
-    image: "/images/placeholder-mastologia.jpg",
+    image: "/images/servicios/mastologia.jpg",
   },
   {
     slug: "intervencionismo-mamario",
@@ -209,7 +209,7 @@ export const services: Service[] = [
     relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
     locations: ["imp"],
     appointmentType: "interventionism",
-    image: "/images/placeholder-intervencionismo.jpg",
+    image: "/images/servicios/intervencionismo-mamario.jpg",
   },
   {
     slug: "biopsias",
@@ -296,7 +296,7 @@ export const services: Service[] = [
     relatedEquipment: [],
     locations: ["imp", "city-bell"],
     appointmentType: "pathology",
-    image: "/images/placeholder-oncologia.jpg",
+    image: "/images/servicios/oncologia-clinica.jpg",
   },
   {
     slug: "cirugia-mamaria",
