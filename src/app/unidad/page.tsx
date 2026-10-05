@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   HiArrowRight,
   HiArrowTopRightOnSquare,
@@ -168,7 +169,18 @@ export default function UnidadPage() {
               </div>
             </div>
             <div className="mt-10 md:mt-0 relative">
-              <div className="relative aspect-[4/3] rounded-[1.75rem] md:rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-primary-lightest to-lavender/30 shadow-2xl shadow-primary/10 ring-1 ring-white/50" />
+              {/* 3:2, el formato propio de la fotografía: recortarla dejaría
+                  fuera a las personas de los extremos. */}
+              <div className="card-media relative aspect-[3/2] rounded-[1.75rem] md:rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-primary-lightest to-lavender/30 shadow-2xl shadow-primary/10 ring-1 ring-white/50">
+                <Image
+                  src="/images/unidad/equipo-ucm.jpg"
+                  alt="Equipo de la Unidad de Cuidado Mamario"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-light/40 rounded-full blur-2xl" />
               <div className="absolute -top-4 -right-4 w-32 h-32 bg-lavender/30 rounded-full blur-2xl" />
             </div>
