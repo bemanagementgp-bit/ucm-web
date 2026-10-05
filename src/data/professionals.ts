@@ -30,8 +30,8 @@ export const professionals: Professional[] = [
     education:
       "Especialista en Cirugía General. Especialista en Mastología.",
     experience:
-      "Director de la Unidad de Cuidado Mamario. Miembro de la Sociedad Argentina de Mastología.",
-    areasOfCare: ["Mastología", "Cirugía mamaria"],
+      "Director de la Unidad de Cuidado Mamario. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología.",
+    areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/profesionales/dr-aldo-creton.jpg",
     featured: true,
@@ -72,8 +72,8 @@ export const professionals: Professional[] = [
     education:
       "Especialista en Cirugía General. Especialista en Mastología.",
     experience:
-      "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica y conservadora.",
-    areasOfCare: ["Mastología", "Cirugía mamaria oncológica"],
+      "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología.",
+    areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/profesionales/dra-valeria-moliner.jpg",
     featured: true,
@@ -85,9 +85,11 @@ export const professionals: Professional[] = [
     specialty: "Mastología",
     area: "Cirugía",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Mastología.",
-    experience: "Médica mastóloga de la UCM.",
-    areasOfCare: ["Mastología", "Cirugía mamaria"],
+    education:
+      "Especialista en Cirugía General. Especialista en Mastología.",
+    experience:
+      "Médica mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología.",
+    areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/profesionales/dra-noelia-hobaica.jpg",
     featured: true,
@@ -206,20 +208,6 @@ export const professionals: Professional[] = [
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
     image: "/images/profesionales/dra-milea-clapsos.jpg",
-    featured: false,
-  },
-  {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
-    slug: "dra-guillermina-fernandez",
-    name: "Dra. Guillermina Fernández",
-    specialty: "Diagnóstico por Imágenes Mamarias",
-    area: "Imágenes",
-    locations: ["imp", "city-bell"],
-    education: "Especialista en Diagnóstico por Imágenes.",
-    experience: "Médica especialista en imágenes mamarias de la UCM.",
-    areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
-    relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "",
     featured: false,
   },
   {
