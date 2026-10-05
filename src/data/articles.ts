@@ -67,7 +67,7 @@ El equipo de UCM trabaja de forma coordinada, compartiendo información y criter
 `,
     category: "institucional",
     date: "2025-02-20",
-    image: "/images/placeholder-articulo-institucional.jpg",
+    image: "/images/novedades/ucm-enfoque-integral.jpg",
   },
   {
     slug: "tecnologia-diagnostico-mamario",
