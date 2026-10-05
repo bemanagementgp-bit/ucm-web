@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   HiArrowRight,
@@ -21,6 +22,7 @@ import { getProfessionalBySlug } from "@/data/professionals";
 import { getLocationName } from "@/data/locations";
 import { getEquipmentBySlug } from "@/data/equipment";
 import { appointmentLinks } from "@/data/appointments";
+import { publicFileExists } from "@/lib/publicAssets";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -62,6 +64,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
     .map((slug) => getEquipmentBySlug(slug))
     .filter((e): e is NonNullable<typeof e> => Boolean(e));
 
+  const hasCover = publicFileExists(service.image);
+
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,26 +77,54 @@ export default async function ServicePage({ params }: ServicePageProps) {
         />
       </div>
 
-      {/* ===== ENCABEZADO ===== */}
+      {/* ===== ENCABEZADO =====
+          Con fotografía el encabezado se abre en dos columnas y la portada del
+          estudio se apoya a la derecha. Los servicios que todavía no tienen
+          imagen conservan el encabezado a una sola columna. */}
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal y={14} duration={0.5}>
-            <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
-              {serviceCategoryLabel(service.category)}
-            </span>
-          </Reveal>
-          <SplitReveal
-            as="h1"
-            text={service.name}
-            immediate
-            delay={0.1}
-            className="mt-5 text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-text-primary leading-[1.08] tracking-[-0.02em] max-w-4xl text-balance"
-          />
-          <Reveal y={18} delay={0.28}>
-            <p className="mt-5 text-lg text-text-secondary leading-relaxed max-w-2xl text-pretty">
-              {service.description}
-            </p>
-          </Reveal>
+          <div
+            className={
+              hasCover
+                ? "grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
+                : undefined
+            }
+          >
+            <div>
+              <Reveal y={14} duration={0.5}>
+                <span className="eyebrow text-xs font-semibold text-violet tracking-[0.12em] uppercase">
+                  {serviceCategoryLabel(service.category)}
+                </span>
+              </Reveal>
+              <SplitReveal
+                as="h1"
+                text={service.name}
+                immediate
+                delay={0.1}
+                className="mt-5 text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-text-primary leading-[1.08] tracking-[-0.02em] max-w-4xl text-balance"
+              />
+              <Reveal y={18} delay={0.28}>
+                <p className="mt-5 text-lg text-text-secondary leading-relaxed max-w-2xl text-pretty">
+                  {service.description}
+                </p>
+              </Reveal>
+            </div>
+
+            {hasCover && (
+              <Reveal y={24} delay={0.34}>
+                <div className="card-media relative aspect-[4/5] sm:aspect-[16/11] lg:aspect-[4/5] rounded-[1.75rem] lg:rounded-[2.25rem] overflow-hidden ring-1 ring-white/50 shadow-xl shadow-primary/10">
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                </div>
+              </Reveal>
+            )}
+          </div>
         </div>
       </section>
 
