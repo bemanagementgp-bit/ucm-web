@@ -118,7 +118,7 @@ export const professionals: Professional[] = [
       "ecografia-mamaria",
       "ecografia-ginecologica",
     ],
-    image: "",
+    image: "/images/profesionales/dra-ivana-mileo.jpg",
     featured: true,
   },
   {
