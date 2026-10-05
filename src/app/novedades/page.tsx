@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   HiCalendarDays,
   HiMagnifyingGlassCircle,
@@ -182,10 +183,14 @@ export default function NovedadesPage() {
               </p>
             </RevealItem>
             <RevealItem className="mt-8 md:mt-0">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 flex items-center justify-center">
-                <span className="text-primary/30 text-sm">
-                  {/* imagen preventiva pendiente */}
-                </span>
+              <div className="card-media relative aspect-[4/3] bg-gradient-to-br from-primary-lightest to-lavender/20 rounded-[1.75rem] md:rounded-[2.5rem] ring-1 ring-white/50 shadow-xl shadow-primary/5 overflow-hidden">
+                <Image
+                  src="/images/novedades/cuando-consultar.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </RevealItem>
           </RevealGroup>
