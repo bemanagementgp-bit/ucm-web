@@ -9,6 +9,7 @@ export interface Professional {
   experience: string;
   areasOfCare: string[];
   relatedServices: string[];
+  /** Ruta del retrato en `public/`. Vacío mientras no haya fotografía cargada. */
   image: string;
   featured: boolean;
   practiceNote?: string;
@@ -32,7 +33,7 @@ export const professionals: Professional[] = [
       "Director de la Unidad de Cuidado Mamario. Miembro de la Sociedad Argentina de Mastología.",
     areasOfCare: ["Mastología", "Cirugía mamaria"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dr-aldo-creton.jpg",
     featured: true,
   },
   {
@@ -58,7 +59,7 @@ export const professionals: Professional[] = [
       "biopsias",
       "marcaciones",
     ],
-    image: "/images/placeholder-profesional-2.jpg",
+    image: "/images/profesionales/dra-natalia-patino.jpg",
     featured: true,
   },
   {
@@ -74,7 +75,7 @@ export const professionals: Professional[] = [
       "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica y conservadora.",
     areasOfCare: ["Mastología", "Cirugía mamaria oncológica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
-    image: "/images/placeholder-profesional-3.jpg",
+    image: "/images/profesionales/dra-valeria-moliner.jpg",
     featured: true,
   },
   {
@@ -88,7 +89,7 @@ export const professionals: Professional[] = [
     experience: "Médica mastóloga de la UCM.",
     areasOfCare: ["Mastología", "Cirugía mamaria"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
-    image: "/images/placeholder-profesional-3.jpg",
+    image: "/images/profesionales/dra-noelia-hobaica.jpg",
     featured: true,
   },
   {
@@ -103,7 +104,7 @@ export const professionals: Professional[] = [
       "Médica especialista en imágenes mamarias de la UCM desde 2023. Ecografía mamaria, mamografía diagnóstica.",
     areasOfCare: ["Mamografía", "Ecografía mamaria"],
     relatedServices: ["mamografia", "ecografia-mamaria"],
-    image: "/images/placeholder-profesional-4.jpg",
+    image: "",
     featured: true,
   },
   {
@@ -119,7 +120,7 @@ export const professionals: Professional[] = [
       "Médica especialista en imágenes mamarias y densitometría de la UCM desde 2020.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Densitometría"],
     relatedServices: ["mamografia", "ecografia-mamaria"],
-    image: "/images/placeholder-profesional-5.jpg",
+    image: "/images/profesionales/dra-fernanda-sisu.jpg",
     featured: true,
   },
   {
@@ -134,7 +135,7 @@ export const professionals: Professional[] = [
       "Médica especialista en imágenes mamarias de la UCM. Desempeño en sedes IMP y CMD City Bell.",
     areasOfCare: ["Mamografía", "Ecografía mamaria"],
     relatedServices: ["mamografia", "ecografia-mamaria"],
-    image: "/images/placeholder-profesional-6.jpg",
+    image: "/images/profesionales/dra-juliana-ciuci.jpg",
     featured: false,
   },
   {
@@ -148,7 +149,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM. Realiza también biopsias y marcaciones.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica", "Intervencionismo mamario"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica", "intervencionismo-mamario", "biopsias", "marcaciones"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dra-laura-miranda.jpg",
     featured: true,
   },
   {
@@ -162,7 +163,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dra-barbara-carloni.jpg",
     featured: false,
   },
   {
@@ -176,7 +177,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dra-gabriela-tiburzi.jpg",
     featured: false,
   },
   {
@@ -190,7 +191,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dra-agustina-de-andreis.jpg",
     featured: false,
   },
   {
@@ -204,7 +205,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "/images/profesionales/dra-milea-clapsos.jpg",
     featured: false,
   },
   {
@@ -218,7 +219,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "",
     featured: false,
   },
   {
@@ -232,7 +233,7 @@ export const professionals: Professional[] = [
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: ["Mamografía", "Ecografía mamaria", "Ecografía ginecológica"],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "/images/placeholder-profesional-1.jpg",
+    image: "",
     featured: false,
   },
   {
@@ -251,7 +252,7 @@ export const professionals: Professional[] = [
       "ecografia-mamaria",
       "intervencionismo-mamario",
     ],
-    image: "/images/placeholder-profesional-7.jpg",
+    image: "/images/profesionales/dra-paula-calaramo.jpg",
     featured: false,
   },
   {
@@ -267,7 +268,7 @@ export const professionals: Professional[] = [
       "Cirujana plástica de la UCM. Especialista en reconstrucción y oncoplastia mamaria.",
     areasOfCare: ["Reconstrucción mamaria", "Oncoplastia mamaria", "Cirugía plástica"],
     relatedServices: ["cirugia-plastica-reconstructiva"],
-    image: "/images/placeholder-profesional-8.jpg",
+    image: "/images/profesionales/dra-florencia-calaramo.jpg",
     featured: true,
     practiceNote:
       "Realiza cirugías en el Instituto Médico Platense, pero no atiende consultas en la sede: las consultas se realizan en su consultorio particular.",
@@ -283,7 +284,7 @@ export const professionals: Professional[] = [
     experience: "Anatomopatóloga de la UCM.",
     areasOfCare: ["Anatomía patológica mamaria"],
     relatedServices: [],
-    image: "/images/placeholder-profesional-9.jpg",
+    image: "",
     featured: false,
     noDetailPage: true,
   },
@@ -300,7 +301,7 @@ export const professionals: Professional[] = [
       "Anatomopatóloga de la UCM. Análisis histopatológico de biopsias y piezas quirúrgicas mamarias.",
     areasOfCare: ["Anatomía patológica mamaria", "Biopsias"],
     relatedServices: ["biopsias"],
-    image: "/images/placeholder-profesional-9.jpg",
+    image: "",
     featured: false,
   },
 ];

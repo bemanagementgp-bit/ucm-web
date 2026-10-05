@@ -9,6 +9,7 @@ import {
   HiMapPin,
 } from "react-icons/hi2";
 import { FaWhatsapp } from "react-icons/fa";
+import Image from "next/image";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
@@ -74,18 +75,30 @@ export default async function ProfessionalPage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Foto y datos principales */}
             <div>
-              <div className="aspect-square bg-gradient-to-br from-primary-lightest to-lavender/30 rounded-3xl relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
-                    <svg
-                      className="w-12 h-12 text-primary/40"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+              <div className="aspect-square bg-primary-lightest rounded-3xl relative overflow-hidden ring-1 ring-primary-light/40">
+                {professional.image ? (
+                  /* El nombre está en el título de al lado: no se repite acá. */
+                  <Image
+                    src={professional.image}
+                    alt=""
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/30 flex items-center justify-center">
+                    <div className="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
+                      <svg
+                        className="w-12 h-12 text-primary/40"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <div className="mt-6">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HiMapPin } from "react-icons/hi2";
 import type { Professional } from "@/data/professionals";
@@ -23,24 +24,41 @@ export function ProfessionalCard({ professional, className = "" }: ProfessionalC
     ? {}
     : { href: `/profesionales/${professional.slug}` };
 
+  // Mientras falte la fotografía, la ficha muestra el degradado de marca.
+  // Se mira el dato y no el sistema de archivos: esta ficha también se usa
+  // desde el listado, que es un componente de cliente.
+  const hasPhoto = Boolean(professional.image);
+
   return (
     <Wrapper
       {...wrapperProps}
       className={`group flex flex-row sm:flex-col h-full glass-card rounded-3xl p-2.5 gap-3 sm:gap-0 ${className}`}
     >
-      {/* Placeholder foto */}
-      <div className="card-media relative w-24 sm:w-auto shrink-0 aspect-square rounded-[1.15rem] overflow-hidden">
-        <div
-          data-media
-          className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/30"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/2 aspect-square rounded-full bg-white/60 flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110">
-            <svg className="w-2/3 h-2/3 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
-          </div>
-        </div>
+      <div className="card-media relative w-24 sm:w-auto shrink-0 aspect-square rounded-[1.15rem] overflow-hidden bg-primary-lightest">
+        {hasPhoto ? (
+          /* El nombre ya está en la tarjeta: el retrato no se vuelve a anunciar. */
+          <Image
+            src={professional.image}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 96px, (max-width: 1024px) 240px, 300px"
+          />
+        ) : (
+          <>
+            <div
+              data-media
+              className="absolute inset-0 bg-gradient-to-br from-primary-lightest to-lavender/30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-1/2 aspect-square rounded-full bg-white/60 flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110">
+                <svg className="w-2/3 h-2/3 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="flex flex-col flex-1 min-w-0 justify-center sm:justify-start py-1 pr-1 sm:p-4 sm:pt-5">
