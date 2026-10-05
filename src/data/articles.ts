@@ -88,7 +88,7 @@ La tecnología actualizada permite estudios más precisos, más cómodos y con r
 `,
     category: "tecnologia",
     date: "2025-01-10",
-    image: "/images/placeholder-articulo-tecnologia.jpg",
+    image: "/images/novedades/tecnologia-diagnostico-mamario.jpg",
   },
 ];
 
