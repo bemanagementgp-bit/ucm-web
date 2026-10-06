@@ -421,7 +421,7 @@ export const professionals: Professional[] = [
       "Psicooncóloga de la UCM. Acompañamiento emocional de pacientes y familiares durante el proceso diagnóstico y terapéutico.",
     areasOfCare: ["Psicooncología", "Acompañamiento emocional"],
     relatedServices: ["psicooncologia"],
-    image: "",
+    image: "/images/profesionales/lic-gabriela-miranda.jpg",
     featured: false,
     practiceNote:
       "Los turnos con la Lic. Gabriela Miranda se coordinan directamente con ella por WhatsApp, no por las vías de turnos de las sedes.",
