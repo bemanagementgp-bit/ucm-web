@@ -27,8 +27,10 @@ export default function ProfesionalesPage() {
   const specialtyOrder = [
     "Mastología",
     "Diagnóstico por Imágenes Mamarias",
+    "Oncología Clínica",
     "Cirugía Plástica y Reconstructiva",
     "Anatomía Patológica",
+    "Psicooncología",
   ];
 
   const filteredProfessionals = useMemo(() => {

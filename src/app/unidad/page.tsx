@@ -157,7 +157,8 @@ export default function UnidadPage() {
                 La Unidad de Cuidado Mamario (<strong>UCM</strong>) es el
                 nombre con el que se presenta nuestra Unidad de Mastología. La
                 dirección está a cargo del{" "}
-                <strong>Dr. Aldo Miguel Creton</strong>.
+                <strong>Dr. Aldo Miguel Creton</strong> y la{" "}
+                <strong>Dra. Laura Miranda</strong>.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <PrimaryButton href="/turnos">

@@ -179,7 +179,8 @@ export const professionals: Professional[] = [
     area: "Imágenes",
     locations: ["imp", "city-bell"],
     education: "Especialista en Diagnóstico por Imágenes.",
-    experience: "Médica especialista en imágenes mamarias de la UCM. Realiza también biopsias y marcaciones.",
+    experience:
+      "Directora de la Unidad de Cuidado Mamario. Médica especialista en imágenes mamarias de la UCM. Realiza también biopsias y marcaciones.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
@@ -366,8 +367,67 @@ export const professionals: Professional[] = [
     image: "",
     featured: false,
   },
+  {
+    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
+    slug: "dra-paola-price",
+    name: "Dra. Paola Price",
+    specialty: "Oncología Clínica",
+    area: "Oncología",
+    locations: ["imp", "city-bell"],
+    education: "Especialista en Oncología Clínica.",
+    experience: "Médica oncóloga de la UCM.",
+    areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
+    relatedServices: ["oncologia-clinica"],
+    image: "",
+    featured: false,
+  },
+  {
+    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
+    slug: "dra-andrea-mainela",
+    name: "Dra. Andrea Mainela",
+    specialty: "Oncología Clínica",
+    area: "Oncología",
+    locations: ["imp", "city-bell"],
+    education: "Especialista en Oncología Clínica.",
+    experience: "Médica oncóloga de la UCM.",
+    areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
+    relatedServices: ["oncologia-clinica"],
+    image: "",
+    featured: false,
+  },
+  {
+    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
+    slug: "dra-fabiana-marmisole",
+    name: "Dra. Fabiana Marmisole",
+    specialty: "Oncología Clínica",
+    area: "Oncología",
+    locations: ["imp", "city-bell"],
+    education: "Especialista en Oncología Clínica.",
+    experience: "Médica oncóloga de la UCM.",
+    areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
+    relatedServices: ["oncologia-clinica"],
+    image: "",
+    featured: false,
+  },
+  {
+    // TODO: completar matrícula, formación y sedes reales (datos provisorios)
+    slug: "lic-gabriela-miranda",
+    name: "Lic. Gabriela Miranda",
+    specialty: "Psicooncología",
+    area: "Acompañamiento",
+    locations: ["imp", "city-bell"],
+    education: "Licenciada en Psicología. Formación en Psicooncología.",
+    experience:
+      "Psicooncóloga de la UCM. Acompañamiento emocional de pacientes y familiares durante el proceso diagnóstico y terapéutico.",
+    areasOfCare: ["Psicooncología", "Acompañamiento emocional"],
+    relatedServices: ["psicooncologia"],
+    image: "",
+    featured: false,
+    practiceNote:
+      "Los turnos con la Lic. Gabriela Miranda se coordinan directamente con ella por WhatsApp, no por las vías de turnos de las sedes.",
+    consultationWhatsapp: "5492216393621",
+  },
 ];
-
 export function getProfessionalBySlug(slug: string): Professional | undefined {
   return professionals.find((p) => p.slug === slug);
 }
