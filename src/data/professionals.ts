@@ -284,7 +284,7 @@ export const professionals: Professional[] = [
       "Ecografía general (abdomen, tiroides)",
     ],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
-    image: "",
+    image: "/images/profesionales/dra-silvia-ortiz-polanco.jpg",
     featured: false,
   },
   {
@@ -364,7 +364,7 @@ export const professionals: Professional[] = [
       "Anatomopatóloga de la UCM. Análisis histopatológico de biopsias y piezas quirúrgicas mamarias.",
     areasOfCare: ["Anatomía patológica mamaria", "Biopsias"],
     relatedServices: ["biopsias"],
-    image: "",
+    image: "/images/profesionales/dra-mercedes-skare.jpg",
     featured: false,
   },
   {
@@ -383,8 +383,8 @@ export const professionals: Professional[] = [
   },
   {
     // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
-    slug: "dra-andrea-mainela",
-    name: "Dra. Andrea Mainela",
+    slug: "dra-andrea-mainella",
+    name: "Dra. Andrea Mainella",
     specialty: "Oncología Clínica",
     area: "Oncología",
     locations: ["imp", "city-bell"],
@@ -392,7 +392,7 @@ export const professionals: Professional[] = [
     experience: "Médica oncóloga de la UCM.",
     areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
     relatedServices: ["oncologia-clinica"],
-    image: "",
+    image: "/images/profesionales/dra-andrea-mainella.jpg",
     featured: false,
   },
   {
