@@ -146,7 +146,7 @@ export const services: Service[] = [
     relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70", "ecografo-toshiba-xario-100"],
     locations: ["imp", "city-bell"],
     appointmentType: "images",
-    image: "/images/placeholder-ecografia.jpg",
+    image: "/images/servicios/ecografia-ginecologica.jpg",
   },
   {
     slug: "mastologia",
@@ -413,7 +413,7 @@ export const services: Service[] = [
     locations: ["imp", "city-bell"],
     appointmentType: "pathology",
     appointmentWhatsapp: "5492216393621",
-    image: "/images/placeholder-psicooncologia.jpg",
+    image: "/images/servicios/psicooncologia.jpg",
   },
 ];
 
