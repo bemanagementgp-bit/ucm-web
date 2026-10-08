@@ -28,9 +28,9 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 18.089 / MN 80.069",
     education:
-      "Especialista en Cirugía General. Especialista en Mastología.",
+      "Médico especialista en Cirugía General. Fellowship en Mastología.",
     experience:
-      "Director de la Unidad de Cuidado Mamario. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología.",
+      "Director de la Unidad de Cuidado Mamario. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología (SAMAS).",
     areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/profesionales/dr-aldo-creton.jpg",
@@ -44,9 +44,9 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 114.868",
     education:
-      "Especialista Jerarquizada en Diagnóstico por Imágenes. Formación en imágenes mamarias.",
+      "Especialista Jerarquizada en Diagnóstico por Imágenes. Imágenes mamarias (SAMAS y SAR). Intervencionismo mamario.",
     experience:
-      "Jefa del Servicio de Imágenes Mamarias de la UCM. Especialista en mamografía, ecografía mamaria e intervencionismo.",
+      "Jefa del área de Imágenes Mamarias de la UCM. Ex jefa de Sala y de Imágenes Mamarias del HIGA San Martín de La Plata.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
@@ -73,21 +73,21 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 115.664 / MN 207.399",
     education:
-      "Especialista en Cirugía General. Especialista en Mastología.",
+      "Médica especialista en Cirugía General. Fellowship en Mastología (SAMAS).",
     experience:
-      "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología.",
+      "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Planta permanente de la Clínica Quirúrgica y Mastología del Hospital Alejandro Korn de Melchor Romero. Miembro de la Sociedad Argentina de Mastología.",
     areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
     relatedServices: ["mastologia", "cirugia-mamaria"],
     image: "/images/profesionales/dra-valeria-moliner.jpg",
     featured: true,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-noelia-hobaica",
     name: "Dra. Noelia Hobaica",
     specialty: "Mastología",
     area: "Cirugía",
     locations: ["imp", "city-bell"],
+    license: "MP 116.877 / MN 207.116",
     education:
       "Especialista en Cirugía General. Especialista en Mastología.",
     experience:
@@ -102,9 +102,10 @@ export const professionals: Professional[] = [
     name: "Dra. Ivana Patricia Mileo",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
-    locations: ["imp", "city-bell"],
+    locations: ["imp"],
+    license: "MP 117.307",
     education:
-      "Especialista Jerarquizada en Diagnóstico por Imágenes. Formación en imagen mamaria.",
+      "Especialista en Diagnóstico por Imágenes, Hospital Rossi (SAR).",
     experience:
       "Médica especialista en imágenes mamarias de la UCM desde 2023. Ecografía mamaria, mamografía diagnóstica.",
     areasOfCare: [
@@ -129,20 +130,22 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 117.951",
     education:
-      "Especialista en Diagnóstico por Imágenes. Formación en mamografía y densitometría.",
+      "Especialista Jerarquizada en Diagnóstico por Imágenes. Imágenes mamarias (Hospital Austral, SAMAS y SAR). Intervencionismo mamario. Especialista en Docencia Universitaria, UNLP.",
     experience:
-      "Médica especialista en imágenes mamarias y densitometría de la UCM desde 2020.",
+      "Médica especialista en imágenes mamarias de la UCM. Docente de la Cátedra de Diagnóstico por Imágenes de la UNLP. Densitometría ósea y evaluación de composición corporal por DEXA.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
       "Ecografía ginecológica",
       "Ecografía general (abdomen, tiroides)",
       "Densitometría",
+      "Intervencionismo mamario",
     ],
     relatedServices: [
       "mamografia",
       "ecografia-mamaria",
       "ecografia-ginecologica",
+      "intervencionismo-mamario",
     ],
     image: "/images/profesionales/dra-fernanda-sisu.jpg",
     featured: true,
@@ -153,32 +156,36 @@ export const professionals: Professional[] = [
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
+    license: "MP 231.765",
     education:
-      "Especialista en Diagnóstico por Imágenes. Formación en imagen mamaria.",
+      "Especialista en Diagnóstico por Imágenes. Imágenes e intervencionismo mamario.",
     experience:
-      "Médica especialista en imágenes mamarias de la UCM. Desempeño en sedes IMP y CMD City Bell.",
+      "Médica especialista en imágenes mamarias de la UCM. Médica staff del Hospital San Juan de Dios de La Plata.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
       "Ecografía ginecológica",
       "Ecografía general (abdomen, tiroides)",
+      "Intervencionismo mamario",
     ],
     relatedServices: [
       "mamografia",
       "ecografia-mamaria",
       "ecografia-ginecologica",
+      "intervencionismo-mamario",
     ],
     image: "/images/profesionales/dra-juliana-ciuci.jpg",
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-laura-miranda",
     name: "Dra. Laura Miranda",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Diagnóstico por Imágenes.",
+    license: "MP 111.827",
+    education:
+      "Especialista en Diagnóstico por Imágenes. Imágenes mamarias. Intervencionismo mamario.",
     experience:
       "Directora de la Unidad de Cuidado Mamario. Médica especialista en imágenes mamarias de la UCM. Realiza también biopsias y marcaciones.",
     areasOfCare: [
@@ -193,13 +200,14 @@ export const professionals: Professional[] = [
     featured: true,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-barbara-carloni",
     name: "Dra. Bárbara Carloni",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Diagnóstico por Imágenes.",
+    license: "MP 118.048",
+    education:
+      "Especialista en Diagnóstico por Imágenes. Fellowship en Diagnóstico Mamario e Imágenes en la Mujer, TCba Centro de Diagnóstico.",
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: [
       "Mamografía",
@@ -212,12 +220,12 @@ export const professionals: Professional[] = [
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-gabriela-tiburzi",
     name: "Dra. Gabriela Tiburzi",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
+    license: "MP 111.340",
     education: "Especialista en Diagnóstico por Imágenes.",
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: [
@@ -231,13 +239,14 @@ export const professionals: Professional[] = [
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-agustina-de-andreis",
     name: "Dra. Agustina De Andreis",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Diagnóstico por Imágenes.",
+    license: "MP 119.304",
+    education:
+      "Especialista en Diagnóstico por Imágenes, HIGA San Martín de La Plata (FAARDIT). Imágenes mamarias (PROEMAS, SAR y FAARDIT).",
     experience: "Médica especialista en imágenes mamarias de la UCM.",
     areasOfCare: [
       "Mamografía",
@@ -250,14 +259,15 @@ export const professionals: Professional[] = [
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-milea-clapsos",
     name: "Dra. Milea Clapsos",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
     locations: ["imp", "city-bell"],
+    license: "MP 118.544",
     education: "Especialista en Diagnóstico por Imágenes.",
-    experience: "Médica especialista en imágenes mamarias de la UCM.",
+    experience:
+      "Médica especialista en imágenes mamarias de la UCM. Médica staff del Hospital San Martín de La Plata.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
@@ -269,21 +279,29 @@ export const professionals: Professional[] = [
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-silvia-ortiz-polanco",
     name: "Dra. Silvia Ortiz Polanco",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
-    locations: ["imp", "city-bell"],
-    education: "Especialista en Diagnóstico por Imágenes.",
-    experience: "Médica especialista en imágenes mamarias de la UCM.",
+    locations: ["imp"],
+    license: "MP 119.758",
+    education:
+      "Especialista en Diagnóstico por Imágenes. Especialista en Epidemiología, Universidad Surcolombiana (Colombia). Subespecialista en Imágenes e Intervencionismo Mamario. Fellow en Imágenes Mamarias e Intervencionismo, Clínica Privada DIM.",
+    experience:
+      "Médica especialista en imágenes mamarias de la UCM. Formación en inteligencia artificial y tecnología médica: manejo de Koios DS Breast. Médica coordinadora de Teleeducación. Ayudante diplomada de la Cátedra de Diagnóstico por Imágenes de la UNLP. Médica staff del Hospital Ramón Carrillo y del Hospital Campomar.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
       "Ecografía ginecológica",
       "Ecografía general (abdomen, tiroides)",
+      "Intervencionismo mamario",
     ],
-    relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica"],
+    relatedServices: [
+      "mamografia",
+      "ecografia-mamaria",
+      "ecografia-ginecologica",
+      "intervencionismo-mamario",
+    ],
     image: "/images/profesionales/dra-silvia-ortiz-polanco.jpg",
     featured: false,
   },
@@ -292,11 +310,12 @@ export const professionals: Professional[] = [
     name: "Dra. Paula Andrea Calaramo",
     specialty: "Diagnóstico por Imágenes Mamarias",
     area: "Imágenes",
-    locations: ["imp"],
+    locations: ["imp", "city-bell"],
+    license: "MP 114.452",
     education:
       "Especialista en Diagnóstico por Imágenes. Más de 20 años de trayectoria. Premio ARRS 2022.",
     experience:
-      "Médica especialista en imágenes mamarias de la UCM. Amplia trayectoria en Hospital Italiano de La Plata. Investigadora premiada.",
+      "Médica especialista en imágenes mamarias de la UCM. Médica staff del Hospital Italiano de La Plata. Investigadora premiada.",
     areasOfCare: [
       "Mamografía",
       "Ecografía mamaria",
@@ -359,24 +378,29 @@ export const professionals: Professional[] = [
     locations: ["imp"],
     license: "MP 117.265 / MN 127.193",
     education:
-      "Especialista en Anatomía Patológica.",
+      "Médica especialista en Anatomía Patológica. Médica especialista en Medicina Crítica y Cuidados Intensivos.",
     experience:
-      "Anatomopatóloga de la UCM. Análisis histopatológico de biopsias y piezas quirúrgicas mamarias.",
+      "Anatomopatóloga de la UCM. Médica perito forense en Anatomía Patológica. Asesoría Pericial de la Suprema Corte de Justicia de la Provincia de Buenos Aires.",
     areasOfCare: ["Anatomía patológica mamaria", "Biopsias"],
     relatedServices: ["biopsias"],
     image: "/images/profesionales/dra-mercedes-skare.jpg",
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
     slug: "dra-paola-price",
     name: "Dra. Paola Price",
     specialty: "Oncología Clínica",
     area: "Oncología",
-    locations: ["imp", "city-bell"],
-    education: "Especialista en Oncología Clínica.",
-    experience: "Médica oncóloga de la UCM.",
-    areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
+    locations: ["imp"],
+    education:
+      "Especialista consultora en Oncología. Máster en Oncología Biomolecular, Universidad de Bélgica.",
+    experience:
+      "Jefa del área de Oncología de la UCM. Médica staff del Centro Oncológico Integral. Investigadora y subinvestigadora de ensayos clínicos. Ex presidenta de la Sociedad de Cancerología de la ciudad de La Plata. Premio IASLC Cancer Team Award of Latin America 2026.",
+    areasOfCare: [
+      "Oncología clínica mamaria",
+      "Tratamiento oncológico sistémico",
+      "Asesoramiento genético en oncología",
+    ],
     relatedServices: ["oncologia-clinica"],
     image: "",
     featured: false,
@@ -388,7 +412,9 @@ export const professionals: Professional[] = [
     specialty: "Oncología Clínica",
     area: "Oncología",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Oncología Clínica.",
+    license: "MP 113.821",
+    education:
+      "Médica especialista en Oncología Clínica. Posgrado en Asesoramiento Genético en Oncología.",
     experience: "Médica oncóloga de la UCM.",
     areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
     relatedServices: ["oncologia-clinica"],
@@ -410,13 +436,13 @@ export const professionals: Professional[] = [
     featured: false,
   },
   {
-    // TODO: completar matrícula, formación y sedes reales (datos provisorios)
     slug: "lic-gabriela-miranda",
     name: "Lic. Gabriela Miranda",
     specialty: "Psicooncología",
     area: "Acompañamiento",
     locations: ["imp", "city-bell"],
-    education: "Licenciada en Psicología. Formación en Psicooncología.",
+    education:
+      "Licenciada en Psicología.",
     experience:
       "Psicooncóloga de la UCM. Acompañamiento emocional de pacientes y familiares durante el proceso diagnóstico y terapéutico.",
     areasOfCare: ["Psicooncología", "Acompañamiento emocional"],
