@@ -137,27 +137,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <h2 className="text-xl font-bold text-text-primary mb-3">
                   ¿Para qué sirve?
                 </h2>
-                <p className="text-text-secondary leading-relaxed">
-                  {service.purpose}
-                </p>
+                <Parrafos texto={service.purpose} />
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-text-primary mb-3">
                   ¿Cómo se realiza?
                 </h2>
-                <p className="text-text-secondary leading-relaxed">
-                  {service.procedure}
-                </p>
+                <Parrafos texto={service.procedure} />
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-text-primary mb-3">
                   Preparación
                 </h2>
-                <p className="text-text-secondary leading-relaxed">
-                  {service.preparation}
-                </p>
+                <Parrafos texto={service.preparation} />
               </div>
 
               {service.faqs.length > 0 && (
@@ -281,6 +275,26 @@ function serviceCategoryLabel(category: string): string {
     acompanamiento: "Acompañamiento",
   };
   return labels[category] ?? category;
+}
+
+/**
+ * Varios textos de los servicios vienen con saltos de párrafo. Un único <p>
+ * los colapsa en un bloque ilegible, así que se parten en párrafos reales.
+ */
+function Parrafos({ texto }: { texto: string }) {
+  const partes = texto.split(/\n{2,}/).filter(Boolean);
+  return (
+    <>
+      {partes.map((parte, i) => (
+        <p
+          key={i}
+          className={`text-text-secondary leading-relaxed${i > 0 ? " mt-4" : ""}`}
+        >
+          {parte}
+        </p>
+      ))}
+    </>
+  );
 }
 
 function ServiceCTA({

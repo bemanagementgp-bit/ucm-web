@@ -181,17 +181,17 @@ export const services: Service[] = [
     slug: "intervencionismo-mamario",
     name: "Intervencionismo mamario",
     shortDescription:
-      "Procedimientos mínimamente invasivos guiados por imágenes para diagnóstico y tratamiento.",
+      "Biopsias y marcaciones prequirúrgicas guiadas por imágenes, con mínima invasión.",
     description:
-      "El intervencionismo mamario incluye procedimientos mínimamente invasivos realizados bajo guía de imágenes. Permite obtener muestras de tejido y realizar marcaciones con alta precisión.",
+      "El intervencionismo mamario reúne los procedimientos mínimamente invasivos que se realizan bajo guía de imágenes: las biopsias, que permiten obtener muestras de tejido para su análisis anatomopatológico, y las marcaciones prequirúrgicas, que localizan con precisión lesiones no palpables para guiar al cirujano durante la intervención.",
     category: "intervencionismo",
     icon: "TbTargetArrow",
     purpose:
-      "Realizar biopsias percutáneas, marcaciones prequirúrgicas y otros procedimientos diagnósticos con la menor invasión posible.",
+      "Determinar la naturaleza de una lesión mamaria detectada en estudios de imágenes y, cuando corresponde una cirugía, señalar su ubicación exacta al equipo quirúrgico. Todo con la menor invasión posible.",
     procedure:
-      "Los procedimientos se realizan con anestesia local y guía de imágenes. El tipo de procedimiento depende de las características de la lesión y la indicación médica.",
+      "Los procedimientos se realizan con anestesia local y guía de imágenes; la técnica depende de las características de la lesión y de la indicación médica.\n\nEn la biopsia se obtiene una muestra de tejido que se envía al laboratorio de patología para su análisis. En UCM las biopsias se realizan bajo guía ecográfica.\n\nEn la marcación prequirúrgica se coloca un marcador que indica la ubicación exacta de la lesión. Generalmente se realiza el mismo día o el día previo a la cirugía, según la indicación del equipo quirúrgico.",
     preparation:
-      "Traé tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.\n\nLas indicaciones específicas dependen del procedimiento y te las brinda la secretaría al momento de coordinar el turno.",
+      "Traé la orden médica donde te indican el procedimiento y tus estudios previos. Si te los realizaste en nuestras sedes (IMP o City Bell), ya están disponibles en nuestro portal de pacientes y los vemos desde cualquiera de las dos sedes. Si tenés estudios anteriores realizados en otras instituciones, traé los usuarios y contraseñas de los portales de esas instituciones para que podamos acceder a ellos.\n\nSeguí las indicaciones que te va a dar la secretaría por WhatsApp respecto de la autorización de las órdenes y casos particulares (alergias, medicación habitual y otras situaciones a considerar).",
     duration: "Variable según el procedimiento indicado.",
     faqs: [
       {
@@ -200,74 +200,26 @@ export const services: Service[] = [
           "En general, los procedimientos intervencionistas mamarios son ambulatorios y no requieren internación.",
       },
       {
+        question: "¿La biopsia es dolorosa?",
+        answer:
+          "Se utiliza anestesia local para minimizar las molestias durante el procedimiento.",
+      },
+      {
         question: "¿Cuánto tarda el resultado de la biopsia?",
         answer:
           "El plazo depende del tipo de análisis; el equipo te informa el tiempo estimado al momento del procedimiento.",
       },
+      {
+        question: "¿Cuándo se realiza la marcación prequirúrgica?",
+        answer:
+          "Generalmente el mismo día o el día previo a la cirugía, según la indicación del equipo quirúrgico.",
+      },
     ],
     relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu", "dra-juliana-ciuci", "dra-paula-calaramo", "dra-silvia-ortiz-polanco"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
-    locations: ["imp"],
-    appointmentType: "interventionism",
-    image: "/images/servicios/intervencionismo-mamario.jpg",
-  },
-  {
-    slug: "biopsias",
-    name: "Biopsias mamarias",
-    shortDescription:
-      "Obtención de muestras de tejido mamario para diagnóstico anatomopatológico.",
-    description:
-      "Las biopsias mamarias permiten obtener muestras de tejido para su análisis anatomopatológico. Se realizan con diferentes técnicas según las características de la lesión, siempre con guía de imágenes y anestesia local.",
-    category: "intervencionismo",
-    icon: "TbMicroscope",
-    purpose:
-      "Determinar la naturaleza de una lesión mamaria detectada en estudios de imágenes.",
-    procedure:
-      "Se realiza bajo anestesia local y guía por imágenes. Se obtiene una muestra de tejido que se envía al laboratorio de patología para su análisis. En UCM las biopsias se realizan bajo guía ecográfica.",
-    preparation:
-      "Traé la orden médica donde te indican el procedimiento y, si tenés estudios previos realizados en otras instituciones, los usuarios y contraseñas de esos portales para que podamos acceder a ellos.\n\nSeguí las indicaciones que te va a dar la secretaría por WhatsApp respecto de la autorización de las órdenes y casos particulares (alergias, medicación habitual y otras situaciones a considerar).",
-    duration: "Variable según el tipo de biopsia.",
-    faqs: [
-      {
-        question: "¿Es dolorosa?",
-        answer:
-          "Se utiliza anestesia local para minimizar las molestias durante el procedimiento.",
-      },
-    ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu"],
-    relatedEquipment: ["ecografo-edan-acclarix-lx85", "ecografo-esaote-a70"],
+    relatedEquipment: ["mamografo-fujifilm-amulet-innovality", "ecografo-edan-acclarix-lx85", "ecografo-esaote-a70"],
     locations: ["imp", "city-bell"],
     appointmentType: "interventionism",
-    image: "/images/placeholder-biopsia.jpg",
-  },
-  {
-    slug: "marcaciones",
-    name: "Marcaciones prequirúrgicas",
-    shortDescription:
-      "Localización precisa de lesiones mamarias no palpables previo a la cirugía.",
-    description:
-      "Las marcaciones prequirúrgicas permiten localizar con precisión lesiones no palpables, guiando al cirujano durante la intervención. Se realizan con guía de imágenes y diferentes técnicas según cada caso.",
-    category: "intervencionismo",
-    icon: "TbMapPin",
-    purpose:
-      "Guiar al cirujano hacia la localización exacta de una lesión no palpable previamente detectada en estudios de imágenes.",
-    procedure:
-      "Se realiza con anestesia local y guía por imágenes. Se coloca un marcador que indica la ubicación exacta de la lesión.",
-    preparation:
-      "Traé la orden médica donde te indican el procedimiento y, si tenés estudios previos realizados en otras instituciones, los usuarios y contraseñas de esos portales para que podamos acceder a ellos.\n\nSeguí las indicaciones que te va a dar la secretaría por WhatsApp respecto de la autorización de las órdenes y casos particulares (alergias, medicación habitual y otras situaciones a considerar).",
-    duration: "Variable según la técnica utilizada.",
-    faqs: [
-      {
-        question: "¿Cuándo se realiza la marcación?",
-        answer:
-          "Generalmente se realiza el mismo día o el día previo a la cirugía, según la indicación del equipo quirúrgico.",
-      },
-    ],
-    relatedProfessionals: ["dra-natalia-patino", "dra-laura-miranda", "dra-fernanda-sisu"],
-    relatedEquipment: ["mamografo-fujifilm-amulet-innovality"],
-    locations: ["imp"],
-    appointmentType: "interventionism",
-    image: "/images/placeholder-marcacion.jpg",
+    image: "/images/servicios/intervencionismo-mamario.jpg",
   },
   {
     slug: "oncologia-clinica",

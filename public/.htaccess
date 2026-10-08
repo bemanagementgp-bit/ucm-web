@@ -34,4 +34,9 @@ ErrorDocument 404 /404.html
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Biopsias y marcaciones dejaron de tener página propia: ahora son parte de
+  # intervencionismo mamario. Se redirigen para no romper enlaces ya publicados.
+  RewriteRule ^servicios/biopsias/?$ /servicios/intervencionismo-mamario/ [L,R=301]
+  RewriteRule ^servicios/marcaciones/?$ /servicios/intervencionismo-mamario/ [L,R=301]
 </IfModule>
