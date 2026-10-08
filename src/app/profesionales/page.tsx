@@ -23,14 +23,15 @@ export default function ProfesionalesPage() {
     label: l.name,
   }));
 
-  // Orden explícito de especialidades para el listado (más generales / más consultadas primero).
+  // Orden de especialidades fijado por la unidad. Anatomía Patológica va al
+  // final: no figura en esa lista y no es una especialidad de consulta.
   const specialtyOrder = [
     "Mastología",
-    "Diagnóstico por Imágenes Mamarias",
-    "Oncología Clínica",
     "Cirugía Plástica y Reconstructiva",
-    "Anatomía Patológica",
+    "Oncología Clínica",
+    "Diagnóstico por Imágenes Mamarias",
     "Psicooncología",
+    "Anatomía Patológica",
   ];
 
   const filteredProfessionals = useMemo(() => {
