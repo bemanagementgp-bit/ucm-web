@@ -376,17 +376,19 @@ export const professionals: Professional[] = [
   },
   {
     slug: "dra-maria-bolla",
-    name: "Dra. María Bolla",
+    name: "Dra. María de los Ángeles Bolla",
     specialty: "Anatomía Patológica",
     area: "Diagnóstico",
-    locations: ["imp"],
-    education: "Especialista en Anatomía Patológica.",
-    experience: "Anatomopatóloga de la UCM.",
-    areasOfCare: ["Anatomía patológica mamaria"],
+    locations: ["imp", "city-bell"],
+    license: "MP 115.724",
+    education:
+      "Especialista jerarquizada en Anatomía Patológica. Posgrado en Patología Mamaria.",
+    experience:
+      "Más de 20 años de trayectoria en Anatomía Patológica. Jefa del Servicio de Anatomía Patológica del HIGA San Roque de Gonnet. Profesora adjunta de la Cátedra de Patología de la Facultad de Ciencias Médicas de la UNLP. Miembro de la Sociedad Argentina de Mastología y revisora de cuentas de la Sociedad Médica de La Plata.",
+    areasOfCare: ["Anatomía patológica", "Patología mamaria"],
     relatedServices: [],
-    image: "",
+    image: "/images/profesionales/dra-maria-bolla.jpg",
     featured: false,
-    noDetailPage: true,
   },
   {
     slug: "dra-mercedes-skare",
