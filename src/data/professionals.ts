@@ -98,7 +98,7 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 111.827",
     education:
-      "Especialista en Diagnóstico por Imágenes. Imágenes mamarias. Intervencionismo mamario.",
+      "Especialista Jerarquizada en Diagnóstico por Imágenes. Imágenes mamarias. Intervencionismo mamario.",
     experience:
       "Directora de la Unidad de Cuidado Mamario. Médica especialista en imágenes mamarias de la UCM. Realiza también biopsias y marcaciones.",
     areasOfCare: [
@@ -415,7 +415,7 @@ export const professionals: Professional[] = [
     area: "Acompañamiento",
     locations: ["imp", "city-bell"],
     education:
-      "Licenciada en Psicología.",
+      "Licenciada en Psicología, UNLP. Especialista en Psicooncología, UCES.",
     experience:
       "Psicooncóloga de la UCM. Acompañamiento emocional de pacientes y familiares durante el proceso diagnóstico y terapéutico.",
     areasOfCare: ["Psicooncología", "Acompañamiento emocional"],
