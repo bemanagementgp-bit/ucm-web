@@ -338,16 +338,18 @@ export const professionals: Professional[] = [
   },
   {
     // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
-    slug: "dra-fabiana-marmisole",
-    name: "Dra. Fabiana Marmisole",
+    slug: "dra-fabiana-marmissolle",
+    name: "Dra. Fabiana Marmissolle",
     specialty: "Oncología Clínica",
     area: "Oncología",
     locations: ["imp", "city-bell"],
-    education: "Especialista en Oncología Clínica.",
-    experience: "Médica oncóloga de la UCM.",
+    license: "MP 110.626",
+    education: "Especialista consultora en Oncología Clínica.",
+    experience:
+      "Médica oncóloga de la UCM. Responsable del Hospital de Día del Instituto Médico Platense.",
     areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
     relatedServices: ["oncologia-clinica"],
-    image: "",
+    image: "/images/profesionales/dra-fabiana-marmissolle.jpg",
     featured: false,
   },
   {

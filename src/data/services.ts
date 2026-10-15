@@ -244,7 +244,7 @@ export const services: Service[] = [
           "Tu mastólogo o médico tratante te derivará al oncólogo cuando lo considere necesario dentro del plan de atención.",
       },
     ],
-    relatedProfessionals: ["dra-paola-price", "dra-andrea-mainella", "dra-fabiana-marmisole"],
+    relatedProfessionals: ["dra-paola-price", "dra-andrea-mainella", "dra-fabiana-marmissolle"],
     relatedEquipment: [],
     locations: ["imp", "city-bell"],
     appointmentType: "pathology",
