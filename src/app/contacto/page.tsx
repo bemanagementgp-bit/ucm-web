@@ -12,11 +12,11 @@ import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { Hero } from "@/components/ui/Hero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MedicalDisclaimer } from "@/components/ui/MedicalDisclaimer";
-import { Button, PrimaryButton } from "@/components/ui/Buttons";
+import { PrimaryButton, WhatsAppButton } from "@/components/ui/Buttons";
 import { locations } from "@/data/locations";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/site";
-import { appointmentTypes } from "@/data/appointments";
+import { appointmentTypes, appointmentLinks, buildWhatsAppUrl } from "@/data/appointments";
 
 interface FormState {
   nombre: string;
@@ -45,10 +45,13 @@ const inputClasses =
 
 const labelClasses = "block text-sm font-medium text-text-primary mb-1.5";
 
+/** Número de imágenes, el mismo al que van los turnos desde el resto del sitio. */
+const CONTACT_WHATSAPP = appointmentLinks.images.imp.url.match(/wa\.me\/(\d+)/)?.[1] ?? "";
+
 export default function ContactoPage() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [waUrl, setWaUrl] = useState("");
 
   function validate(values: FormState) {
     const newErrors: Partial<Record<keyof FormState, string>> = {};
@@ -77,16 +80,43 @@ export default function ContactoPage() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  /**
+   * El sitio es estático: no hay servidor que reciba el formulario. La consulta
+   * se entrega por WhatsApp, redactada con lo que la persona completó, al mismo
+   * número que atiende los turnos de imágenes.
+   */
+  function buildMessage(values: FormState) {
+    const motivo =
+      appointmentTypes.find((t) => t.value === values.motivo)?.label ??
+      (values.motivo === "institucional" ? "Consulta institucional" : values.motivo);
+    const sede =
+      locations.find((l) => l.id === values.sede)?.name ?? values.sede;
+
+    return [
+      "Hola, les escribo desde la web de UCM.",
+      "",
+      `Nombre: ${values.nombre.trim()} ${values.apellido.trim()}`,
+      `Email: ${values.email.trim()}`,
+      `Teléfono: ${values.telefono.trim()}`,
+      `Motivo: ${motivo}`,
+      `Sede: ${sede}`,
+      "",
+      "Consulta:",
+      values.mensaje.trim(),
+    ].join("\n");
+  }
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const newErrors = validate(form);
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
-      // Envío pendiente de integración con backend / servicio de email
-      setSubmitted(true);
-      setForm(initialState);
-    }
+    if (Object.keys(newErrors).length > 0) return;
+
+    const url = buildWhatsAppUrl(CONTACT_WHATSAPP, buildMessage(form));
+    setWaUrl(url);
+    // Dentro del gesto de envío, así el navegador no lo bloquea.
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -179,12 +209,20 @@ export default function ContactoPage() {
                   sensible mediante este formulario.
                 </p>
 
-                {submitted && (
+                {waUrl && (
                   <div className="mt-6 flex items-start gap-3 p-4 bg-primary-lightest rounded-xl border border-primary-light/40">
                     <HiCheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     <p className="text-sm text-text-secondary">
-                      ¡Gracias por escribirnos! Recibimos tu mensaje y nos
-                      vamos a contactar a la brevedad.
+                      Abrimos WhatsApp con tu consulta ya redactada: solo tenés
+                      que enviarla.{" "}
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-violet-deep underline underline-offset-2"
+                      >
+                        Si no se abrió, tocá acá.
+                      </a>
                     </p>
                   </div>
                 )}
@@ -338,9 +376,10 @@ export default function ContactoPage() {
                     )}
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full sm:w-auto">
-                    Enviar mensaje
-                  </Button>
+                  <WhatsAppButton type="submit" size="lg" className="w-full sm:w-auto">
+                    <FaWhatsapp className="w-5 h-5" />
+                    Enviar por WhatsApp
+                  </WhatsAppButton>
                 </form>
               </Reveal>
             </div>
