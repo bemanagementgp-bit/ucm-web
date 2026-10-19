@@ -307,6 +307,7 @@ export const professionals: Professional[] = [
     specialty: "Oncología Clínica",
     area: "Oncología",
     locations: ["imp"],
+    license: "MP 113.345",
     education:
       "Especialista Consultor en Oncología Clínica (Colegio de Médicos de la Provincia de Buenos Aires – UNLP). Diplomatura en Biología Molecular (Escuela Europea de Oncología).",
     experience:
@@ -317,7 +318,7 @@ export const professionals: Professional[] = [
       "Asesoramiento genético en oncología",
     ],
     relatedServices: ["oncologia-clinica"],
-    image: "",
+    image: "/images/profesionales/dra-paola-price.jpg",
     featured: false,
     practiceNote:
       "Atiende en el Instituto Médico Platense y en el Centro Oncológico Integral (COI).",
@@ -423,6 +424,7 @@ export const professionals: Professional[] = [
     specialty: "Psicooncología",
     area: "Acompañamiento",
     locations: ["imp", "city-bell"],
+    license: "MP 51.224 / MN 66.602",
     education:
       "Licenciada en Psicología, UNLP. Especialista en Psicooncología, UCES.",
     experience:
