@@ -26,9 +26,9 @@ export const professionals: Professional[] = [
     specialty: "Mastología",
     area: "Mastólogo",
     locations: ["imp", "city-bell"],
-    license: "MP 18.089 / MN 80.069",
+    license: "MP 113.872",
     education:
-      "Médico especialista en Cirugía General. Fellowship en Mastología.",
+      "Médico especialista en Cirugía General. Especialista en Mastología, Sociedad Argentina de Mastología.",
     experience:
       "Director de la Unidad de Cuidado Mamario. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Miembro de la Sociedad Argentina de Mastología (SAMAS).",
     areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
@@ -44,7 +44,7 @@ export const professionals: Professional[] = [
     locations: ["imp", "city-bell"],
     license: "MP 115.664 / MN 207.399",
     education:
-      "Médica especialista en Cirugía General. Fellowship en Mastología (SAMAS).",
+      "Médica especialista en Cirugía General. Especialista en Mastología (SAMAS).",
     experience:
       "Cirujana mastóloga de la UCM. Práctica enfocada en cirugía mamaria oncológica, conservadora y oncoplástica. Planta permanente de la Clínica Quirúrgica y Mastología del Hospital Alejandro Korn de Melchor Romero. Miembro de la Sociedad Argentina de Mastología.",
     areasOfCare: ["Mastología", "Cirugía mamaria oncológica", "Cirugía oncoplástica"],
@@ -308,7 +308,7 @@ export const professionals: Professional[] = [
     area: "Oncología",
     locations: ["imp"],
     education:
-      "Especialista consultora en Oncología. Máster en Oncología Biomolecular, Universidad de Bélgica.",
+      "Especialista Consultor en Oncología Clínica (Colegio de Médicos de la Provincia de Buenos Aires – UNLP). Diplomatura en Biología Molecular (Escuela Europea de Oncología).",
     experience:
       "Jefa del área de Oncología de la UCM. Médica staff del Centro Oncológico Integral. Investigadora y subinvestigadora de ensayos clínicos. Ex presidenta de la Sociedad de Cancerología de la ciudad de La Plata. Premio IASLC Cancer Team Award of Latin America 2026.",
     areasOfCare: [
@@ -319,6 +319,9 @@ export const professionals: Professional[] = [
     relatedServices: ["oncologia-clinica"],
     image: "",
     featured: false,
+    practiceNote:
+      "Atiende en el Instituto Médico Platense y en el Centro Oncológico Integral (COI).",
+    consultationWhatsapp: "5492215996555",
   },
   {
     // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
@@ -326,7 +329,7 @@ export const professionals: Professional[] = [
     name: "Dra. Andrea Mainella",
     specialty: "Oncología Clínica",
     area: "Oncología",
-    locations: ["imp", "city-bell"],
+    locations: ["imp"],
     license: "MP 113.821",
     education:
       "Médica especialista en Oncología Clínica. Posgrado en Asesoramiento Genético en Oncología.",
@@ -335,6 +338,9 @@ export const professionals: Professional[] = [
     relatedServices: ["oncologia-clinica", "asesoramiento-genetico"],
     image: "/images/profesionales/dra-andrea-mainella.jpg",
     featured: false,
+    practiceNote:
+      "Atiende en el Instituto Médico Platense y en el Centro Oncológico Integral (COI).",
+    consultationWhatsapp: "5492215996555",
   },
   {
     // TODO: completar matrícula, formación, experiencia y sedes reales (datos provisorios)
@@ -342,15 +348,18 @@ export const professionals: Professional[] = [
     name: "Dra. Fabiana Marmissolle",
     specialty: "Oncología Clínica",
     area: "Oncología",
-    locations: ["imp", "city-bell"],
+    locations: ["imp"],
     license: "MP 110.626",
     education: "Especialista consultora en Oncología Clínica.",
     experience:
-      "Médica oncóloga de la UCM. Responsable del Hospital de Día del Instituto Médico Platense.",
+      "Médica oncóloga de la UCM. Responsable del Hospital de Día del Instituto Médico Platense. Staff del Centro Oncológico Integral. Investigadora principal del Grupo de Investigación Sur. Tribunal de Honor de la Sociedad de Cancerología de La Plata, de la que fue presidenta.",
     areasOfCare: ["Oncología clínica mamaria", "Tratamiento oncológico sistémico"],
     relatedServices: ["oncologia-clinica"],
     image: "/images/profesionales/dra-fabiana-marmissolle.jpg",
     featured: false,
+    practiceNote:
+      "Atiende en el Instituto Médico Platense y en el Centro Oncológico Integral (COI).",
+    consultationWhatsapp: "5492215996555",
   },
   {
     slug: "dra-florencia-calaramo",

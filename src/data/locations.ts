@@ -98,8 +98,6 @@ export const locations: Location[] = [
       "dra-agustina-de-andreis",
       "dra-milea-clapsos",
       "dra-paula-calaramo",
-      "dra-andrea-mainella",
-      "dra-fabiana-marmissolle",
       "dra-maria-bolla",
       "lic-gabriela-miranda",
     ],
