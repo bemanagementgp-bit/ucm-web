@@ -4,6 +4,7 @@ import { HiArrowTopRightOnSquare, HiArrowUpRight } from "react-icons/hi2";
 import { siteConfig } from "@/data/site";
 import { locations } from "@/data/locations";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { BeManagementIsotipo } from "@/components/BeManagementLogo";
 
 export function Footer() {
   return (
@@ -203,11 +204,13 @@ export function Footer() {
             aria-label={`Sitio diseñado y desarrollado por ${siteConfig.credit.name} (se abre en una pestaña nueva)`}
             className="group self-start lg:self-auto inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-white/45 backdrop-blur-sm ring-1 ring-violet-deep/10 shadow-sm hover:bg-white/75 hover:ring-violet-deep/25 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-deep"
           >
+            {/* Mismo badge que el favicon de bemanagement.pro: isotipo
+                blanco sobre el degradé naranja→rojo de la marca. */}
             <span
               aria-hidden="true"
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-deep text-white font-heading text-[0.7rem] font-extrabold tracking-tight shadow-inner transition-transform duration-500 group-hover:rotate-[360deg]"
+              className="flex items-center justify-center w-8 h-8 rounded-[0.6rem] bg-gradient-to-br from-[#f47100] to-[#ae050a] text-white shadow-[0_4px_12px_-4px_rgba(174,5,10,0.55)] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
             >
-              BE
+              <BeManagementIsotipo className="h-[1.1rem] w-auto" />
             </span>
             <span className="flex flex-col leading-tight">
               <span className="text-[0.6rem] uppercase tracking-[0.18em] text-text-secondary">
