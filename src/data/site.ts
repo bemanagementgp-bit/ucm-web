@@ -9,6 +9,12 @@ export const siteConfig = {
   email: "info@institutomedicoplatense.com",
   phone: "+54 221 412 0900",
   whatsapp: "+54 9 221 5410205",
+  // Crédito del pie de página. Los parámetros UTM permiten medir en la
+  // analítica de Be Management las visitas que llegan desde esta web.
+  credit: {
+    name: "Be Management",
+    url: "https://www.bemanagement.pro/?utm_source=ucmlaplata.com&utm_medium=referral&utm_campaign=footer_credit",
+  },
   medicalDisclaimer:
     "La información publicada en este sitio es de carácter general y no reemplaza la consulta con un profesional de la salud.",
   navigation: [

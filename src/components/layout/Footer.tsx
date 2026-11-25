@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HiArrowTopRightOnSquare } from "react-icons/hi2";
+import { HiArrowTopRightOnSquare, HiArrowUpRight } from "react-icons/hi2";
 import { siteConfig } from "@/data/site";
 import { locations } from "@/data/locations";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -181,6 +181,7 @@ export function Footer() {
           <p className="text-xs text-text-secondary leading-relaxed mb-4">
             {siteConfig.medicalDisclaimer}
           </p>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-text-secondary">
             <span className="py-1.5">© {new Date().getFullYear()} UCM – Unidad de Cuidado Mamario</span>
             <Link href="/privacidad" className="py-1.5 hover:text-violet-deep transition-colors">
@@ -192,6 +193,35 @@ export function Footer() {
             <Link href="/aviso-legal" className="py-1.5 hover:text-violet-deep transition-colors">
               Aviso legal
             </Link>
+          </div>
+
+          {/* Crédito de diseño y desarrollo */}
+          <a
+            href={siteConfig.credit.url}
+            target="_blank"
+            rel="noopener"
+            aria-label={`Sitio diseñado y desarrollado por ${siteConfig.credit.name} (se abre en una pestaña nueva)`}
+            className="group self-start lg:self-auto inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-white/45 backdrop-blur-sm ring-1 ring-violet-deep/10 shadow-sm hover:bg-white/75 hover:ring-violet-deep/25 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-deep"
+          >
+            <span
+              aria-hidden="true"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-deep text-white font-heading text-[0.7rem] font-extrabold tracking-tight shadow-inner transition-transform duration-500 group-hover:rotate-[360deg]"
+            >
+              BE
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-[0.6rem] uppercase tracking-[0.18em] text-text-secondary">
+                Diseño y desarrollo web
+              </span>
+              <span className="font-heading text-sm font-bold text-violet-deep">
+                {siteConfig.credit.name}
+              </span>
+            </span>
+            <HiArrowUpRight
+              aria-hidden="true"
+              className="w-4 h-4 text-violet-deep transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
           </div>
         </div>
       </div>
