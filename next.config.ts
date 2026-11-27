@@ -1,12 +1,33 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Export estático para hosting compartido (Hostinger).
-  output: "export",
-  // Genera /ruta/index.html en vez de /ruta.html → Apache/LiteSpeed lo sirve sin config.
+  // Hostinger compila siempre con salida standalone y reemplaza cualquier valor
+  // de `output`, así que el sitio corre como app de Next con servidor. Por eso
+  // acá no se fija `output`: lo define la plataforma.
+
+  // Genera /ruta/ con barra final → las URLs publicadas no cambian.
   trailingSlash: true,
-  // El optimizador de imágenes de next necesita runtime; en export usamos el original tal cual.
+
+  // Sin optimizador de imágenes: evita depender de sharp en el hosting.
   images: { unoptimized: true },
+
+  // Biopsias y marcaciones dejaron de tener página propia al unificarse en
+  // intervencionismo mamario. En el export estático esto lo resolvía el
+  // .htaccess, que en modo servidor no interviene.
+  async redirects() {
+    return [
+      {
+        source: "/servicios/biopsias",
+        destination: "/servicios/intervencionismo-mamario/",
+        permanent: true,
+      },
+      {
+        source: "/servicios/marcaciones",
+        destination: "/servicios/intervencionismo-mamario/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
