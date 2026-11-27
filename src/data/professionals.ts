@@ -129,6 +129,7 @@ export const professionals: Professional[] = [
       "Ecografía ginecológica",
       "Ecografía general (abdomen, tiroides)",
       "Densitometría",
+      "Composición corporal por DEXA",
       "Intervencionismo mamario",
     ],
     relatedServices: ["mamografia", "ecografia-mamaria", "ecografia-ginecologica", "intervencionismo-mamario"],
